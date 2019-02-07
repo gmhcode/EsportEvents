@@ -21,9 +21,9 @@ extension CalendarViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let dateSection = dateSections[section]
-        guard let events = eventsFromServer[dateSection] else { return 0 }
+        guard let tournaments = eventsFromServer[dateSection] else { return 0 }
         
-        return events.count
+        return tournaments.count
     }
     
     
@@ -33,11 +33,11 @@ extension CalendarViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dayEventCell", for: indexPath) as? CalendarTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameEventCell", for: indexPath) as? CalendarTableViewCell
         
         let dateSection = dateSections[indexPath.section]
-        guard let events = eventsFromServer[dateSection] else { return UITableViewCell() }
-        let event = events[indexPath.row]
+        guard let tournaments = eventsFromServer[dateSection] else { return UITableViewCell() }
+        let tournament = tournaments[indexPath.row]
 //        cell?.event = event
         return cell ?? UITableViewCell()
     }

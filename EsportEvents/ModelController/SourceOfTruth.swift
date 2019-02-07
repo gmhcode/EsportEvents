@@ -13,7 +13,7 @@ class SourceOfTruth {
     static let shared = SourceOfTruth()
     private init() {}
     
-    var UpcomingTounaments : UpcomingTourny?
+    var UpcomingTounaments : [UpcomingTourny]?
     
     
     

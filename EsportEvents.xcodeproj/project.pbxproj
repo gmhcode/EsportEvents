@@ -21,6 +21,8 @@
 		909245C5220CB51F00D8BF37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 909245C4220CB51F00D8BF37 /* Main.storyboard */; };
 		909245C7220CB58A00D8BF37 /* CalendarTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C6220CB58A00D8BF37 /* CalendarTableView.swift */; };
 		909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */; };
+		909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */; };
+		909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245D9220CE04800D8BF37 /* EsportCell.swift */; };
 		B6997A94F6C478FB12436283 /* Pods_EsportEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CACD1B6F2E9706FADD3FB8 /* Pods_EsportEvents.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		909245C4220CB51F00D8BF37 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		909245C6220CB58A00D8BF37 /* CalendarTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableView.swift; sourceTree = "<group>"; };
 		909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
+		909245D9220CE04800D8BF37 /* EsportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsportCell.swift; sourceTree = "<group>"; };
 		C699871BC417533AFEC160BF /* Pods-EsportEvents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsportEvents.release.xcconfig"; path = "Pods/Target Support Files/Pods-EsportEvents/Pods-EsportEvents.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				909245C3220CB49100D8BF37 /* Storyboards */,
-				909245BB220BD51300D8BF37 /* Extensions */,
+				909245BB220BD51300D8BF37 /* ExtensionsAndAlteredClasses */,
 				909245B5220BD33F00D8BF37 /* ViewControllers */,
 				909245B2220BC71900D8BF37 /* ModelController */,
 				909245AE220BBB1300D8BF37 /* Model */,
@@ -135,19 +139,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		909245BB220BD51300D8BF37 /* Extensions */ = {
+		909245BB220BD51300D8BF37 /* ExtensionsAndAlteredClasses */ = {
 			isa = PBXGroup;
 			children = (
-				909245BC220BD57000D8BF37 /* asString.swift */,
-				909245C0220CAD8600D8BF37 /* asDate.swift */,
+				909245D8220CE02C00D8BF37 /* AlteredClasses */,
+				909245D7220CE02500D8BF37 /* Extentions */,
 			);
-			path = Extensions;
+			path = ExtensionsAndAlteredClasses;
 			sourceTree = "<group>";
 		};
 		909245C3220CB49100D8BF37 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				909245C4220CB51F00D8BF37 /* Main.storyboard */,
+				909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -156,11 +161,28 @@
 			isa = PBXGroup;
 			children = (
 				909245B6220BD3A500D8BF37 /* CalendarViewController.swift */,
-				909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */,
 				909245C6220CB58A00D8BF37 /* CalendarTableView.swift */,
+				909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */,
 				909245B8220BD4CA00D8BF37 /* CalendarCell.swift */,
 			);
 			path = CalendarVCs;
+			sourceTree = "<group>";
+		};
+		909245D7220CE02500D8BF37 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				909245BC220BD57000D8BF37 /* asString.swift */,
+				909245C0220CAD8600D8BF37 /* asDate.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		909245D8220CE02C00D8BF37 /* AlteredClasses */ = {
+			isa = PBXGroup;
+			children = (
+				909245D9220CE04800D8BF37 /* EsportCell.swift */,
+			);
+			path = AlteredClasses;
 			sourceTree = "<group>";
 		};
 		D3E00FCC52E6370A7F05B12E /* Frameworks */ = {
@@ -233,6 +255,7 @@
 			files = (
 				909245C5220CB51F00D8BF37 /* Main.storyboard in Resources */,
 				909245A7220BB34200D8BF37 /* LaunchScreen.storyboard in Resources */,
+				909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */,
 				909245A4220BB34200D8BF37 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */,
 				909245C1220CAD8600D8BF37 /* asDate.swift in Sources */,
 				909245B7220BD3A500D8BF37 /* CalendarViewController.swift in Sources */,
 				909245B9220BD4CA00D8BF37 /* CalendarCell.swift in Sources */,

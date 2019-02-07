@@ -46,6 +46,8 @@ class NetworkCall{
             do{
                 
                 let upComingTourny = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                
+                SourceOfTruth.shared.UpcomingTounaments = upComingTourny
                 completion(upComingTourny)
                 
             } catch let error{

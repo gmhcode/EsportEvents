@@ -11,7 +11,7 @@ import UIKit
 struct UpcomingTourny: Decodable{
     
     let serie : SeriesDictionary
-    let videoGame : VideoGameName
+    let videoGame : UpcomingTournyVideoGameName
     
     private enum CodingKeys: String, CodingKey{
         case videoGame = "videogame"
@@ -22,13 +22,17 @@ struct UpcomingTourny: Decodable{
 
 struct SeriesDictionary: Decodable {
     
+    let name : String
     let beginTime : String
+    let endTime : String
     
     private enum CodingKeys: String, CodingKey{
         case beginTime = "begin_at"
+        case endTime = "end_at"
+        case name = "name"
     }
 }
- struct VideoGameName: Decodable {
+ struct UpcomingTournyVideoGameName: Decodable {
     
     let name : String?
 }

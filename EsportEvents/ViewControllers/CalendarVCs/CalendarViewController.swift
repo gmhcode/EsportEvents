@@ -13,24 +13,22 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
-    //    @IBOutlet weak var year: UILabel!
-    //    @IBOutlet weak var month: UILabel!
+  
     
-    var dateRange : [Date]?
     @IBOutlet weak var tableView: UITableView!
     
     
     
-    let upcomingTourny = UpcomingTourny.self
     
-    
-    
-    
+    var dateRange : [Date]?
+    var datesWithEvents: [String] = []
     var events : [UpcomingTourny] = []
     var dateEvents : [[UpcomingTourny]] = []
-    var ddates : [TimeInterval]?
     
-//    var dateEventObjects = [Date : [UpcomingTourny]]()
+    let todayDate = Date()
+    let upcomingTourny = UpcomingTourny.self
+    let formatter = DateFormatter()
+    
     
     var eventsFromServer: [Date:[UpcomingTourny]] = [:] {
         didSet {
@@ -49,16 +47,13 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         return dateSections
     }
     
-    var datesWithEvents: [String] = []
-    let todayDate = Date()
     
-    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let calendarTVCNib = UINib(nibName: "CalendarEventCell", bundle: nil)
-        tableView.register(calendarTVCNib, forCellReuseIdentifier: "dayEventCell")
+        tableView.register(calendarTVCNib, forCellReuseIdentifier: "gameEventCell")
     }
     
     
@@ -67,19 +62,18 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         
         self.getServerEvents(completion: { (serverObjects) in
+            
             guard let serverObjects = serverObjects else { return }
             self.eventsFromServer = serverObjects
+            
             DispatchQueue.main.async {
                 self.calendarView.reloadData()
             }
         })
         
-        
-        
-        self.navigationController?.isNavigationBarHidden = false
         tableView.delegate = self
         tableView.dataSource = self
-        
+        self.navigationController?.isNavigationBarHidden = false
         self.calendarView.scrollToDate(Date(), animateScroll: false)
         //open with todays date
         self.calendarView.selectDates([Date()])
@@ -112,6 +106,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         
         NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
+            DispatchQueue.main.async {
+                
             
             guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
             
@@ -125,6 +121,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
 //                    let tournamentDateStringPre = tournament.serie.beginTime.asCrazyDate
                     let tournamentDateString = tournament.serie.beginTime.dropLast(10)
 //                    print(tournamentDateString)
+                    
+                    
                     let tournamentDate = String(tournamentDateString).asDate
                     print("☺️Tournament Date: \(tournamentDate)")
                     
@@ -145,6 +143,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
                 scheduledTournaments = tournaments
                 //                serverEvents
                 completion(scheduledTournaments)
+            }
             }
         }
         
