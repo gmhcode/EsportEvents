@@ -19,57 +19,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="103.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dmj-dE-IqT">
-                        <rect key="frame" x="24" y="8" width="272" height="87.5"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CSGO Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-QY-lxe">
-                                <rect key="frame" x="0.0" y="0.0" width="106" height="87.5"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Tuh-9G-fHj">
-                                <rect key="frame" x="122" y="0.0" width="150" height="87.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="((name))" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbv-Cs-Crc">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="35.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(beginTime)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usN-Bb-mIT">
-                                        <rect key="frame" x="0.0" y="44.5" width="150" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(endTime)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ3-fV-hhB">
-                                        <rect key="frame" x="0.0" y="70.5" width="150" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="lJF-Hy-vsT"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ddkfjjfherufheruohfeoruhfurehfeuhfuherfuheruifherufhurheufherf" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbv-Cs-Crc">
+                        <rect key="frame" x="156" y="12" width="148" height="79.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.9947231588094706" green="1" blue="0.059806067360711701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CSGO Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-QY-lxe">
+                        <rect key="frame" x="16" y="12" width="128" height="79.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="fVz-h5-ArB"/>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="gvE-NO-cgr"/>
+                            <constraint firstAttribute="width" constant="128" id="Tme-Kv-dzF"/>
                         </constraints>
-                    </stackView>
+                    </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Dmj-dE-IqT" secondAttribute="bottom" constant="8" id="Ktf-oU-tzw"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Dmj-dE-IqT" secondAttribute="trailing" constant="8" id="YnE-sE-6Sw"/>
-                    <constraint firstItem="Dmj-dE-IqT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="eXc-Wj-dxy"/>
-                    <constraint firstItem="Dmj-dE-IqT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="xbs-te-ffQ"/>
+                    <constraint firstItem="lmc-QY-lxe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="52Z-f6-JFC"/>
+                    <constraint firstItem="Zbv-Cs-Crc" firstAttribute="leading" secondItem="lmc-QY-lxe" secondAttribute="trailing" constant="12" id="Q4v-Qi-V9g"/>
+                    <constraint firstAttribute="trailing" secondItem="Zbv-Cs-Crc" secondAttribute="trailing" constant="16" id="Xns-fw-oNu"/>
+                    <constraint firstItem="Zbv-Cs-Crc" firstAttribute="bottom" secondItem="lmc-QY-lxe" secondAttribute="bottom" id="nqI-Vq-bLZ"/>
+                    <constraint firstAttribute="bottom" secondItem="lmc-QY-lxe" secondAttribute="bottom" constant="12" id="og0-jL-h3X"/>
+                    <constraint firstItem="lmc-QY-lxe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qdq-JE-hhl"/>
+                    <constraint firstItem="Zbv-Cs-Crc" firstAttribute="top" secondItem="lmc-QY-lxe" secondAttribute="top" id="uua-RN-fHV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="eventNameLabel" destination="Zbv-Cs-Crc" id="iMb-QF-S1n"/>
                 <outlet property="gameLogo" destination="lmc-QY-lxe" id="5gs-nf-zgL"/>
             </connections>
-            <point key="canvasLocation" x="41.600000000000001" y="73.763118440779621"/>
+            <point key="canvasLocation" x="41.600000000000001" y="75.562218890554732"/>
         </tableViewCell>
     </objects>
     <resources>

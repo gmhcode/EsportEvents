@@ -38,10 +38,17 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     var dateSections: [Date] {
         var dateSections: [Date] = []
+        
         for (date, _) in eventsFromServer.sorted(by: {$0.key < $1.key})
         {
             if !dateSections.contains(date) {
+               
+                
                 dateSections.append(date)
+//                print("🌶🥕🍠\(date)")
+//                let events = eventsFromServer.sorted(by: {$0.key < $1.key})
+//                print(" 🚕🍿🌶  \(events)")
+                
             }
         }
         return dateSections
@@ -65,6 +72,9 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             
             guard let serverObjects = serverObjects else { return }
             self.eventsFromServer = serverObjects
+            
+//            print("❗️♊️\(serverObjects)")
+            
             
             DispatchQueue.main.async {
                 self.calendarView.reloadData()
@@ -98,8 +108,12 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     
     func getServerEvents(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
-       
-        
+        print(dateRange)
+        guard let dateRange = dateRange,
+            let first = dateRange.first,
+            let last = dateRange.last else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+
+//        print("🎡🚚   \(dateRange.first)")
         var scheduledTournaments = [Date: [UpcomingTourny]]()
         
         
@@ -113,34 +127,41 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             
             
             if fetchedTournaments.isEmpty == false {
+//                print("🔥❇️\(fetchedTournaments)")
+                
                 
                 var tournaments: [Date: [UpcomingTourny]] = [:]
                 
                
                 for tournament in fetchedTournaments{
-//                    let tournamentDateStringPre = tournament.serie.beginTime.asCrazyDate
-                    let tournamentDateString = tournament.serie.beginTime.dropLast(10)
-//                    print(tournamentDateString)
                     
                     
-                    let tournamentDate = String(tournamentDateString).asDate
-                    print("☺️Tournament Date: \(tournamentDate)")
+                    if let tournamentDateStringPre = tournament.beginTime?.asCrazyDate {
+                    
+
+//                    print("  ❌🔥🤥 \(tournamentDateStringPre)")
+                    
+                    let tournamentDate = tournamentDateStringPre
+
                     
                     if tournaments.keys.contains(tournamentDate){
                         
-                        
-                        print("🔥True \(#file) \(#line)")
                         tournaments[tournamentDate]?.append(tournament)
                         
-                        
+                    
                     } else {
-                        tournaments[tournamentDate] = [tournament]
-                        print("🏝  \(tournaments)")
                         
+                        if tournamentDate >= first && tournamentDate <= last{
+                        tournaments[tournamentDate] = [tournament]
+//
+                        }
+                    }
                     }
                 }
                 self.view.setNeedsLayout()
+                
                 scheduledTournaments = tournaments
+//                print(" ❌🔥 \(scheduledTournaments)")
                 //                serverEvents
                 completion(scheduledTournaments)
             }
@@ -248,7 +269,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         })
 
         if cell?.dot.isHidden == false{
-            print("🔥\(cellState.date.asString)")
+//            print("🔥\(cellState.date.asString)")
 
             //extract all datesWithEvents if dot is hidden
             datesWithEvents.append(cellState.date.asString)
@@ -309,6 +330,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
             DispatchQueue.main.async {
                 guard let serverObjects = serverObjects else { print(">>>\(#file) \(#line): guard let failed <<<"); return }
                 self.eventsFromServer = serverObjects
+                
+//                print(" 🤥🥰  \(serverObjects)")
+                
                 self.calendarView.reloadData()
             }
         })

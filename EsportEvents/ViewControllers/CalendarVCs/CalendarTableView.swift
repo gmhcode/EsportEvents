@@ -28,7 +28,7 @@ extension CalendarViewController {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return 100
         
     }
     
@@ -38,7 +38,7 @@ extension CalendarViewController {
         let dateSection = dateSections[indexPath.section]
         guard let tournaments = eventsFromServer[dateSection] else { return UITableViewCell() }
         let tournament = tournaments[indexPath.row]
-//        cell?.event = event
+        cell?.tournament = tournament
         return cell ?? UITableViewCell()
     }
     

@@ -13,7 +13,6 @@ class EsportCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         setCellHighlightedsColor()
     }
     
