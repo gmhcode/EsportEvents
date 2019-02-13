@@ -21,14 +21,14 @@ extension CalendarViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let dateSection = dateSections[section]
-        guard let tournaments = eventsFromServer[dateSection] else { return 0 }
+        guard let tournaments = gameSpecificEventsFromServer[dateSection] else { return 0 }
         
         return tournaments.count
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return self.view.frame.height * 0.1
         
     }
     
@@ -36,11 +36,14 @@ extension CalendarViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameEventCell", for: indexPath) as? CalendarTableViewCell
         
         let dateSection = dateSections[indexPath.section]
-        guard let tournaments = eventsFromServer[dateSection] else { return UITableViewCell() }
+        guard let tournaments = gameSpecificEventsFromServer[dateSection] else { return UITableViewCell() }
         let tournament = tournaments[indexPath.row]
         cell?.tournament = tournament
         return cell ?? UITableViewCell()
     }
+    
+    
+    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerLabel = UILabel()
@@ -50,6 +53,33 @@ extension CalendarViewController {
         return headerLabel
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "eventSegue", sender: nil)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        i
+        if segue.identifier == "eventSegue"{
+            guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+            let dateSection = dateSections[indexPath.section]
+            let tournaments = gameSpecificEventsFromServer[dateSection]
+            let destinationVC = segue.destination as? EventDescriptionViewController
+            
+            let tournyTakeOff = tournaments?[indexPath.row]
+            destinationVC?.tournament = tournyTakeOff
+
+        }
+        //        i
+        //        d
+        //        o
+        //        o
+
+    }
+    
+    
     
 }
+
+
 

@@ -15,7 +15,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameEventCell" rowHeight="104" id="KGk-i7-Jjw" customClass="CalendarTableViewCell" customModule="EsportEvents" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="103.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -32,7 +32,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="lmc-QY-lxe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="52Z-f6-JFC"/>
                     <constraint firstItem="Zbv-Cs-Crc" firstAttribute="leading" secondItem="lmc-QY-lxe" secondAttribute="trailing" constant="12" id="Q4v-Qi-V9g"/>
@@ -43,6 +43,7 @@
                     <constraint firstItem="Zbv-Cs-Crc" firstAttribute="top" secondItem="lmc-QY-lxe" secondAttribute="top" id="uua-RN-fHV"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="eventNameLabel" destination="Zbv-Cs-Crc" id="iMb-QF-S1n"/>
