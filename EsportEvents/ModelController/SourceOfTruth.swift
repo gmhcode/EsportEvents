@@ -47,34 +47,45 @@ class SourceOfTruth {
                 guard let matches = tourny.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); continue}
                 for match in matches{
                     
-                    guard let matchtime = match.beginTime?.asCrazyDate else {continue}
-//                    print("❇️🔥\(matchtime)")
-                    dotaMatches.isEmpty ? dotaMatches = [date : [match]] : dotaMatches[date]?.append(match)
+                    guard let matchTimePre = match.beginTime?.dropLast(10) else {continue}
+                    let matchTime = String(matchTimePre).asDate
+                    print("❇️🔥\(match)")
+                    if dotaMatches.isEmpty {
+                        dotaMatches = [matchTime : [match]]
+                    } else {
+                        if dotaMatches.keys.contains(matchTime) {
+                            dotaMatches[matchTime]?.append(match)
+                        } else {
+                            dotaMatches[matchTime] = [match]
+                        }
+                    }
                     //^^ this question maRK is breaking it
                     
+                    dotaMatches.forEach {
+                        print("key: \($0) & value: :\($1)")
+                    }
                     
-                    
-//                    print("🌹🛳⛽️\(dotaMatches)")
+                    print("🌹🛳⛽️\(dotaMatches.keys)")
                     
                 }
             }
         }
-        filterDatesFromMatches()
+//        filterDatesFromMatches()
     }
     
     
-    func filterDatesFromMatches(){
-        
-        
-        for (date, matches) in dotaMatches{
-            for match in matches{
-            guard let matchtime = match.beginTime?.asCrazyDate else {continue}
-//            print("❇️🔥\(matchtime)")
-            dotaMatchesCorrect.isEmpty ? dotaMatchesCorrect = [matchtime : [match]] : dotaMatchesCorrect[matchtime]?.append(match)
-            print("🏓❇️\(dotaMatchesCorrect)")
-            }
-        }
-    }
+//    func filterDatesFromMatches(){
+//
+//
+//        for (date, matches) in dotaMatches{
+//            for match in matches{
+//            guard let matchtime = match.beginTime?.asCrazyDate else {continue}
+////            print("❇️🔥\(matchtime)")
+//            dotaMatchesCorrect.isEmpty ? dotaMatchesCorrect = [matchtime : [match]] : dotaMatchesCorrect[matchtime]?.append(match)
+//            print("🏓❇️\(dotaMatchesCorrect)")
+//            }
+//        }
+//    }
     
         
     
@@ -95,7 +106,7 @@ class SourceOfTruth {
                         dotaTournaments == nil ? dotaTournaments = [date : [$0]] : dotaTournaments?[date]?.append($0)
 //                        guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
 //                        for match in matches{
-                        print("❗️🔥😃\($0)")
+//                        print("❗️🔥😃\($0)")
 //
 //                        }
                     case "PUBG":

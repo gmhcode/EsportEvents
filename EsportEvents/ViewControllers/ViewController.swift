@@ -76,10 +76,10 @@ class ViewController: UIViewController {
 
             SourceOfTruth.shared.filterTournyByGameName(tournaments: yes)
             SourceOfTruth.shared.filterMatchesFromTourny()
-            print("🌹🌒dota \(String(describing: SourceOfTruth.shared.dotaTournaments))")
-            print("🌸♊️overwatch \(String(describing: SourceOfTruth.shared.overwatchTournaments))")
-            print("🌸♊️lol \(String(describing: SourceOfTruth.shared.lolTournaments))")
-            print("🌸♊️csgo \(String(describing: SourceOfTruth.shared.csgoTournaments))")
+//            print("🌹🌒dota \(String(describing: SourceOfTruth.shared.dotaTournaments))")
+//            print("🌸♊️overwatch \(String(describing: SourceOfTruth.shared.overwatchTournaments))")
+//            print("🌸♊️lol \(String(describing: SourceOfTruth.shared.lolTournaments))")
+//            print("🌸♊️csgo \(String(describing: SourceOfTruth.shared.csgoTournaments))")
         }
         
     }
