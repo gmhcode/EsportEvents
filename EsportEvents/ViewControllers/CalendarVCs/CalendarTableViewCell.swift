@@ -85,31 +85,4 @@ import UIKit
             }
             
         }
-        
-        
-        
-        
-        
-        
-        
-//
-//        //    TODO need to be able to access user profile picture through event
-//
-//        //        var event : Event? {
-//        //            didSet {
-//        //                updateViews()
-//        //                self.setlabels()
-//        //            }
-//        //        }
-//
-//        override func awakeFromNib() {
-//            super.awakeFromNib()
-//            profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
-//            profilePicture.layer.masksToBounds = true
-//        }
-//
-//        func updateViews(){
-//
-//
-//    }
 }

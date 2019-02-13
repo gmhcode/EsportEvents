@@ -19,7 +19,7 @@ class NetworkCall{
     func fetchTournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
         
         guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-        let partUrl = url.appendingPathComponent("tournaments").appendingPathComponent("upcoming").appendingPathExtension("json")
+        let partUrl = url.appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
         
