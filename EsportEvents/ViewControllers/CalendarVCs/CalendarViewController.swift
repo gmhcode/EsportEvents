@@ -17,7 +17,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
     
-    
+    var matchesSearch : Bool? = false
+    var tournySearch: Bool = true
     var previousDate : Date?
     var dateRange : [Date]?
     var datesWithEvents: [String] = []
@@ -31,25 +32,37 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     let formatter = DateFormatter()
     
     
-    var gameSpecificEventsFromServer: [Date:[UpcomingTourny]] = [:] {
+    var gameAndDateSpecificTournamentsFromServer: [Date:[UpcomingTourny]] = [:] {
         didSet {
             tableView.reloadData()
         }
     }
-    var allEventsFromServer: [Date:[UpcomingTourny]] = [:] {
+    var gameAndDateSpecificMatches: [Date:[Matches]] = [:]{
+        didSet{
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    var allMatches: [Date:[Matches]] = [:]{
+        didSet{
+            tableView.reloadData()
+        }
+    }
+    
+    
+    var allTournamentsFromServer: [Date:[UpcomingTourny]] = [:] {
         didSet {
             tableView.reloadData()
         }
     }
     
     
-    var currentImageGameName : String {
+     var currentImageGameName : String {
         guard let visibleCell = gameTitleCollectionView.visibleCells.first as? GameTitleCollectionViewCell, let currentImageGameName = visibleCell.gameTitleImages else { return "" }
-        
-        //        other = currentImageGameName
-        
+        SourceOfTruth.shared.currentImageGameName = currentImageGameName
         return currentImageGameName
-        
     }
     
     
@@ -59,21 +72,33 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var dateSections: [Date] {
         var dateSections: [Date] = []
         //sets all the dates in order by date
-        for (date, _) in gameSpecificEventsFromServer.sorted(by: {$0.key < $1.key})
-        {
-            if !dateSections.contains(date) {
-                dateSections.append(date)
+        if matchesSearch == true{
+            for (date, _) in gameAndDateSpecificMatches.sorted(by: {$0.key < $1.key}){
+                if !dateSections.contains(date){
+                    dateSections.append(date)
+                }
             }
         }
+        if tournySearch == true{
+            for (date, _) in gameAndDateSpecificTournamentsFromServer.sorted(by: {$0.key < $1.key})
+            {
+                if !dateSections.contains(date) {
+                    dateSections.append(date)
+//                    print("🔥♊️\(dateSections)")
+                }
+            }
+        }
+        
+        
         if swipeRight == true{
             previousDate = dateSections.first
         }else{
             previousDate = dateSections.last
         }
         // vv MADE CELL DOTS APPEAR
-        
+//         tableView.reloadData()
         calendarView.reloadData()
-        
+
         return dateSections
     }
     
@@ -81,10 +106,19 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var pastAndFutureEvents: [Date] {
         var pastAndFutureEvents : [Date] = []
         
-        for (date,_) in allEventsFromServer.sorted(by: {$0.key < $1.key}){
+        if matchesSearch == false {
+        for (date,_) in allTournamentsFromServer.sorted(by: {$0.key < $1.key}){
             
             if !pastAndFutureEvents.contains(date){
                 pastAndFutureEvents.append(date)
+            }
+        }
+        }
+        else {
+            for (date,_) in allMatches.sorted(by: {$0.key < $1.key}){
+                if !pastAndFutureEvents.contains(date){
+                    pastAndFutureEvents.append(date)
+                }
             }
         }
         return pastAndFutureEvents
@@ -118,6 +152,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        print("🌶\(SourceOfTruth.shared.dotaMatches.keys)")
         //vv this is when the fetch is called
         self.calendarView.scrollToDate(Date(), animateScroll: false)
 //        setGestureRecpgnizer()
@@ -131,15 +166,37 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
             
-            self.getServerEvents { (allTournaments, tournaments)  in
-                guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//            if self.matchesSearch == false{
+                self.getTournaments { (allTournaments, tournaments)  in
+                    guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+                    
+                    self.gameAndDateSpecificTournamentsFromServer = tournaments
+                    //                self.calendarView.reloadData()
+                }
                 
-                self.gameSpecificEventsFromServer = tournaments
-//                self.calendarView.reloadData()
+//            }else {
+                self.getMatches(completion: { (allMatches, filteredByDate) in
+                    guard let filteredByDate = filteredByDate else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+                    self.gameAndDateSpecificMatches = filteredByDate
+                    
+                })
             }
-        }
+//        }
         self.navigationController?.isNavigationBarHidden = true
     }
+    
+    @IBAction func matchesButtonTapped(_ sender: Any) {
+        matchesSearch = true
+//        calendarView.reloadData()
+//        tableView.reloadData()
+        self.calendarView.scrollToDate((dateRange?.first)!, animateScroll: false)
+    }
+    @IBAction func tournamentsButton(_ sender: Any) {
+        matchesSearch = false
+        self.calendarView.scrollToDate((dateRange?.first)!)
+    }
+    
+    
     //
     //    override func viewWillAppear(_ animated: Bool) {
     ////        super.viewWillAppear(animated)
@@ -162,6 +219,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         self.navigationController?.isNavigationBarHidden = false
         let calendarTVCNib = UINib(nibName: "CalendarEventCell", bundle: nil)
         tableView.register(calendarTVCNib, forCellReuseIdentifier: "gameEventCell")
@@ -180,9 +238,107 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         hideMenu()
     }
     
+    func getMatches(completion: ([Date:[Matches]]?, [Date:[Matches]]?) -> Void){
+        guard let dateRange = dateRange,
+            let first = dateRange.first,
+            let last = dateRange.last else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        
+        var allMatches = SourceOfTruth.shared.allMatchesForGame(currentImageGameName: currentImageGameName)
+        
+        
+        
+        let matchesFilteredByDate = SourceOfTruth.shared.filterMatchesByDate(firstOfMonth: first, lastOfMonth: last, currentImageGameName: currentImageGameName)
+        self.allMatches = allMatches
+        completion(allMatches, matchesFilteredByDate)
+        
+        
+        
+    }
     
     
-    func getServerEvents(completion: @escaping ([Date:[UpcomingTourny]]?, [Date:[UpcomingTourny]]?) -> Void) {
+    
+    
+//    func getServerEvents(completion: @escaping ([Date:[UpcomingTourny]]?, [Date:[UpcomingTourny]]?) -> Void) {
+//
+//        //        print(dateRange)
+//        guard let dateRange = dateRange,
+//            let first = dateRange.first,
+//            let last = dateRange.last else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//
+//        //        print("🎡🚚   \(dateRange.first)")
+//        //        var scheduledTournaments = [Date: [UpcomingTourny]]()
+//
+//
+//
+//
+//        NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
+//            DispatchQueue.main.async {
+//
+//
+//                guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//
+//                var allTournaments: [Date: [UpcomingTourny]] = [:]
+//                var tournaments: [Date: [UpcomingTourny]] = [:]
+//
+//
+//                if fetchedTournaments.isEmpty == false {
+//                    //                print("🔥❇️\(fetchedTournaments)")
+//
+////                    print(SourceOfTruth.shared.filterMatchesByDate(firstOfMonth: first, lastOfMonth: last, currentImageGameName: self.currentImageGameName))
+////                    print(fetchedTournaments)
+//
+//                    for tournament in fetchedTournaments{
+//
+//                        guard let tournamentDate = tournament.beginTime?.asCrazyDate,
+//                            let tournamentName = tournament.videoGame.name
+//                            else { continue }
+//
+//
+////                        print("❗️❌🔥\(tournamentDate)")
+//
+//                        if tournaments.keys.contains(tournamentDate){
+//
+//                            allTournaments[tournamentDate]?.append(tournament)
+//
+//
+//                        } else {
+//                            if tournamentName.contains(self.currentImageGameName) {
+//                                allTournaments[tournamentDate] = [tournament]
+//                                //
+//                            }
+//                        }
+//                        //                    print("  ❌🔥🤥 \(tournamentDateStringPre)")
+//                        if tournaments.keys.contains(tournamentDate){
+//
+//                            tournaments[tournamentDate]?.append(tournament)
+//
+//
+//                        } else {
+//
+//                            if tournamentDate >= first && tournamentDate <= last && tournamentName.contains(self.currentImageGameName) {
+//                                tournaments[tournamentDate] = [tournament]
+//                                //
+//                            }
+//                        }
+//                    }
+//
+//                }
+//                self.allTournamentsFromServer = allTournaments
+//
+//                completion(allTournaments, tournaments)
+//
+//                self.view.setNeedsLayout()
+//                self.calendarView.reloadData()
+//                //                scheduledTournaments = tournaments
+//                //                print(" ❌🔥 \(scheduledTournaments)")
+//                //                serverEvents
+//            }
+//        }
+//    }
+//
+    
+    func getTournaments(completion: @escaping ([Date:[UpcomingTourny]]?, [Date:[UpcomingTourny]]?) -> Void) {
         
         //        print(dateRange)
         guard let dateRange = dateRange,
@@ -193,72 +349,16 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         //        var scheduledTournaments = [Date: [UpcomingTourny]]()
         
         
+        var allTournaments = SourceOfTruth.shared.allTournaments(byName: currentImageGameName)
+        var tournamentsFilteredByDate = SourceOfTruth.shared.filterTournyByDate(firstOfMonth: first, lastOfMonth: last, currentImageGameName: currentImageGameName)
+//        print("❗️🔥all tournaments\(allTournaments)")
+        self.allTournamentsFromServer = allTournaments
+        completion(allTournaments, tournamentsFilteredByDate)
         
+        self.view.setNeedsLayout()
+        self.calendarView.reloadData()
         
-        NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
-            DispatchQueue.main.async {
-                
-                
-                guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                
-                var allTournaments: [Date: [UpcomingTourny]] = [:]
-                var tournaments: [Date: [UpcomingTourny]] = [:]
-                
-                
-                if fetchedTournaments.isEmpty == false {
-                    //                print("🔥❇️\(fetchedTournaments)")
-                    
-                    
-//                    print(fetchedTournaments)
-                    
-                    for tournament in fetchedTournaments{
-                        
-                        guard let tournamentDate = tournament.beginTime?.asCrazyDate,
-                            let tournamentName = tournament.videoGame.name
-                            else { continue }
-                        
-                        
-//                        print("❗️❌🔥\(tournamentDate)")
-                        
-                        if tournaments.keys.contains(tournamentDate){
-                            
-                            allTournaments[tournamentDate]?.append(tournament)
-                            
-                            
-                        } else {
-                            if tournamentName.contains(self.currentImageGameName) {
-                                allTournaments[tournamentDate] = [tournament]
-                                //
-                            }
-                        }
-                        //                    print("  ❌🔥🤥 \(tournamentDateStringPre)")
-                        if tournaments.keys.contains(tournamentDate){
-                            
-                            tournaments[tournamentDate]?.append(tournament)
-                            
-                            
-                        } else {
-                            
-                            if tournamentDate >= first && tournamentDate <= last && tournamentName.contains(self.currentImageGameName) {
-                                tournaments[tournamentDate] = [tournament]
-                                //
-                            }
-                        }
-                    }
-                    
-                }
-                self.allEventsFromServer = allTournaments
-                completion(allTournaments, tournaments)
-                
-                self.view.setNeedsLayout()
-                self.calendarView.reloadData()
-                //                scheduledTournaments = tournaments
-                //                print(" ❌🔥 \(scheduledTournaments)")
-                //                serverEvents
-            }
-        }
     }
-    
     
     
     
@@ -350,26 +450,54 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     // MARK: - Calander Dot activates if we get info from server
     func handleCellEvents(cell: CalendarCell?, cellState: CellState){
-        cell?.dot.isHidden = !gameSpecificEventsFromServer.contains(where: { (key, value) -> Bool in
-            
-            let keyDate = Date(timeIntervalSince1970: key.timeIntervalSince1970)
-            let keyDateComponent = Calendar.current.dateComponents([.day, .month, .year], from: keyDate)
-            
-            let cellStateDate = Date(timeIntervalSince1970: cellState.date.timeIntervalSince1970)
-            let cellStateComponent = Calendar.current.dateComponents([.day, .month, .year], from: cellStateDate)
-            return keyDateComponent == cellStateComponent
-        })
         
-        if cell?.dot.isHidden == false{
-            //            print("🔥\(cellState.date.asString)")
-            
-            //extract all datesWithEvents if dot is hidden
-            datesWithEvents.append(cellState.date.asString)
+        if matchesSearch == false{
             
             
-//            calendarView.setNeedsLayout()
-            self.view.setNeedsLayout()
-//            calendarView.reloadData()
+            cell?.dot.isHidden = !gameAndDateSpecificTournamentsFromServer.contains(where: { (key, value) -> Bool in
+                
+                let keyDate = Date(timeIntervalSince1970: key.timeIntervalSince1970)
+                let keyDateComponent = Calendar.current.dateComponents([.day, .month, .year], from: keyDate)
+                
+                let cellStateDate = Date(timeIntervalSince1970: cellState.date.timeIntervalSince1970)
+                let cellStateComponent = Calendar.current.dateComponents([.day, .month, .year], from: cellStateDate)
+                return keyDateComponent == cellStateComponent
+            })
+            
+            if cell?.dot.isHidden == false{
+                //            print("🔥\(cellState.date.asString)")
+                
+                //extract all datesWithEvents if dot is hidden
+                datesWithEvents.append(cellState.date.asString)
+                
+                
+                //            calendarView.setNeedsLayout()
+                self.view.setNeedsLayout()
+                //            calendarView.reloadData()
+            }
+        } else {
+            cell?.dot.isHidden = !gameAndDateSpecificMatches.contains(where: { (key, value) -> Bool in
+                
+                let keyDate = Date(timeIntervalSince1970: key.timeIntervalSince1970)
+                let keyDateComponent = Calendar.current.dateComponents([.day, .month, .year], from: keyDate)
+                
+                let cellStateDate = Date(timeIntervalSince1970: cellState.date.timeIntervalSince1970)
+                let cellStateComponent = Calendar.current.dateComponents([.day, .month, .year], from: cellStateDate)
+                return keyDateComponent == cellStateComponent
+            })
+            
+            if cell?.dot.isHidden == false{
+                //            print("🔥\(cellState.date.asString)")
+                
+                //extract all datesWithEvents if dot is hidden
+                datesWithEvents.append(cellState.date.asString)
+                
+                
+                //            calendarView.setNeedsLayout()
+                self.view.setNeedsLayout()
+                
+                
+            }
         }
     }
 }
@@ -429,7 +557,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
         if let previousDateRange = previousDateRange {
             if previousDateRange[0] > (dateRange?.last)! {
                 swipeRight = true
-                print("prev Date Range ⛽️\(previousDateRange)")
+//                print("prev Date Range ⛽️\(previousDateRange)")
             } else {
                 swipeRight = false
 //                print("prev Date Range ⛽️\(previousDateRange)")
@@ -437,41 +565,75 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
         }
         
         //        print(" ❇️ \(String(describing: dateRange)) ")
-        self.getServerEvents(completion: { (allTournaments, tournaments) in
-            DispatchQueue.main.async {
-                guard let tournaments = tournaments, let allTournaments = allTournaments else { print(">>>\(#file) \(#line): guard let failed <<<"); return }
-                
-//                print("🔥❌\(allTournaments)")
-                
-                if tournaments.keys.count != 0  {
-                self.gameSpecificEventsFromServer = tournaments
+if self.matchesSearch == false{
+            self.getTournaments(completion: { (allTournaments, tournaments) in
+                DispatchQueue.main.async {
+                    guard let tournaments = tournaments, let allTournaments = allTournaments else { print(">>>\(#file) \(#line): guard let failed <<<"); return }
                     
-                } else  {
-                    self.gameSpecificEventsFromServer = allTournaments
-                    //gspec
+                    //                print("🔥❌\(allTournaments)")
+                    
+                    if tournaments.keys.count != 0  {
+                        self.gameAndDateSpecificTournamentsFromServer = tournaments
+                        
+                    } else  {
+                        self.gameAndDateSpecificTournamentsFromServer = allTournaments
+                        //gspec
+                        
+                        let nextDate = self.findNearestDate(datesToSift: self.pastAndFutureEvents, currentDateRange: self.dateRange!, swipeRight: self.swipeRight)
+                        //                    print("NextDate 🛶\(nextDate)")
+                        //                    print("previous date🏓\(self.previousDate)")
+                        
+                        if self.previousDate == nextDate{
+                            //PRESENT ALERT
+                            self.presentNoFurtherDateAlert(actionHandler: { (_) in
+                                self.previousDate = nextDate
+                                calendar.scrollToDate(nextDate)
+                                
+                            })
+                        } else {
+                            calendar.scrollToDate(nextDate)
+                            
+                        }
+                        //                    self.calendarView.reloadData()
+                        //TODO: make left and right gesture recognizers to set the swipe right value to true or false
+                        }  //                    print("🔥🛳\(self.pastAndFutureEvents)")
+                    }
+                    })
+                }
+           
+//        }else {
+        if self.matchesSearch == true {
+        self.getMatches { (allMatches, filteredByDate) in
+            DispatchQueue.main.async {
+                guard let filteredByDate = filteredByDate, let allMatches = allMatches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+
+                if filteredByDate.keys.count != 0 {
+                    self.gameAndDateSpecificMatches = filteredByDate
+                    
+                } else {
+                    self.gameAndDateSpecificMatches = allMatches
                     
                     let nextDate = self.findNearestDate(datesToSift: self.pastAndFutureEvents, currentDateRange: self.dateRange!, swipeRight: self.swipeRight)
-//                    print("NextDate 🛶\(nextDate)")
-//                    print("previous date🏓\(self.previousDate)")
                     
-                    if self.previousDate == nextDate{
-                        //PRESENT ALERT
+                    
+                        
+                    if self.previousDate == nextDate {
                         self.presentNoFurtherDateAlert(actionHandler: { (_) in
                             self.previousDate = nextDate
                             calendar.scrollToDate(nextDate)
                             
                         })
+                    }else {
+                        calendar.scrollToDate(nextDate)
+                        
                     }
-//                    self.calendarView.reloadData()
-                    //TODO: make left and right gesture recognizers to set the swipe right value to true or false
-//                    print("🔥🛳\(self.pastAndFutureEvents)")
+                    }
                 }
+                
             }
-        })
-        
-    }
-
-    
+        }
+//    }
+}
 }
 
 extension CalendarViewController: JTAppleCalendarViewDataSource{
@@ -503,6 +665,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource{
         return parameters
         
     }
+    
 }
 
 extension UIColor{

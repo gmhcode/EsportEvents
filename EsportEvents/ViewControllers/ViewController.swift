@@ -75,7 +75,7 @@ class ViewController: UIViewController {
             guard let yes = yes else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
 
             SourceOfTruth.shared.filterTournyByGameName(tournaments: yes)
-            SourceOfTruth.shared.filterMatchesFromTourny()
+//            SourceOfTruth.shared.filterMatchesFromTourny()
 //            print("🌹🌒dota \(String(describing: SourceOfTruth.shared.dotaTournaments))")
 //            print("🌸♊️overwatch \(String(describing: SourceOfTruth.shared.overwatchTournaments))")
 //            print("🌸♊️lol \(String(describing: SourceOfTruth.shared.lolTournaments))")

@@ -18,10 +18,10 @@ extension CalendarViewController{
         
         
         //        print("current date range:❇️\(currentDateRange)❇️♊️")
-        //        print("to sift🥕\(datesToSift)")
+//                print("to sift🥕\(datesToSift)")
         
         if datesToSift[0] > currentDateRange[rangeCount] {
-            print(datesToSift)
+//            print(datesToSift)
             return datesToSift[0]
         }
         if datesToSift [siftCount] < currentDateRange[0]  {
@@ -41,8 +41,8 @@ extension CalendarViewController{
         
         let lessThanCount = datesLessThanArray.count - 1
         
-        print(datesLessThanArray)
-        print(datesGreaterThanArray)
+//        print(datesLessThanArray)
+//        print(datesGreaterThanArray)
         //                print(lessThanCount)
         if swipeRight == true {
             return datesLessThanArray[lessThanCount]

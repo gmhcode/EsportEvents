@@ -21,9 +21,16 @@ extension CalendarViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let dateSection = dateSections[section]
-        guard let tournaments = gameSpecificEventsFromServer[dateSection] else { return 0 }
         
-        return tournaments.count
+        if matchesSearch == false {
+        guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return 0 }
+            return tournaments.count
+        } else {
+            guard let matches = gameAndDateSpecificMatches[dateSection] else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return 0}
+            print("numberOfRows - Matches.count = \(matches.count) in \(section)")
+            return matches.count
+
+        }
     }
     
     
@@ -33,12 +40,25 @@ extension CalendarViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameEventCell", for: indexPath) as? CalendarTableViewCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameEventCell", for: indexPath) as? CalendarTableViewCell
         let dateSection = dateSections[indexPath.section]
-        guard let tournaments = gameSpecificEventsFromServer[dateSection] else { return UITableViewCell() }
+        
+        if matchesSearch == false {
+            
+        guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return UITableViewCell() }
         let tournament = tournaments[indexPath.row]
         cell?.tournament = tournament
+        
+        } else {
+            guard let matches = gameAndDateSpecificMatches[dateSection] else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return UITableViewCell()}
+            
+            
+            print("cellForRowAt - Matches.count = \(matches.count) in \(indexPath.section)")
+            let match = matches[indexPath.row]
+            cell?.match = match
+            
+        }
         return cell ?? UITableViewCell()
     }
     
@@ -63,7 +83,7 @@ extension CalendarViewController {
         if segue.identifier == "eventSegue"{
             guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
             let dateSection = dateSections[indexPath.section]
-            let tournaments = gameSpecificEventsFromServer[dateSection]
+            let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection]
             let destinationVC = segue.destination as? EventDescriptionViewController
             
             let tournyTakeOff = tournaments?[indexPath.row]

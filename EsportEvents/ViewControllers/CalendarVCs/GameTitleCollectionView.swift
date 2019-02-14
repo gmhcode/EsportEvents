@@ -35,15 +35,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     }
    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let gameCell = cell as? GameTitleCollectionViewCell else { return }
-        print(gameCell.gameTitleImages)
         
-        getServerEvents { (allTournaments, tournaments) in
-            guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-
-            self.gameSpecificEventsFromServer = tournaments
-            self.calendarView.reloadData()
-        }
     }
    
     
@@ -61,7 +53,42 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let gameCell = cell as? GameTitleCollectionViewCell else { return }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        if matchesSearch == false {
+            
+        
+        getTournaments { (allTournaments, tournaments) in
+            guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+            
+            self.gameAndDateSpecificTournamentsFromServer = tournaments
+            SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
+            print(gameCell.gameTitleImages)
+            
+            
+            self.calendarView.scrollToDate((self.dateRange?.first)!)
+            //            self.calendarView.reloadData()
+//            self.tableView.reloadData()
+        }
+    }
+        
+        getMatches { (allMatches, matches) in
+            guard let matches = matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+            self.gameAndDateSpecificMatches = matches
+            SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
+            self.calendarView.scrollToDate((self.dateRange?.first!)!)
+            self.tableView.reloadData()
+        }
+    }
     
     
 //    func showOnlyHeaderGameInfo() -> [UpcomingTourny] {
