@@ -23,13 +23,12 @@ extension CalendarViewController {
         let dateSection = dateSections[section]
         
         if matchesSearch == false {
-        guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return 0 }
+            guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return 0 }
             return tournaments.count
         } else {
-            guard let matches = gameAndDateSpecificMatches[dateSection] else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return 0}
-            print("numberOfRows - Matches.count = \(matches.count) in \(section)")
+            guard let matches = gameAndDateSpecificMatches[dateSection] else {return 0}
             return matches.count
-
+            
         }
     }
     
@@ -44,21 +43,21 @@ extension CalendarViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameEventCell", for: indexPath) as? CalendarTableViewCell
         let dateSection = dateSections[indexPath.section]
         
-        if matchesSearch == false {
+        if tournySearch == true {
             
-        guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return UITableViewCell() }
-        let tournament = tournaments[indexPath.row]
-        cell?.tournament = tournament
-        
-        } else {
-            guard let matches = gameAndDateSpecificMatches[dateSection] else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return UITableViewCell()}
-            
-            
-            print("cellForRowAt - Matches.count = \(matches.count) in \(indexPath.section)")
-            let match = matches[indexPath.row]
-            cell?.match = match
+            guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return UITableViewCell() }
+            let tournament = tournaments[indexPath.row]
+            cell?.tournament = tournament
             
         }
+        
+        if matchesSearch == true {
+            
+            guard let matches = gameAndDateSpecificMatches[dateSection] else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return UITableViewCell()}
+            let match = matches[indexPath.row]
+            cell?.match = match
+        }
+        
         return cell ?? UITableViewCell()
     }
     
@@ -67,8 +66,21 @@ extension CalendarViewController {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerLabel = UILabel()
+        
+        
+        let containerView = UIView()
+        
+        let separatorView = UIView(frame: CGRect(x: tableView.separatorInset.left, y: containerView.frame.height + 65, width: tableView.frame.width - tableView.separatorInset.right - tableView.separatorInset.left, height: 1))
+     
+        
+        
+        containerView.addSubview(headerLabel)
+        headerLabel.backgroundColor = UIColor.clear
+        headerLabel.font = UIFont(name: "Roboto-Bold", size: 14)
         headerLabel.textColor = UIColor.lightGray
         headerLabel.text = dateSections[section].asString.uppercased()
+        headerLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24).isActive = true
+        
         
         return headerLabel
     }
@@ -84,21 +96,19 @@ extension CalendarViewController {
             guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
             let dateSection = dateSections[indexPath.section]
             let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection]
+            let matches = gameAndDateSpecificMatches[dateSection]
             let destinationVC = segue.destination as? EventDescriptionViewController
             
-            let tournyTakeOff = tournaments?[indexPath.row]
-            destinationVC?.tournament = tournyTakeOff
-
+            if tournySearch == true{
+                let tournyTakeOff = tournaments?[indexPath.row]
+                destinationVC?.tournament = tournyTakeOff
+            }
+            if matchesSearch == true{
+                let matchTakeOff = matches?[indexPath.row]
+                destinationVC?.match = matchTakeOff
+            }
         }
-        //        i
-        //        d
-        //        o
-        //        o
-
     }
-    
-    
-    
 }
 
 

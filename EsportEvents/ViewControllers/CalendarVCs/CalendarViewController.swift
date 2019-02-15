@@ -15,6 +15,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     @IBOutlet var swipeRightGesture: UISwipeGestureRecognizer!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var eventTypeLabel: UILabel!
     
     
     var matchesSearch : Bool? = false
@@ -25,7 +26,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     var events : [UpcomingTourny] = []
     var dateEvents : [[UpcomingTourny]] = []
     var swipeRight = true
-    
+//    var selectedDateSection : Date?
     
     let todayDate = Date()
     let upcomingTourny = UpcomingTourny.self
@@ -37,7 +38,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             tableView.reloadData()
         }
     }
-    var gameAndDateSpecificMatches: [Date:[Matches]] = [:]{
+    var gameAndDateSpecificMatches: [Date:[Match]] = [:]{
         didSet{
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -45,7 +46,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         }
     }
     
-    var allMatches: [Date:[Matches]] = [:]{
+    var allMatches: [Date:[Match]] = [:]{
         didSet{
             tableView.reloadData()
         }
@@ -76,20 +77,20 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             for (date, _) in gameAndDateSpecificMatches.sorted(by: {$0.key < $1.key}){
                 if !dateSections.contains(date){
                     dateSections.append(date)
+                    
                 }
             }
         }
         if tournySearch == true{
             for (date, _) in gameAndDateSpecificTournamentsFromServer.sorted(by: {$0.key < $1.key})
             {
+                
                 if !dateSections.contains(date) {
                     dateSections.append(date)
 //                    print("🔥♊️\(dateSections)")
                 }
             }
         }
-        
-        
         if swipeRight == true{
             previousDate = dateSections.first
         }else{
@@ -187,12 +188,16 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     @IBAction func matchesButtonTapped(_ sender: Any) {
         matchesSearch = true
+        tournySearch = false
+        eventTypeLabel.text = "Matches"
 //        calendarView.reloadData()
 //        tableView.reloadData()
         self.calendarView.scrollToDate((dateRange?.first)!, animateScroll: false)
     }
     @IBAction func tournamentsButton(_ sender: Any) {
         matchesSearch = false
+        tournySearch = true
+        eventTypeLabel.text = "Tournaments"
         self.calendarView.scrollToDate((dateRange?.first)!)
     }
     
@@ -226,6 +231,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         sideMenuRound.layer.cornerRadius = self.view.frame.width/1.2
         hideMenu()
         self.navigationController?.isNavigationBarHidden = true
+        eventTypeLabel.text = "Tournaments"
             }
     
     @IBAction func sideMenuButtonTapped(_ sender: Any) {
@@ -238,7 +244,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         hideMenu()
     }
     
-    func getMatches(completion: ([Date:[Matches]]?, [Date:[Matches]]?) -> Void){
+    func getMatches(completion: ([Date:[Match]]?, [Date:[Match]]?) -> Void){
         guard let dateRange = dateRange,
             let first = dateRange.first,
             let last = dateRange.last else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -522,6 +528,36 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
         
+        
+        if datesWithEvents.contains(date.asString){
+//            print("🌶🥶⚡️ selected Date With Event \(date) ")
+        } else {
+//            print("🍄⛵️")
+        }
+        
+//        var theDateSections : [Date] = []
+//        for dateSection in dateSections {
+//
+//        let dateSectionComponents = Calendar.current.dateComponents([.day,.month,.year], from: dateSection)
+//            let dateSection = Calendar.current.date(from: dateSectionComponents)
+//
+//            theDateSections.append(dateSection!)
+//        }
+//
+//        print("🌶⛵️🌸\(theDateSections)")
+        
+        
+        
+        
+//        if dateSections.contains(date){
+//            print("🌶⛵️🌸\(dateSections.index(of: date))")
+//            selectedDateSection = date
+//            tableView.reloadData()
+//        } else {
+//            selectedDateSection = nil
+//            tableView.reloadData()
+//        }
+        
         //play with dates here, configure
         print(date.asString)
         print(date)
@@ -545,6 +581,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
     //VV swipe action
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setUpViewsOfCalendar(from: visibleDates)
+        
+
 //        calendar.scrollToDate(Date())
         let previousDateRange = dateRange
         
@@ -582,13 +620,17 @@ if self.matchesSearch == false{
                         let nextDate = self.findNearestDate(datesToSift: self.pastAndFutureEvents, currentDateRange: self.dateRange!, swipeRight: self.swipeRight)
                         //                    print("NextDate 🛶\(nextDate)")
                         //                    print("previous date🏓\(self.previousDate)")
-                        
+//                        let theNextDateComponents = Calendar.current.dateComponents([.day,.month,.year], from: nextDate)
+//                        let thePreviousDateComponents = Calendar.current.dateComponents([.day,.month,.year], from: self.previousDate!)
+//                        guard let theNextDate = Calendar.current.date(from: theNextDateComponents) else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//                        let thePreviousDate = Calendar.current.date(from: thePreviousDateComponents)
+                       
+
                         if self.previousDate == nextDate{
                             //PRESENT ALERT
                             self.presentNoFurtherDateAlert(actionHandler: { (_) in
                                 self.previousDate = nextDate
                                 calendar.scrollToDate(nextDate)
-                                
                             })
                         } else {
                             calendar.scrollToDate(nextDate)
@@ -616,7 +658,11 @@ if self.matchesSearch == false{
                     let nextDate = self.findNearestDate(datesToSift: self.pastAndFutureEvents, currentDateRange: self.dateRange!, swipeRight: self.swipeRight)
                     
                     
-                        
+//                    let theNextDateComponents = Calendar.current.dateComponents([.day,.month,.year], from: nextDate)
+//                    let thePreviousDateComponents = Calendar.current.dateComponents([.day,.month,.year], from: self.previousDate!)
+//                    guard let theNextDate = Calendar.current.date(from: theNextDateComponents) else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//                    let thePreviousDate = Calendar.current.date(from: thePreviousDateComponents)
+                    
                     if self.previousDate == nextDate {
                         self.presentNoFurtherDateAlert(actionHandler: { (_) in
                             self.previousDate = nextDate

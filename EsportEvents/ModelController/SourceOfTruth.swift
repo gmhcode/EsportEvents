@@ -20,27 +20,23 @@ class SourceOfTruth {
     var overwatchTournaments : [Date:[UpcomingTourny]]?
     var lolTournaments : [Date:[UpcomingTourny]]?
     var csgoTournaments : [Date:[UpcomingTourny]]?
-    
     var thisMonthsTournyByGame : [Date: [UpcomingTourny]] = [:]
+    var noNameTournaments : [Date:[UpcomingTourny]]?
     
-     var noNameTournaments : [Date:[UpcomingTourny]]?
+    var dotaMatches : [Date: [Match]] = [:]
+    var pubgMatches : [Date: [Match]] = [:]
+    var overwatchMatches : [Date: [Match]] = [:]
+    var lolMatches : [Date: [Match]] = [:]
+    var csgoMatches : [Date: [Match]] = [:]
+    var noNameMatches : [Date: [Match]] = [:]
+    var thisMonthsMatchesByGame : [Date: [Match]] = [:]
     
-    var dotaMatches : [Date: [Matches]] = [:]
-    var pubgMatches : [Date: [Matches]] = [:]
-    var overwatchMatches : [Date: [Matches]] = [:]
-    var lolMatches : [Date: [Matches]] = [:]
-    var csgoMatches : [Date: [Matches]] = [:]
-    var noNameMatches : [Date: [Matches]] = [:]
+    var allTeams : [Teams] = []
     
-    var thisMonthsMathesByGame : [Date: [Matches]] = [:]
-    
-    
-    var dotaMatchesCorrect : [Date: [Matches]] = [:]
-    
-    
+    var dotaMatchesCorrect : [Date: [Match]] = [:]
     var currentImageGameName : String?
     
-    
+    var tournamentIDs : [Int] = []
     
     var dota2Tournies : [UpcomingTourny]?
 //    var pubgTournaments : [UpcomingTourny]?
@@ -124,7 +120,63 @@ class SourceOfTruth {
 //    var games = ["Dota 2", "PUBG", "CS:GO", "LoL", "Overwatch"]
 //
     
-    func allMatchesForGame(currentImageGameName: String) -> [Date:[Matches]]{
+    func populateTournamentIdsAndTeams(from tournaments: [UpcomingTourny]){
+        tournaments.forEach({
+            tournamentIDs.append($0.id)
+            populateAllTeams(from: $0)
+        })
+//        print("🥶🔥all Teams \(allTeams)")
+//        print("♊️❌tourny id's\(tournamentIDs)")
+    }
+    
+    func populateAllTeams(from tournament: UpcomingTourny){
+        tournament.teams?.forEach({
+            allTeams.append($0)
+        })
+    }
+    
+    func fetchTournament(from ID : Int) -> UpcomingTourny{
+        
+        var returningTournament : UpcomingTourny? = nil
+        
+        for tournament in UpcomingTounaments!{
+            if tournament.id == ID {
+                returningTournament = tournament
+            }
+        }
+
+        return returningTournament ?? (UpcomingTounaments?[0])!
+    }
+    
+    func fetchLeague(from id: Int) -> League {
+        
+        var league : League?
+        
+        UpcomingTounaments?.forEach({
+            if $0.leagueId == id{
+                league = $0.league
+            }
+        })
+        return league!
+    }
+    
+    func fetchTeam(from id: Int) -> Teams{
+        
+        var returningTeam : Teams? = nil
+        
+        allTeams.forEach({
+            if $0.id == id{
+                returningTeam = $0
+            }
+        })
+        return returningTeam ?? allTeams[0]
+    }
+    
+    
+    
+    
+    
+    func allMatchesForGame(currentImageGameName: String) -> [Date:[Match]]{
         
         switch currentImageGameName {
         case "Dota 2":
@@ -160,8 +212,8 @@ class SourceOfTruth {
     
     
     
-    func filterMatchesByDate(firstOfMonth: Date, lastOfMonth: Date, currentImageGameName: String) -> [Date:[Matches]]{
-        var allGameMatches : [Date:[Matches]]?
+    func filterMatchesByDate(firstOfMonth: Date, lastOfMonth: Date, currentImageGameName: String) -> [Date:[Match]]{
+        var allGameMatches : [Date:[Match]]?
         
         switch currentImageGameName {
             case "Dota 2":
@@ -178,7 +230,7 @@ class SourceOfTruth {
             print("no name game")
         }
         
-        var thisMonthsMatches : [Date : [Matches]] = [:]
+        var thisMonthsMatches : [Date : [Match]] = [:]
         guard let allMatches = allGameMatches else { return [:] }
         
         
@@ -197,7 +249,7 @@ class SourceOfTruth {
                 }
             }
         }
-        thisMonthsMathesByGame = thisMonthsMatches
+        thisMonthsMatchesByGame = thisMonthsMatches
         return thisMonthsMatches
     }
     
@@ -244,7 +296,7 @@ class SourceOfTruth {
     
     
     
-    func filterMatchesFromTourny(matches: [Matches], tounament: UpcomingTourny){
+    func filterMatchesFromTourny(matches: [Match], tounament: UpcomingTourny){
         
         for match in matches{
             
@@ -370,7 +422,7 @@ class SourceOfTruth {
                         filterMatchesFromTourny(matches: matches, tounament: $0)
                         
                         
-                        print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
+//                        print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
                         
                         
                     case "PUBG":

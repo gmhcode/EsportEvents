@@ -16,7 +16,10 @@ struct UpcomingTourny: Decodable{
     let beginTime : String?
     let slug : String?
     let teams : [Teams]?
-    let matches : [Matches]?
+    let matches : [Match]?
+    let league : League
+    let leagueId : Int?
+    let id : Int
     
     private enum CodingKeys: String, CodingKey{
         case videoGame = "videogame"
@@ -26,8 +29,10 @@ struct UpcomingTourny: Decodable{
         case slug = "slug"
         case teams = "teams"
         case matches = "matches"
+        case league = "league"
+        case leagueId = "league_id"
+        case id = "id"
     }
-    
 }
 
 struct SeriesDictionary: Decodable {
@@ -38,8 +43,6 @@ struct SeriesDictionary: Decodable {
     let slug : String?
     
     
-    
-    
     private enum CodingKeys: String, CodingKey{
         case beginTime = "begin_at"
         case endTime = "end_at"
@@ -47,17 +50,20 @@ struct SeriesDictionary: Decodable {
         case slug = "slug"
     }
 }
+
  struct UpcomingTournyVideoGameName: Decodable {
     
     let name : String?
 }
-struct Matches: Decodable{
+
+struct Match: Decodable{
     let winnerId : Int?
     let numberOfGames : Int?
     let beginTime : String?
     let slug : String?
     let name : String?
-    
+    let tournamentId : Int
+    let id : Int
     
     
     private enum CodingKeys: String, CodingKey{
@@ -66,9 +72,12 @@ struct Matches: Decodable{
         case beginTime = "begin_at"
         case slug = "slug"
         case name = "name"
+        case tournamentId = "tournament_id"
+        case id = "id"
         
     }
 }
+
 struct Teams: Decodable {
     let slug : String?
     let name : String
@@ -84,7 +93,19 @@ struct Teams: Decodable {
         case acronym = "acronym"
         
     }
+}
+
+struct League: Decodable {
+    let slug : String?
+    let name : String
+    let imageUrl : URL?
+    let id : Int?
     
     
-    
+    private enum CodingKeys: String, CodingKey{
+        case slug = "slug"
+        case name = "name"
+        case imageUrl = "image_url"
+        case id = "id"
+    }
 }

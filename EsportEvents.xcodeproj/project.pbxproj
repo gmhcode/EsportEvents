@@ -28,6 +28,7 @@
 		90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */; };
 		90EDA51C22133CD3002EBAEF /* GameTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51B22133CD3002EBAEF /* GameTitleCollectionViewCell.swift */; };
 		90EDA51E22133FEF002EBAEF /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51D22133FEF002EBAEF /* SideMenu.swift */; };
+		90F1913522164AC4001B2881 /* FullMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F1913422164AC4001B2881 /* FullMatch.swift */; };
 		B6997A94F6C478FB12436283 /* Pods_EsportEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CACD1B6F2E9706FADD3FB8 /* Pods_EsportEvents.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionViewController.swift; sourceTree = "<group>"; };
 		90EDA51B22133CD3002EBAEF /* GameTitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		90EDA51D22133FEF002EBAEF /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		90F1913422164AC4001B2881 /* FullMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullMatch.swift; sourceTree = "<group>"; };
 		C699871BC417533AFEC160BF /* Pods-EsportEvents.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsportEvents.release.xcconfig"; path = "Pods/Target Support Files/Pods-EsportEvents/Pods-EsportEvents.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				909245B0220BC23C00D8BF37 /* UpcomingTourny.swift */,
+				90F1913422164AC4001B2881 /* FullMatch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				9092459F220BB34100D8BF37 /* ViewController.swift in Sources */,
 				90175C3A220E04C600D60678 /* GameTitleCollectionView.swift in Sources */,
 				909245BF220BD83F00D8BF37 /* SourceOfTruth.swift in Sources */,
+				90F1913522164AC4001B2881 /* FullMatch.swift in Sources */,
 				909245BD220BD57000D8BF37 /* asString.swift in Sources */,
 				90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */,
 				909245B1220BC23C00D8BF37 /* UpcomingTourny.swift in Sources */,

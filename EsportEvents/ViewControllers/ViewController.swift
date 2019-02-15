@@ -23,11 +23,13 @@ class ViewController: UIViewController {
            
             
             NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
-                
+            
                     
                     
                     guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                    
+                
+                SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
+                
                     var allTournaments: [Date: [UpcomingTourny]] = [:]
                     var tournaments: [Date: [UpcomingTourny]] = [:]
                     
