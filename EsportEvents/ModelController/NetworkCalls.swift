@@ -68,9 +68,9 @@ class NetworkCall{
                 completion(nil)
                 return
             }
-            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+            guard let myData = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
             
-            let image = UIImage(data: data)
+            let image = UIImage(data: myData)
             completion(image)
             
             }.resume()

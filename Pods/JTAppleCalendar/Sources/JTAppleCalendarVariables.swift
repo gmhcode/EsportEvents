@@ -75,6 +75,7 @@ extension JTAppleCalendarView {
     }
     
     var calendarViewLayout: JTAppleCalendarLayout {
+        
         guard let layout = collectionViewLayout as? JTAppleCalendarLayout else {
             developerError(string: "Calendar layout is not of type JTAppleCalendarLayout.")
             return JTAppleCalendarLayout(withDelegate: self)

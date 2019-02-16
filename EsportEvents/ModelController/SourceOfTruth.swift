@@ -498,35 +498,45 @@ class SourceOfTruth {
             }
         }
     }
+    
+    func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
+        
+        
+        
+        NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
+            
+            guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+            
+            SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
+            
+            var allTournaments: [Date: [UpcomingTourny]] = [:]
+            var tournaments: [Date: [UpcomingTourny]] = [:]
+            
+            
+            if fetchedTournaments.isEmpty == false {
+                //print("🔥❇️\(fetchedTournaments)")
+                for tournament in fetchedTournaments{
+                    //print("🌞🍄\(tournament)")
+                    
+                    guard let tournamentDate = tournament.beginTime?.asCrazyDate
+                        else { continue }
+                    //print("  ❌🔥🤥 \(tournamentDateStringPre)")
+                    if tournaments.keys.contains(tournamentDate){
+                        
+                        tournaments[tournamentDate]?.append(tournament)
+                        
+                    } else {
+                        
+                        tournaments[tournamentDate] = [tournament]
+                    }
+                }
+                SourceOfTruth.shared.everyTournament = tournaments
+                SourceOfTruth.shared.filterTournyByGameName(tournaments: tournaments)
+                completion(tournaments)
+                //print(tournaments)
+            }
+        }
+    }
 }
 
 
-//var dateSections: [Date] {
-//    var dateSections: [Date] = []
-//    guard let everyTournament = everyTournament else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return dateSections }
-//
-//    //sets all the dates in order by date
-//    for (date, _) in everyTournament.sorted(by: {$0.key < $1.key})
-//    {
-//        if !dateSections.contains(date) {
-//            dateSections.append(date)
-//        }
-//    }
-//
-//
-//    return dateSections
-//}
-
-//        if tournaments.keys.contains(tournamentDate){
-//
-//            tournaments[tournamentDate]?.append($0)
-
-
-//        } else {
-//
-//            if tournamentDate >= first && tournamentDate <= last && tournamentName.contains(self.currentImageGameName) {
-//                tournaments[tournamentDate] = [tournament]
-//                //
-//            }
-//
-//            }
