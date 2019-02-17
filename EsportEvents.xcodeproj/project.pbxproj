@@ -10,8 +10,6 @@
 		90175C3A220E04C600D60678 /* GameTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90175C39220E04C600D60678 /* GameTitleCollectionView.swift */; };
 		9092459D220BB34100D8BF37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9092459C220BB34100D8BF37 /* AppDelegate.swift */; };
 		9092459F220BB34100D8BF37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9092459E220BB34100D8BF37 /* ViewController.swift */; };
-		909245A4220BB34200D8BF37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909245A3220BB34200D8BF37 /* Assets.xcassets */; };
-		909245A7220BB34200D8BF37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 909245A5220BB34200D8BF37 /* LaunchScreen.storyboard */; };
 		909245B1220BC23C00D8BF37 /* UpcomingTourny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245B0220BC23C00D8BF37 /* UpcomingTourny.swift */; };
 		909245B4220BC90200D8BF37 /* NetworkCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245B3220BC90200D8BF37 /* NetworkCalls.swift */; };
 		909245B7220BD3A500D8BF37 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245B6220BD3A500D8BF37 /* CalendarViewController.swift */; };
@@ -25,6 +23,7 @@
 		909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */; };
 		909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245D9220CE04800D8BF37 /* EsportCell.swift */; };
 		90E99AD5221761550083B214 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E99AD4221761550083B214 /* IntroView.swift */; };
+		90E99AD72218C9BC0083B214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E99AD62218C9BC0083B214 /* Assets.xcassets */; };
 		90EA916822123F2300F11388 /* CalendarHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */; };
 		90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */; };
 		90EDA51C22133CD3002EBAEF /* GameTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51B22133CD3002EBAEF /* GameTitleCollectionViewCell.swift */; };
@@ -40,8 +39,6 @@
 		90924599220BB34100D8BF37 /* EsportEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EsportEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9092459C220BB34100D8BF37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9092459E220BB34100D8BF37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		909245A3220BB34200D8BF37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		909245A6220BB34200D8BF37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		909245A8220BB34200D8BF37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		909245B0220BC23C00D8BF37 /* UpcomingTourny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTourny.swift; sourceTree = "<group>"; };
 		909245B3220BC90200D8BF37 /* NetworkCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCalls.swift; sourceTree = "<group>"; };
@@ -56,6 +53,7 @@
 		909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
 		909245D9220CE04800D8BF37 /* EsportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsportCell.swift; sourceTree = "<group>"; };
 		90E99AD4221761550083B214 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		90E99AD62218C9BC0083B214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelperFunctions.swift; sourceTree = "<group>"; };
 		90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionViewController.swift; sourceTree = "<group>"; };
 		90EDA51B22133CD3002EBAEF /* GameTitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTitleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -148,9 +146,8 @@
 		909245BA220BD4FD00D8BF37 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				90E99AD62218C9BC0083B214 /* Assets.xcassets */,
 				9092459C220BB34100D8BF37 /* AppDelegate.swift */,
-				909245A3220BB34200D8BF37 /* Assets.xcassets */,
-				909245A5220BB34200D8BF37 /* LaunchScreen.storyboard */,
 				909245A8220BB34200D8BF37 /* Info.plist */,
 			);
 			path = Resources;
@@ -283,9 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				909245C5220CB51F00D8BF37 /* Main.storyboard in Resources */,
-				909245A7220BB34200D8BF37 /* LaunchScreen.storyboard in Resources */,
+				90E99AD72218C9BC0083B214 /* Assets.xcassets in Resources */,
 				909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */,
-				909245A4220BB34200D8BF37 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,17 +362,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		909245A5220BB34200D8BF37 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				909245A6220BB34200D8BF37 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		909245A9220BB34200D8BF37 /* Debug */ = {
@@ -500,6 +485,7 @@
 			baseConfigurationReference = 20D5FA2F6B110F8DEA945203 /* Pods-EsportEvents.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 57FTCZV5HS;
 				INFOPLIST_FILE = "$(SRCROOT)/EsportEvents/Resources/Info.plist";
@@ -519,6 +505,7 @@
 			baseConfigurationReference = C699871BC417533AFEC160BF /* Pods-EsportEvents.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 57FTCZV5HS;
 				INFOPLIST_FILE = "$(SRCROOT)/EsportEvents/Resources/Info.plist";
