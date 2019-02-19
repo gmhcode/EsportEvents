@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "572299385.2023031"
+            timestampString = "572307552.598984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "444"
-            endingLineNumber = "444"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "handleCellEvents(cell:cellState:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "572299385.203084"
+            timestampString = "572307552.599062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "591"
-            endingLineNumber = "591"
+            startingLineNumber = "585"
+            endingLineNumber = "585"
             landmarkName = "calendar(_:didScrollToDateSegmentWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "572299385.203529"
+            timestampString = "572307552.59912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "596"
-            endingLineNumber = "596"
+            startingLineNumber = "590"
+            endingLineNumber = "590"
             landmarkName = "calendar(_:didScrollToDateSegmentWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "572299385.204018"
+            timestampString = "572307552.5991729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -166,11 +166,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "572299385.20447"
+            timestampString = "572307552.599228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "593"
-            endingLineNumber = "593"
+            startingLineNumber = "587"
+            endingLineNumber = "587"
             landmarkName = "calendar(_:didScrollToDateSegmentWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -182,11 +182,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "572299385.204983"
+            timestampString = "572307552.59928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
+            startingLineNumber = "595"
+            endingLineNumber = "595"
             landmarkName = "calendar(_:didScrollToDateSegmentWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -194,143 +194,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-            timestampString = "572299385.205373"
+            timestampString = "572312287.7803971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "setMatchImages()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-            timestampString = "572299385.205489"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "setMatchImages()"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "fetchMatchImagesAndLabels()"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "EsportEvents.EventDescriptionViewController.setMatchImages() -&gt; ()"
+                  symbolName = "EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
                   moduleName = "EsportEvents"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-                  timestampString = "571948732.567431"
+                  timestampString = "572310515.0657589"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "373">
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "414">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.setMatchImages() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
                   moduleName = "EsportEvents"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-                  timestampString = "571948732.569007"
+                  timestampString = "572310515.068941"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "53">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-            timestampString = "572299385.205601"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "setMatchImages()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-            timestampString = "572299385.2056659"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "setMatchImages()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-            timestampString = "572299385.2057689"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "setMatchImages()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Optional&lt;EsportEvents.FullMatch&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.setMatchImages() -&gt; ()"
-                  moduleName = "EsportEvents"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-                  timestampString = "571948732.579837"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "936">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in closure #2 (Swift.Optional&lt;EsportEvents.FullMatch&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.setMatchImages() -&gt; ()"
-                  moduleName = "EsportEvents"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
-                  timestampString = "571948732.581395"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "41">
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "78">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -341,8 +245,24 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.781758"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "571966754.169816"
+            timestampString = "572312287.7821929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -351,14 +271,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "EsportEvents.NetworkCall.fetchImage(from: Foundation.URL, completion: (Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "EsportEvents"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ModelController/NetworkCalls.swift"
-                  timestampString = "571962444.140039"
+                  timestampString = "572310187.252233"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "65"
@@ -366,14 +286,14 @@
                   offsetFromSymbolStart = "45">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in EsportEvents.NetworkCall.fetchImage(from: Foundation.URL, completion: (Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "EsportEvents"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ModelController/NetworkCalls.swift"
-                  timestampString = "571962444.142277"
+                  timestampString = "572310187.254289"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "66"
@@ -386,11 +306,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "571966754.169857"
+            timestampString = "572312287.782269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -399,14 +319,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "EsportEvents.NetworkCall.fetchImage(from: Foundation.URL, completion: (Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "EsportEvents"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ModelController/NetworkCalls.swift"
-                  timestampString = "571962444.148891"
+                  timestampString = "572310187.260115"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -414,14 +334,14 @@
                   offsetFromSymbolStart = "329">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in EsportEvents.NetworkCall.fetchImage(from: Foundation.URL, completion: (Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "EsportEvents"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ModelController/NetworkCalls.swift"
-                  timestampString = "571962444.15815"
+                  timestampString = "572310187.262408"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
@@ -434,16 +354,336 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "571966754.169891"
+            timestampString = "572312287.782338"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "fetchImage(from:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.782408"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
+                  moduleName = "EsportEvents"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+                  timestampString = "572310515.077323"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "843">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
+                  moduleName = "EsportEvents"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+                  timestampString = "572310515.0788929"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.783057"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.783636"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.783971"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
+                  moduleName = "EsportEvents"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+                  timestampString = "572310515.089924"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "465">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;EsportEvents.FullMatch&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
+                  moduleName = "EsportEvents"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+                  timestampString = "572310515.091436"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "125">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.784286"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.784583"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.784878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.785197"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;EsportEvents.FullMatch&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
+                  moduleName = "EsportEvents"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+                  timestampString = "572310515.1047291"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "3715">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in closure #2 (Swift.Optional&lt;EsportEvents.FullMatch&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.UIImage&gt;) -&gt; () in EsportEvents.EventDescriptionViewController.fetchMatchImagesAndLabels() -&gt; ()"
+                  moduleName = "EsportEvents"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+                  timestampString = "572310515.106246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.7854919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.78582"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.786116"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.786407"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.786698"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "fetchMatchImagesAndLabels()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EsportEvents/ViewControllers/EventDescriptionViewController.swift"
+            timestampString = "572312287.786989"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "fetchMatchImagesAndLabels()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

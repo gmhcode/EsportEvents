@@ -24,6 +24,7 @@
 		909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245D9220CE04800D8BF37 /* EsportCell.swift */; };
 		90E62674221C94C60062D96C /* UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62673221C94C60062D96C /* UnderLine.swift */; };
 		90E62676221C961C0062D96C /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62675221C961C0062D96C /* Borders.swift */; };
+		90E62678221CAC930062D96C /* UIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62677221CAC930062D96C /* UIFunctions.swift */; };
 		90E99AD5221761550083B214 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E99AD4221761550083B214 /* IntroView.swift */; };
 		90E99AD72218C9BC0083B214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E99AD62218C9BC0083B214 /* Assets.xcassets */; };
 		90EA916822123F2300F11388 /* CalendarHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */; };
@@ -56,6 +57,7 @@
 		909245D9220CE04800D8BF37 /* EsportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsportCell.swift; sourceTree = "<group>"; };
 		90E62673221C94C60062D96C /* UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLine.swift; sourceTree = "<group>"; };
 		90E62675221C961C0062D96C /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
+		90E62677221CAC930062D96C /* UIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFunctions.swift; sourceTree = "<group>"; };
 		90E99AD4221761550083B214 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		90E99AD62218C9BC0083B214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelperFunctions.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				909245CA220CC4FC00D8BF37 /* CalendarVCs */,
 				90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */,
 				90E99AD4221761550083B214 /* IntroView.swift */,
+				90E62677221CAC930062D96C /* UIFunctions.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				909245B1220BC23C00D8BF37 /* UpcomingTourny.swift in Sources */,
 				909245C7220CB58A00D8BF37 /* CalendarTableView.swift in Sources */,
 				909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */,
+				90E62678221CAC930062D96C /* UIFunctions.swift in Sources */,
 				909245B4220BC90200D8BF37 /* NetworkCalls.swift in Sources */,
 				9092459D220BB34100D8BF37 /* AppDelegate.swift in Sources */,
 			);

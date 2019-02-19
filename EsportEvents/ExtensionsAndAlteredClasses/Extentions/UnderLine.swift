@@ -34,5 +34,11 @@ func addOverline() {
     NSLayoutConstraint(item: line, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0).isActive = true
     NSLayoutConstraint(item: line, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 1).isActive = true
 }
+    
+    func illuminateView(){
+        self.layer.shadowRadius = 5
+        self.layer.shadowColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.layer.shadowOpacity = 1
+    }
 
 }

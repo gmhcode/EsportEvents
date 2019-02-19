@@ -308,13 +308,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         tableView.layer.borderWidth = 1
         
-        
-        tableView.addBorders(edges: [.top], color: #colorLiteral(red: 0.9867876172, green: 0.2802347839, blue: 0.07607873529, alpha: 1), inset: 0, thickness: 1)
-//        tableView.layer.addBorders(edges: [.top], color: #colorLiteral(red: 0.9867876172, green: 0.2802347839, blue: 0.07607873529, alpha: 1))
-        // Usage:
-        //    view.addBorder(edges: [.all]) // All with default arguments
-        //    view.addBorder(edges: [.top], color: .green) // Just Top, green, default thickness
-        //    view.addBorder(edges: [.left, .right, .bottom], color: .red, thickness: 3) // All except Top, red, thickness 3
+ 
         
 
     }
