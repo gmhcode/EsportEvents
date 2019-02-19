@@ -211,6 +211,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         super.viewWillAppear(animated)
         DispatchQueue.main.async {
 
+            
+            
             self.getTournaments { (allTournaments, tournaments)  in
                 guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
 
@@ -254,6 +256,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         loadingScreen.alpha = 1
         loadingScreen.center = view.center
         view.addSubview(loadingScreen)
+        
         
        
         
@@ -303,8 +306,15 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         filterButton.layer.shadowRadius = 5
         filterButton.layer.shadowOpacity = 1
         
+        tableView.layer.borderWidth = 1
         
         
+        tableView.addBorders(edges: [.top], color: #colorLiteral(red: 0.9867876172, green: 0.2802347839, blue: 0.07607873529, alpha: 1), inset: 0, thickness: 1)
+//        tableView.layer.addBorders(edges: [.top], color: #colorLiteral(red: 0.9867876172, green: 0.2802347839, blue: 0.07607873529, alpha: 1))
+        // Usage:
+        //    view.addBorder(edges: [.all]) // All with default arguments
+        //    view.addBorder(edges: [.top], color: .green) // Just Top, green, default thickness
+        //    view.addBorder(edges: [.left, .right, .bottom], color: .red, thickness: 3) // All except Top, red, thickness 3
         
 
     }

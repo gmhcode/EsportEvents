@@ -86,30 +86,35 @@ extension CalendarViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "eventSegue", sender: nil)
+        performSegue(withIdentifier: "eventSegue", sender: nil)
     }
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        //        i
-//        if segue.identifier == "eventSegue"{
-//            guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-//            let dateSection = dateSections[indexPath.section]
-//            let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection]
-//            let matches = gameAndDateSpecificMatches[dateSection]
-//            let destinationVC = segue.destination as? EventDescriptionViewController
-//
-//
-//            if tournySearch == true{
-//                let tournyTakeOff = tournaments?[indexPath.row]
-//                destinationVC?.tournament = tournyTakeOff
-//            }
-//            if matchesSearch == true{
-//                let matchTakeOff = matches?[indexPath.row]
-//                destinationVC?.match = matchTakeOff
-//            }
-//        }
-//    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "eventSegue"{
+            guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+            let dateSection = dateSections[indexPath.section]
+            let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection]
+            let matches = gameAndDateSpecificMatches[dateSection]
+            let destinationVC = segue.destination as? EventDescriptionViewController
+
+
+            if tournySearch == true{
+                let tournyTakeOff = tournaments?[indexPath.row]
+                destinationVC?.tournament = tournyTakeOff
+            }
+            if matchesSearch == true{
+                let matchTakeOff = matches?[indexPath.row]
+                destinationVC?.match = matchTakeOff
+            }
+        }
+    }
+    
+    
+    
 }
 
 

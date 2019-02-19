@@ -29,14 +29,21 @@ class EventDescriptionViewController: UIViewController {
         if match != nil {
            setMatchImages()
         }
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+       
     }
     func setMatchImages(){
         guard let match = match else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
         
         let tourny = SourceOfTruth.shared.fetchTournament(from: match.tournamentId)
         let league = tourny.league
+        let dispatchGroup = DispatchGroup()
         guard let imageUrl = league.imageUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
         
+        dispatchGroup.enter()
             NetworkCall.shared.fetchImage(from: imageUrl) { (leagueImage) in
                 DispatchQueue.main.async {
                 self.leagueImageView.image = leagueImage
@@ -44,10 +51,13 @@ class EventDescriptionViewController: UIViewController {
                 NetworkCall.shared.fetchFullMatch(from: match.id, completion: { (fullMatch) in
                     guard let imageUrl = fullMatch?.opponents[0].opponent.image_url,
                         let imageUrl2 =  fullMatch?.opponents[1].opponent.image_url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                    
+                    print(imageUrl)
                     NetworkCall.shared.fetchImage(from: imageUrl , completion: { (leftTeamImage) in
+                        
                          DispatchQueue.main.async {
+                            if let leftTeamImage = leftTeamImage {
                         self.team1Image.image = leftTeamImage
+                            }
                         }
                     })
                     NetworkCall.shared.fetchImage(from: imageUrl2, completion: { (rightTeamImage) in
@@ -57,6 +67,8 @@ class EventDescriptionViewController: UIViewController {
                     })
                 })
             }
+        dispatchGroup.leave()
+        
         }
     }
     

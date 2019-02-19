@@ -22,6 +22,8 @@
 		909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */; };
 		909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */; };
 		909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245D9220CE04800D8BF37 /* EsportCell.swift */; };
+		90E62674221C94C60062D96C /* UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62673221C94C60062D96C /* UnderLine.swift */; };
+		90E62676221C961C0062D96C /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62675221C961C0062D96C /* Borders.swift */; };
 		90E99AD5221761550083B214 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E99AD4221761550083B214 /* IntroView.swift */; };
 		90E99AD72218C9BC0083B214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E99AD62218C9BC0083B214 /* Assets.xcassets */; };
 		90EA916822123F2300F11388 /* CalendarHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */; };
@@ -52,6 +54,8 @@
 		909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
 		909245D9220CE04800D8BF37 /* EsportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsportCell.swift; sourceTree = "<group>"; };
+		90E62673221C94C60062D96C /* UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLine.swift; sourceTree = "<group>"; };
+		90E62675221C961C0062D96C /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		90E99AD4221761550083B214 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		90E99AD62218C9BC0083B214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelperFunctions.swift; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 			children = (
 				909245BC220BD57000D8BF37 /* asString.swift */,
 				909245C0220CAD8600D8BF37 /* asDate.swift */,
+				90E62673221C94C60062D96C /* UnderLine.swift */,
+				90E62675221C961C0062D96C /* Borders.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -351,7 +357,9 @@
 				909245BF220BD83F00D8BF37 /* SourceOfTruth.swift in Sources */,
 				90F1913522164AC4001B2881 /* FullMatch.swift in Sources */,
 				909245BD220BD57000D8BF37 /* asString.swift in Sources */,
+				90E62674221C94C60062D96C /* UnderLine.swift in Sources */,
 				90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */,
+				90E62676221C961C0062D96C /* Borders.swift in Sources */,
 				90E99AD5221761550083B214 /* IntroView.swift in Sources */,
 				909245B1220BC23C00D8BF37 /* UpcomingTourny.swift in Sources */,
 				909245C7220CB58A00D8BF37 /* CalendarTableView.swift in Sources */,
