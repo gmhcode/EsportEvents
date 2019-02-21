@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIFunctions: UIViewController{
+class UIFunctions{
     
     static func invisibleNavBar(navigationController: UINavigationController?){
         
@@ -23,5 +23,11 @@ class UIFunctions: UIViewController{
     static func getNibCell(nibName: String, forCellReuseIdentifier: String, tableView: UITableView){
         let nibName = UINib(nibName: nibName, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: forCellReuseIdentifier)
+    }
+    
+    static func setCellAppearance(cell: UITableViewCell){
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = #colorLiteral(red: 0.9921568627, green: 0.6784313725, blue: 0.2117647059, alpha: 0.410932149)
+        cell.selectedBackgroundView = bgColorView
     }
 }

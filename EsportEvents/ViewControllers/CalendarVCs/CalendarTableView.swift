@@ -21,7 +21,7 @@ extension CalendarViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let dateSection = dateSections[section]
-        
+        print("dateSection ❌ \(dateSections[section].asString.asDateFromMMMDYYY)")
         if matchesSearch == false {
             guard let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection] else { return 0 }
             return tournaments.count

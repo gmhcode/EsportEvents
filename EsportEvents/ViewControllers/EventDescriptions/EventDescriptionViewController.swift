@@ -24,8 +24,14 @@ class EventDescriptionViewController: UIViewController {
     @IBOutlet weak var team2Label: UILabel!
     @IBOutlet weak var winnerLabel: UILabel!
     
+    @IBOutlet weak var noImageLabel2: UILabel!
+    @IBOutlet weak var noImageLabel: UILabel!
     
-    var team1ImageGlobal : UIImage?
+    var team1ImageGlobal : UIImage?{
+        didSet{
+            updateLabels()
+        }
+    }
     var team2ImageGlobal : UIImage?{
         didSet{
             updateLabels()
@@ -117,12 +123,25 @@ class EventDescriptionViewController: UIViewController {
             
                 dispatchGroup.enter()
                 NetworkCall.shared.fetchImage(from: imageUrl , completion: { (leftTeamImage) in
-                    self.team1ImageGlobal = leftTeamImage
+                    if leftTeamImage != nil {
+                        self.team1ImageGlobal = leftTeamImage
+                    }else {
+                        DispatchQueue.main.async {
+                            self.noImageLabel.isHidden = false
+                        }
+                    }
                     dispatchGroup.leave()
                 })
                 
                 dispatchGroup.enter()
                 NetworkCall.shared.fetchImage(from: imageUrl2, completion: { (rightTeamImage) in
+                    if rightTeamImage != nil {
+                        self.team2ImageGlobal = rightTeamImage
+                    }else {
+                         DispatchQueue.main.async {
+                        self.noImageLabel2.isHidden = false
+                        }
+                    }
                     self.team2ImageGlobal = rightTeamImage
                     dispatchGroup.leave()
                 })

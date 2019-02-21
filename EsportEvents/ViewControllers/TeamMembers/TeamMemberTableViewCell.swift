@@ -30,19 +30,22 @@ class TeamMemberTableViewCell: UITableViewCell {
 
         
         nameLabel.text = "Name: \(player.name)"
+        
         if player.firstName != nil && player.lastName != nil {
            fullNameLabel.text = "Full Name: \(String(describing: player.firstName!)) \(String(describing: player.lastName!))"
         } else{
             fullNameLabel.text = "Full Name: Unknown)"
         }
+        
         if player.hometown != nil {
             homeTownLabel.text = "Country/Town: \(player.hometown!)"
         }else {
             homeTownLabel.text = "Country/Town: Unknown"
         }
-        
-        playerImage.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         fetchImage()
+        playerImage.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        UIFunctions.setCellAppearance(cell: self)
+       
         
     }
     
@@ -63,7 +66,4 @@ class TeamMemberTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    
-    
 }

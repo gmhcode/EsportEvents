@@ -35,10 +35,7 @@ class CalendarTableViewCell: UITableViewCell {
     
     func updateViews(){
         
-        
-        let bgColorView = UIView()
-        bgColorView.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        self.selectedBackgroundView = bgColorView
+        UIFunctions.setCellAppearance(cell: self)
         
         setUpLabels()
         
@@ -160,7 +157,7 @@ class CalendarTableViewCell: UITableViewCell {
                 eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
                 eventNameLabel.layer.shadowOpacity = 1
             default:
-                gameLogo.image = #imageLiteral(resourceName: "settings")
+                gameLogo.image = #imageLiteral(resourceName: "Overwatch Logo")
             }
         }
     }

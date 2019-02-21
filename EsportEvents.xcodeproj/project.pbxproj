@@ -176,7 +176,6 @@
 				906C4608221DC4890017CCC3 /* EventDescriptions */,
 				901BAB88221E4E5400E82897 /* TeamMembers */,
 				90E99AD4221761550083B214 /* IntroView.swift */,
-				90E62677221CAC930062D96C /* UIFunctions.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -194,7 +193,7 @@
 		909245BB220BD51300D8BF37 /* ExtensionsAndAlteredClasses */ = {
 			isa = PBXGroup;
 			children = (
-				909245D7220CE02500D8BF37 /* Extentions */,
+				909245D7220CE02500D8BF37 /* ExtentionsAndGlobalFunctions */,
 			);
 			path = ExtensionsAndAlteredClasses;
 			sourceTree = "<group>";
@@ -224,15 +223,16 @@
 			path = CalendarVCs;
 			sourceTree = "<group>";
 		};
-		909245D7220CE02500D8BF37 /* Extentions */ = {
+		909245D7220CE02500D8BF37 /* ExtentionsAndGlobalFunctions */ = {
 			isa = PBXGroup;
 			children = (
+				90E62677221CAC930062D96C /* UIFunctions.swift */,
 				909245BC220BD57000D8BF37 /* asString.swift */,
 				909245C0220CAD8600D8BF37 /* asDate.swift */,
 				90E62673221C94C60062D96C /* UnderLine.swift */,
 				90E62675221C961C0062D96C /* Borders.swift */,
 			);
-			path = Extentions;
+			path = ExtentionsAndGlobalFunctions;
 			sourceTree = "<group>";
 		};
 		90EA916622123EFE00F11388 /* HelperFunctionsAndAlerts */ = {

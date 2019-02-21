@@ -167,7 +167,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             }
         }
         //vv open with todays date highlighted
-        self.calendarView.selectDates([Date()])
+//        self.calendarView.selectDates([Date()])
     }
     
     
@@ -321,15 +321,22 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         if cellState.isSelected{
             
-            validCell.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            validCell.dateLabel.textColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1)
+            validCell.dateLabel.illuminateView(color: #colorLiteral(red: 0, green: 1, blue: 0, alpha: 1))
+            validCell.dateLabel.layer.shadowRadius = 10
+            validCell.selectedView.isHidden = false
+            
             //sets color of text for selected days
         } else {
             if cellState.dateBelongsTo == .thisMonth{
-                //set color for cells of this month
+             //set color for cells of this month
+                
+                validCell.dateLabel.illuminateView(color: #colorLiteral(red: 0, green: 1, blue: 0, alpha: 0))
                 validCell.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             }else {
+                validCell.dateLabel.illuminateView(color: #colorLiteral(red: 0, green: 1, blue: 0, alpha: 0))
                 validCell.dateLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-                //sets colors outside this month but still in view
+             //sets colors outside this month but still in view
             }
         }
     }
@@ -338,7 +345,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
         
         guard let validCell = view as? CalendarCell else { return }
-        
         validCell.selectedView.isHidden = true
     }
     
@@ -441,14 +447,37 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
     // MARK: - Calendar color change when selecting and de-selecting
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
-        print(date.asString)
-        print(date)
+        //print(date.asString)
+        //print("date 🔥 \(date)")
         
         handleCellSelected(view:  cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         cellDotsAppear(cell: cell, cellState: cellState)
+        scrollToSelectedDate(date: date)
         
+       
     }
+    
+    func scrollToSelectedDate(date: Date){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        let dateAsString = dateFormatter.string(from: date)
+        
+        for (dateSection, dateToCompare) in dateSections.enumerated() {
+            
+            let dateSectionDateAsString = dateFormatter.string(from: dateToCompare)
+            
+            if dateAsString == dateSectionDateAsString {
+                
+                tableView.selectRow(at: IndexPath(item: 0, section: dateSection), animated: true, scrollPosition: .middle)
+                
+            } else {
+                continue
+            }
+        }
+    }
+    
     
     
     
@@ -457,6 +486,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
         handleCellSelected(view:  cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         cellDotsAppear(cell: cell, cellState: cellState)
+        
     }
     
     

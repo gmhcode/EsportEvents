@@ -26,6 +26,16 @@ extension String {
         return formatter.date(from: self)!
     }
     
+    var asDateFromMMMDYYY : Date {
+        
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "MMM-dd-yyy"
+        
+        return formatter.date(from: self)!
+        
+    }
+    
    
     
 
