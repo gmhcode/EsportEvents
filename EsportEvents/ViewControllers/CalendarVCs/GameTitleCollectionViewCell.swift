@@ -22,7 +22,6 @@ class GameTitleCollectionViewCell: UICollectionViewCell {
     
     func updateViews(){
         
-        
         switch gameTitleImages {
         case "Dota 2":
             gameLogo.image = #imageLiteral(resourceName: "Dota Logo")

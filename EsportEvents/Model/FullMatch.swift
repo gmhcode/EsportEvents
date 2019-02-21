@@ -38,6 +38,7 @@ struct Live : Decodable {
 struct Opponents: Decodable{
     
     let opponent : Opponent
+    let id : Int?
 }
 
 struct Opponent: Decodable {

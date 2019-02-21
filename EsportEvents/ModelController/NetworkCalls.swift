@@ -26,8 +26,6 @@ class NetworkCall{
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
         
-        //        print(fullUrl)
-        
         var request = URLRequest(url: fullUrl)
         request.httpMethod = "GET"
         request.httpBody = nil
@@ -54,9 +52,6 @@ class NetworkCall{
                 print("❌ There was an error in \(#function) : ❗️\(#file) \(#line) : \(error) : \(error.localizedDescription)")
                 completion(nil) ; return
             }
-            
-            
-            
             }.resume()
     }
     
@@ -99,7 +94,6 @@ class NetworkCall{
                 completion(nil)
                 return
             }
-            
             guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
             
             do {
@@ -114,5 +108,71 @@ class NetworkCall{
             }
         }.resume()
     }
+    
+    
+    
+    func fetchTeam(id: Int, completion: @escaping (Team?) -> ()){
+        
+        guard let baseUrl = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<");completion(nil); return}
+
+        let url = baseUrl.appendingPathComponent("teams").appendingPathComponent("\(id)").appendingPathExtension("json")
+        
+        let query = URLQueryItem(name: "token", value: apiKeY)
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = [query]
+        
+        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<");completion(nil); return}
+
+        
+        var request = URLRequest(url: fullUrl)
+        request.httpBody = nil
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<");completion(nil); return}
+            do{
+                let team = try JSONDecoder().decode(Team.self, from: data)
+                completion(team)
+            } catch{
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription)")
+                completion(nil)
+                return
+            }
+        }.resume()
+    }
+    
+//    func fetchTeamImages(id: String, completion: @escaping ([UIImage]?) -> ()){
+//        
+//        guard let baseUrl = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<");completion(nil); return}
+//        let url = baseUrl.appendingPathComponent("teams").appendingPathComponent(id).appendingPathExtension("json")
+//        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+//        let query = URLQueryItem(name: "token", value: apiKeY)
+//        
+//        components?.queryItems = [query]
+//        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<");completion(nil); return}
+//        
+//        var request = URLRequest(url: fullUrl)
+//        request.httpBody = nil
+//        request.httpMethod = "GET"
+//        
+//        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            if let error = error {
+//                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+//                completion(nil)
+//                return
+//            }
+//            
+//            guard let data = data  else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<");completion(nil); return}
+//            
+//            let images = UIImage(data: data)
+//            
+//        }
+//    }
 }
 

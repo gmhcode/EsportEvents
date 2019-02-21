@@ -31,11 +31,7 @@ extension CalendarViewController {
             self.sideMenuNotRound.transform = CGAffineTransform(translationX: -self.sideMenuRound.frame.width, y: 0)
             
             
-            
-            
         }, completion: { (complete) in
-//                            self.sideMenuNotRound.isHidden = true
-//                            self.sideMenu.isHidden = true
 
             
         })
@@ -55,9 +51,6 @@ extension CalendarViewController {
             self.sideMenu.alpha = 1
             
         }
-//        sideMenu.isHidden = false
-//        sideMenuNotRound.isHidden = false
-        
         UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseOut, .allowUserInteraction], animations: {
             self.sideMenuButton1.transform = .identity
             self.sideMenuButton7.transform = .identity

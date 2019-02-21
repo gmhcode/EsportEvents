@@ -34,16 +34,6 @@ class CalendarTableViewCell: UITableViewCell {
     
     
     func updateViews(){
-//        gameLogo.layer.borderWidth = 1
-//        gameLogo.layer.borderColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
-//        gameLogo.layer.shadowRadius = 10
-//        gameLogo.layer.shadowColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-//        gameLogo.layer.shadowOpacity = 1
-//        gameLogo.layer.shadowColor = CGSize(width: 0, height: 10)
-        
-       
-//        eventNameLabel.layer.shadowOffset = CGRect(
-        
         
         
         let bgColorView = UIView()
@@ -51,7 +41,6 @@ class CalendarTableViewCell: UITableViewCell {
         self.selectedBackgroundView = bgColorView
         
         setUpLabels()
-        
         
     }
     

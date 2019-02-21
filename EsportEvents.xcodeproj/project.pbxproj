@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		90175C3A220E04C600D60678 /* GameTitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90175C39220E04C600D60678 /* GameTitleCollectionView.swift */; };
+		901BAB87221E4E4400E82897 /* TeamMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAB86221E4E4400E82897 /* TeamMembersViewController.swift */; };
+		901BAB8A221E4E8C00E82897 /* TeamMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAB89221E4E8C00E82897 /* TeamMemberTableViewCell.swift */; };
+		901BAB8C221E500400E82897 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BAB8B221E500400E82897 /* Team.swift */; };
+		906C460A221DC4AD0017CCC3 /* TournyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906C4609221DC4AD0017CCC3 /* TournyDetailViewController.swift */; };
+		906C460C221DC5700017CCC3 /* TournyDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906C460B221DC5700017CCC3 /* TournyDetailTableViewCell.swift */; };
+		906C4610221DC8890017CCC3 /* TournyDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906C460F221DC8890017CCC3 /* TournyDetailTableViewCell.xib */; };
 		9092459D220BB34100D8BF37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9092459C220BB34100D8BF37 /* AppDelegate.swift */; };
 		9092459F220BB34100D8BF37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9092459E220BB34100D8BF37 /* ViewController.swift */; };
 		909245B1220BC23C00D8BF37 /* UpcomingTourny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245B0220BC23C00D8BF37 /* UpcomingTourny.swift */; };
@@ -21,7 +27,6 @@
 		909245C7220CB58A00D8BF37 /* CalendarTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C6220CB58A00D8BF37 /* CalendarTableView.swift */; };
 		909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */; };
 		909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */; };
-		909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245D9220CE04800D8BF37 /* EsportCell.swift */; };
 		90E62674221C94C60062D96C /* UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62673221C94C60062D96C /* UnderLine.swift */; };
 		90E62676221C961C0062D96C /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62675221C961C0062D96C /* Borders.swift */; };
 		90E62678221CAC930062D96C /* UIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62677221CAC930062D96C /* UIFunctions.swift */; };
@@ -39,6 +44,12 @@
 		20D5FA2F6B110F8DEA945203 /* Pods-EsportEvents.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EsportEvents.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EsportEvents/Pods-EsportEvents.debug.xcconfig"; sourceTree = "<group>"; };
 		64CACD1B6F2E9706FADD3FB8 /* Pods_EsportEvents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EsportEvents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90175C39220E04C600D60678 /* GameTitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTitleCollectionView.swift; sourceTree = "<group>"; };
+		901BAB86221E4E4400E82897 /* TeamMembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersViewController.swift; sourceTree = "<group>"; };
+		901BAB89221E4E8C00E82897 /* TeamMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberTableViewCell.swift; sourceTree = "<group>"; };
+		901BAB8B221E500400E82897 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		906C4609221DC4AD0017CCC3 /* TournyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournyDetailViewController.swift; sourceTree = "<group>"; };
+		906C460B221DC5700017CCC3 /* TournyDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournyDetailTableViewCell.swift; sourceTree = "<group>"; };
+		906C460F221DC8890017CCC3 /* TournyDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TournyDetailTableViewCell.xib; sourceTree = "<group>"; };
 		90924599220BB34100D8BF37 /* EsportEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EsportEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9092459C220BB34100D8BF37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9092459E220BB34100D8BF37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +65,6 @@
 		909245C6220CB58A00D8BF37 /* CalendarTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableView.swift; sourceTree = "<group>"; };
 		909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
-		909245D9220CE04800D8BF37 /* EsportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EsportCell.swift; sourceTree = "<group>"; };
 		90E62673221C94C60062D96C /* UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLine.swift; sourceTree = "<group>"; };
 		90E62675221C961C0062D96C /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		90E62677221CAC930062D96C /* UIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFunctions.swift; sourceTree = "<group>"; };
@@ -87,6 +97,25 @@
 				C699871BC417533AFEC160BF /* Pods-EsportEvents.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		901BAB88221E4E5400E82897 /* TeamMembers */ = {
+			isa = PBXGroup;
+			children = (
+				901BAB86221E4E4400E82897 /* TeamMembersViewController.swift */,
+				901BAB89221E4E8C00E82897 /* TeamMemberTableViewCell.swift */,
+			);
+			path = TeamMembers;
+			sourceTree = "<group>";
+		};
+		906C4608221DC4890017CCC3 /* EventDescriptions */ = {
+			isa = PBXGroup;
+			children = (
+				90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */,
+				906C4609221DC4AD0017CCC3 /* TournyDetailViewController.swift */,
+				906C460B221DC5700017CCC3 /* TournyDetailTableViewCell.swift */,
+			);
+			path = EventDescriptions;
 			sourceTree = "<group>";
 		};
 		90924590220BB34100D8BF37 = {
@@ -125,6 +154,7 @@
 			children = (
 				909245B0220BC23C00D8BF37 /* UpcomingTourny.swift */,
 				90F1913422164AC4001B2881 /* FullMatch.swift */,
+				901BAB8B221E500400E82897 /* Team.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,7 +173,8 @@
 			children = (
 				9092459E220BB34100D8BF37 /* ViewController.swift */,
 				909245CA220CC4FC00D8BF37 /* CalendarVCs */,
-				90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */,
+				906C4608221DC4890017CCC3 /* EventDescriptions */,
+				901BAB88221E4E5400E82897 /* TeamMembers */,
 				90E99AD4221761550083B214 /* IntroView.swift */,
 				90E62677221CAC930062D96C /* UIFunctions.swift */,
 			);
@@ -163,7 +194,6 @@
 		909245BB220BD51300D8BF37 /* ExtensionsAndAlteredClasses */ = {
 			isa = PBXGroup;
 			children = (
-				909245D8220CE02C00D8BF37 /* AlteredClasses */,
 				909245D7220CE02500D8BF37 /* Extentions */,
 			);
 			path = ExtensionsAndAlteredClasses;
@@ -174,6 +204,7 @@
 			children = (
 				909245C4220CB51F00D8BF37 /* Main.storyboard */,
 				909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */,
+				906C460F221DC8890017CCC3 /* TournyDetailTableViewCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -202,14 +233,6 @@
 				90E62675221C961C0062D96C /* Borders.swift */,
 			);
 			path = Extentions;
-			sourceTree = "<group>";
-		};
-		909245D8220CE02C00D8BF37 /* AlteredClasses */ = {
-			isa = PBXGroup;
-			children = (
-				909245D9220CE04800D8BF37 /* EsportCell.swift */,
-			);
-			path = AlteredClasses;
 			sourceTree = "<group>";
 		};
 		90EA916622123EFE00F11388 /* HelperFunctionsAndAlerts */ = {
@@ -289,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				909245C5220CB51F00D8BF37 /* Main.storyboard in Resources */,
+				906C4610221DC8890017CCC3 /* TournyDetailTableViewCell.xib in Resources */,
 				90E99AD72218C9BC0083B214 /* Assets.xcassets in Resources */,
 				909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */,
 			);
@@ -348,9 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				909245DA220CE04800D8BF37 /* EsportCell.swift in Sources */,
 				90EDA51C22133CD3002EBAEF /* GameTitleCollectionViewCell.swift in Sources */,
 				909245C1220CAD8600D8BF37 /* asDate.swift in Sources */,
+				901BAB8C221E500400E82897 /* Team.swift in Sources */,
 				90EDA51E22133FEF002EBAEF /* SideMenu.swift in Sources */,
 				909245B7220BD3A500D8BF37 /* CalendarViewController.swift in Sources */,
 				90EA916822123F2300F11388 /* CalendarHelperFunctions.swift in Sources */,
@@ -363,12 +387,16 @@
 				90E62674221C94C60062D96C /* UnderLine.swift in Sources */,
 				90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */,
 				90E62676221C961C0062D96C /* Borders.swift in Sources */,
+				901BAB87221E4E4400E82897 /* TeamMembersViewController.swift in Sources */,
+				906C460C221DC5700017CCC3 /* TournyDetailTableViewCell.swift in Sources */,
 				90E99AD5221761550083B214 /* IntroView.swift in Sources */,
 				909245B1220BC23C00D8BF37 /* UpcomingTourny.swift in Sources */,
 				909245C7220CB58A00D8BF37 /* CalendarTableView.swift in Sources */,
 				909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */,
 				90E62678221CAC930062D96C /* UIFunctions.swift in Sources */,
+				906C460A221DC4AD0017CCC3 /* TournyDetailViewController.swift in Sources */,
 				909245B4220BC90200D8BF37 /* NetworkCalls.swift in Sources */,
+				901BAB8A221E4E8C00E82897 /* TeamMemberTableViewCell.swift in Sources */,
 				9092459D220BB34100D8BF37 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

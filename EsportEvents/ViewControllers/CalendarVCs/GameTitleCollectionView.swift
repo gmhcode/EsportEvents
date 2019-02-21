@@ -24,22 +24,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gameTitleCell", for: indexPath) as? GameTitleCollectionViewCell
         
         cell?.gameTitleImages = gameTitleImages[indexPath.row]
-        
-        
-        
-        
-        
-        
-        
         return cell!
     }
-   
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
-    }
-   
-    
-   
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
@@ -52,7 +38,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let gameCell = cell as? GameTitleCollectionViewCell else { return }
         
@@ -64,43 +50,29 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         
         
         
-        if matchesSearch == false {
-            
-        
-        getTournaments { (allTournaments, tournaments) in
-            guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-            
-            self.gameAndDateSpecificTournamentsFromServer = tournaments
-            SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
-            print(gameCell.gameTitleImages)
+        if tournySearch == true {
             
             
-            self.calendarView.scrollToDate((self.dateRange?.first)!)
-            //            self.calendarView.reloadData()
-//            self.tableView.reloadData()
+            getTournaments { (allTournaments, tournaments) in
+                guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+                
+                self.gameAndDateSpecificTournamentsFromServer = tournaments
+                SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
+                print(gameCell.gameTitleImages)
+                
+                
+                self.calendarView.scrollToDate((self.dateRange?.first)!)
+            }
+        }
+        if matchesSearch == true{
+            
+            getMatches { (allMatches, matches) in
+                guard let matches = matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+                self.gameAndDateSpecificMatches = matches
+                SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
+                self.calendarView.scrollToDate((self.dateRange?.first!)!)
+                self.tableView.reloadData()
+            }
         }
     }
-        
-        getMatches { (allMatches, matches) in
-            guard let matches = matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-            self.gameAndDateSpecificMatches = matches
-            SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
-            self.calendarView.scrollToDate((self.dateRange?.first!)!)
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-//    func showOnlyHeaderGameInfo() -> [UpcomingTourny] {
-//
-//    }
-//
-    
-    
-    
-    
-    
-    
-    
-    
 }

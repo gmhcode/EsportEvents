@@ -66,27 +66,19 @@ extension CalendarViewController {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerLabel = UILabel()
-        let containerView = UIView()
-        
-        let separatorView = UIView(frame: CGRect(x: tableView.separatorInset.left, y: containerView.frame.height + 65, width: tableView.frame.width - tableView.separatorInset.right - tableView.separatorInset.left, height: 1))
-        separatorView.backgroundColor = UIColor.white
-
-        
-        
-        containerView.addSubview(headerLabel)
-        containerView.addSubview(separatorView)
-        headerLabel.backgroundColor = UIColor.clear
-        headerLabel.font = UIFont(name: "Roboto-Bold", size: 14)
-        headerLabel.textColor = #colorLiteral(red: 0.9921568627, green: 0.6784313725, blue: 0.2117647059, alpha: 1)
-        headerLabel.text = "      \(dateSections[section].asString.uppercased())"
-        headerLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 24).isActive = true
-        
         
         return headerLabel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "eventSegue", sender: nil)
+        
+        
+        if matchesSearch == true {
+            performSegue(withIdentifier: "matchEventSegue", sender: nil)
+        }
+        if tournySearch == true {
+            performSegue(withIdentifier: "tournyEventSegue", sender: nil)
+        }
     }
     
     
@@ -94,27 +86,28 @@ extension CalendarViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "eventSegue"{
-            guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+         guard let indexPath = tableView.indexPathForSelectedRow else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
             let dateSection = dateSections[indexPath.section]
-            let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection]
+        
+        
+            if segue.identifier == "matchEventSegue"{
+            
+           
             let matches = gameAndDateSpecificMatches[dateSection]
             let destinationVC = segue.destination as? EventDescriptionViewController
-
-
-            if tournySearch == true{
+            let matchTakeOff = matches?[indexPath.row]
+            destinationVC?.match = matchTakeOff
+            
+        }
+            if segue.identifier == "tournyEventSegue" {
+                
+                
+                let tournaments = gameAndDateSpecificTournamentsFromServer[dateSection]
+                let destinationVC = segue.destination as? TournyDetailViewController
                 let tournyTakeOff = tournaments?[indexPath.row]
                 destinationVC?.tournament = tournyTakeOff
-            }
-            if matchesSearch == true{
-                let matchTakeOff = matches?[indexPath.row]
-                destinationVC?.match = matchTakeOff
-            }
         }
     }
-    
-    
-    
 }
 
 

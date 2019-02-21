@@ -44,81 +44,11 @@ class SourceOfTruth {
     var lolTournies : [UpcomingTourny]?
     var overwatchTournies : [UpcomingTourny]?
     
+
     
     
     
-//    func filterMatchesFromTourny(){
-//        guard let dotaTournaments = dotaTournaments else { return }
-//
-//
-//        for (date, tournies) in dotaTournaments{
-//
-//            for tourny in tournies{
-//                guard let matches = tourny.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); continue}
-//                for match in matches{
-//
-//                    guard let matchTimePre = match.beginTime?.dropLast(10) else {continue}
-//
-//                    let matchTime = String(matchTimePre).asDate
-//
-//                    print("❇️🔥\(match)")
-//
-//
-//
-//                    if dotaMatches.isEmpty {
-//                        //creates a dotaMatches to append to
-//                        dotaMatches = [matchTime : [match]]
-//                    } else {
-//                        //if the begin date is a key then append the match to that date
-//                        if dotaMatches.keys.contains(matchTime) {
-//                            dotaMatches[matchTime]?.append(match)
-//                        } else {
-//                            //if the match begin date is not a key then make one
-//                            dotaMatches[matchTime] =  [match]
-//                        }
-//                    }
-//                    dotaMatches.forEach {
-//                        print("key: \($0) & value: :\($1)")
-//                    }
-//
-//                    print("🌹🛳⛽️\(dotaMatches.keys)")
-//
-//                }
-//            }
-//        }
-////        filterDatesFromMatches()
-//    }
-    
-    
-    
-    
-        
-//
-//    func filterMatchesByDate(firstOfMonth: Date, lastOfMonth: Date, allGameMatches: [Date:[Matches]]) -> [Date:[Matches]]{
-//
-//        var thisMonthsMatches : [Date : [Matches]] = [:]
-//
-//        for (date, matches) in allGameMatches {
-//
-//            if date >= firstOfMonth && date <= lastOfMonth{
-//
-//                if thisMonthsMatches.keys.contains(date)  {
-//
-//
-//                    thisMonthsMatches[date]?.append(contentsOf: matches)
-//                } else {
-//
-//                    thisMonthsMatches[date] = matches
-//
-//                }
-//            }
-//        }
-//        thisMonthsMathesByGame = thisMonthsMatches
-//        return thisMonthsMatches
-//    }
-//
-//    var games = ["Dota 2", "PUBG", "CS:GO", "LoL", "Overwatch"]
-//
+
     
     func populateTournamentIdsAndTeams(from tournaments: [UpcomingTourny]){
         tournaments.forEach({
@@ -135,6 +65,8 @@ class SourceOfTruth {
         })
     }
     
+    
+    
     func fetchTournament(from ID : Int) -> UpcomingTourny{
         
         var returningTournament : UpcomingTourny? = nil
@@ -144,14 +76,12 @@ class SourceOfTruth {
                 returningTournament = tournament
             }
         }
-
         return returningTournament ?? (UpcomingTounaments?[0])!
     }
     
     func fetchLeague(from id: Int) -> League {
         
         var league : League?
-        
         UpcomingTounaments?.forEach({
             if $0.leagueId == id{
                 league = $0.league
@@ -159,6 +89,8 @@ class SourceOfTruth {
         })
         return league!
     }
+    
+    
     
     func fetchTeam(from id: Int) -> Teams{
         
@@ -171,8 +103,6 @@ class SourceOfTruth {
         })
         return returningTeam ?? allTeams[0]
     }
-    
-    
     
     
     
@@ -193,6 +123,9 @@ class SourceOfTruth {
             return noNameMatches
         }
     }
+    
+    
+    
     func allTournaments(byName currentImageGameName: String) -> [Date: [UpcomingTourny]]{
         switch currentImageGameName {
         case "Dota 2":
@@ -233,7 +166,6 @@ class SourceOfTruth {
         var thisMonthsMatches : [Date : [Match]] = [:]
         guard let allMatches = allGameMatches else { return [:] }
         
-        
         for (date, matches) in allMatches {
             
             if date >= firstOfMonth && date <= lastOfMonth{
@@ -245,7 +177,6 @@ class SourceOfTruth {
                 } else {
                     
                     thisMonthsMatches[date] = matches
-                    
                 }
             }
         }
@@ -280,12 +211,10 @@ class SourceOfTruth {
                 
                 if thisMonthsTournamentsByGame.keys.contains(date)  {
                     
-                    
                     thisMonthsTournamentsByGame[date]?.append(contentsOf: tournies)
                 } else {
                     
                     thisMonthsTournamentsByGame[date] = tournies
-                    
                 }
             }
         }
@@ -304,8 +233,6 @@ class SourceOfTruth {
             
             let matchTime = String(matchTimePre).asDate
             
-            //                    print("❇️🔥\(match)")
-            
             switch tounament.videoGame.name{
             case "Dota 2":
                 if dotaMatches.isEmpty {
@@ -315,7 +242,7 @@ class SourceOfTruth {
                     //if the begin date is a key then append the match to that date
                     if dotaMatches.keys.contains(matchTime) {
                         dotaMatches[matchTime]?.append(match)
-                        //                                print("🌹🛳⛽️\(dotaMatches.keys)")
+                        //print("🌹🛳⛽️\(dotaMatches.keys)")
                     } else {
                         //if the match begin date is not a key then make one
                         dotaMatches[matchTime] =  [match]
@@ -330,12 +257,11 @@ class SourceOfTruth {
                     //if the begin date is a key then append the match to that date
                     if pubgMatches.keys.contains(matchTime) {
                         pubgMatches[matchTime]?.append(match)
-                        //                                print("🔥⛽️\(pubgMatches.keys)")
+                        //print("🔥⛽️\(pubgMatches.keys)")
                     } else {
                         //if the match begin date is not a key then make one
                         dotaMatches[matchTime] =  [match]
                     }
-                    
                 }
                 
             case "CS:GO":
@@ -365,7 +291,6 @@ class SourceOfTruth {
                         lolMatches[matchTime] =  [match]
                     }
                 }
-                
             case "Overwatch":
                 if overwatchMatches.isEmpty {
                     //creates a dotaMatches to append to
@@ -383,7 +308,6 @@ class SourceOfTruth {
                 print("no game Name")
             }
         }
-        //        filterDatesFromMatches()
     }
     
     
@@ -401,7 +325,6 @@ class SourceOfTruth {
                     
                     switch $0.videoGame.name {
                     case "Dota 2":
-//                        dotaTournaments == nil ? dotaTournaments = [date : [$0]] : dotaTournaments?[date]?.append($0)
                         
                         if dotaTournaments == nil {
                             //creates a dotaMatches to append to
@@ -411,18 +334,16 @@ class SourceOfTruth {
                             //if the begin date is a key then append the match to that date
                             if dotaTournaments?.keys.contains(date) == true {
                                 dotaTournaments?[date]?.append($0)
-                                //                                print("🌹🛳⛽️\(dotaMatches.keys)")
                             } else {
-                                //if the match begin date is not a key then make one
+                            //if the match begin date is not a key then make one
                                 dotaTournaments?[date] =  [$0]
                             }
-                            
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
                         
                         
-//                        print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
+//print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
                         
                         
                     case "PUBG":
@@ -436,11 +357,10 @@ class SourceOfTruth {
                             } else {
                                 pubgTournaments?[date] =  [$0]
                             }
-                            
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
-//                        print(" PUBG ❇️🥕\(pubgMatches.values)🍠🥶")
+//print(" PUBG ❇️🥕\(pubgMatches.values)🍠🥶")
                         
                     case "CS:GO":
                         
@@ -453,7 +373,6 @@ class SourceOfTruth {
                             } else {
                                 csgoTournaments?[date] =  [$0]
                             }
-                            
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
@@ -469,11 +388,9 @@ class SourceOfTruth {
                             } else {
                                 lolTournaments?[date] =  [$0]
                             }
-                            
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
-//                        print(" lol 🥶🥕\(String(describing: lolMatches.keys))🍠🥶")
                     case "Overwatch":
                         if overwatchTournaments == nil {
                             overwatchTournaments = [date : [$0]]
@@ -484,12 +401,9 @@ class SourceOfTruth {
                             } else {
                                 overwatchTournaments?[date] =  [$0]
                             }
-                            
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
-//                        print(" overwatch ❗️🥕\(String(describing: overwatchMatches))🍠🥶")
-                    //                var games = ["Dota 2", "PUBG", "CS:GO", "LoL", "Overwatch"]
                     default:
                         print("⚡️🌚🌺NO NAME GAME")
                     }
@@ -514,13 +428,10 @@ class SourceOfTruth {
             
             
             if fetchedTournaments.isEmpty == false {
-                //print("🔥❇️\(fetchedTournaments)")
                 for tournament in fetchedTournaments{
-                    //print("🌞🍄\(tournament)")
                     
                     guard let tournamentDate = tournament.beginTime?.asCrazyDate
                         else { continue }
-                    //print("  ❌🔥🤥 \(tournamentDateStringPre)")
                     if tournaments.keys.contains(tournamentDate){
                         
                         tournaments[tournamentDate]?.append(tournament)
@@ -533,7 +444,6 @@ class SourceOfTruth {
                 SourceOfTruth.shared.everyTournament = tournaments
                 SourceOfTruth.shared.filterTournyByGameName(tournaments: tournaments)
                 completion(tournaments)
-                //print(tournaments)
             }
         }
     }

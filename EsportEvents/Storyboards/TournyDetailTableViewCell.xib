@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tournyCell" rowHeight="81" id="jqB-Cp-yFU" customClass="TournyDetailTableViewCell" customModule="EsportEvents" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="362" height="81"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqB-Cp-yFU" id="Q3O-7M-Rgu" customClass="TournyDetailTableViewCell">
+                <rect key="frame" x="0.0" y="0.0" width="362" height="80.666666666666671"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVl-90-ecB">
+                        <rect key="frame" x="169.66666666666666" y="30.333333333333336" width="23" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="1" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoU-yu-S4J">
+                        <rect key="frame" x="196.66666666666663" y="0.0" width="158.33333333333337" height="80.666666666666671"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.91099816560000002" green="0.3387112021" blue="0.18031170960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="8SH-2p-REV">
+                        <rect key="frame" x="16" y="0.0" width="149.66666666666666" height="80.666666666666671"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="0.91099816560000002" green="0.3387112021" blue="0.18031170960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="VoU-yu-S4J" firstAttribute="centerY" secondItem="8SH-2p-REV" secondAttribute="centerY" id="2qp-cm-J1T"/>
+                    <constraint firstItem="IVl-90-ecB" firstAttribute="centerY" secondItem="Q3O-7M-Rgu" secondAttribute="centerY" id="7XQ-re-ZrK"/>
+                    <constraint firstItem="8SH-2p-REV" firstAttribute="centerY" secondItem="Q3O-7M-Rgu" secondAttribute="centerY" id="7aT-M8-wtF"/>
+                    <constraint firstItem="8SH-2p-REV" firstAttribute="leading" secondItem="Q3O-7M-Rgu" secondAttribute="leading" constant="16" id="DTP-Kl-ojh"/>
+                    <constraint firstAttribute="trailing" secondItem="VoU-yu-S4J" secondAttribute="trailing" constant="7" id="KGE-sw-yI6"/>
+                    <constraint firstItem="VoU-yu-S4J" firstAttribute="height" secondItem="8SH-2p-REV" secondAttribute="height" id="O9V-lc-XuB"/>
+                    <constraint firstItem="8SH-2p-REV" firstAttribute="height" secondItem="Q3O-7M-Rgu" secondAttribute="height" id="bKL-29-q5d"/>
+                    <constraint firstItem="VoU-yu-S4J" firstAttribute="leading" secondItem="IVl-90-ecB" secondAttribute="trailing" constant="4" id="gWL-W2-EtM"/>
+                    <constraint firstItem="8SH-2p-REV" firstAttribute="trailing" secondItem="IVl-90-ecB" secondAttribute="leading" constant="-4" id="icX-OB-qeG"/>
+                    <constraint firstItem="IVl-90-ecB" firstAttribute="centerX" secondItem="Q3O-7M-Rgu" secondAttribute="centerX" id="wvG-Y3-iwE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="Team1NameLabel" destination="8SH-2p-REV" id="oaY-IF-qd1"/>
+                <outlet property="Team2NameLabel" destination="VoU-yu-S4J" id="bkf-1U-ZIL"/>
+            </connections>
+            <point key="canvasLocation" x="72" y="55.78817733990148"/>
+        </tableViewCell>
+    </objects>
+</document>

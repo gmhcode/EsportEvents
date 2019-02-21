@@ -10,15 +10,20 @@ import UIKit
 
 class EventDescriptionViewController: UIViewController {
     
-    @IBOutlet weak var team1Image: UIImageView!
-    @IBOutlet weak var team2image: UIImageView!
+    
+    @IBOutlet weak var team1Image: UIButton!
+
+    @IBOutlet weak var team2Image: UIButton!
     @IBOutlet weak var leagueImageView: UIImageView!
     
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var numberOfGamesLabel: UILabel!
     @IBOutlet weak var beginTimeLabel: UILabel!
     @IBOutlet weak var leagueLabel: UILabel!
-    @IBOutlet weak var liveLabel: UIButton!
+    @IBOutlet weak var team1Label: UILabel!
+    @IBOutlet weak var team2Label: UILabel!
+    @IBOutlet weak var winnerLabel: UILabel!
+    
     
     var team1ImageGlobal : UIImage?
     var team2ImageGlobal : UIImage?{
@@ -34,6 +39,7 @@ class EventDescriptionViewController: UIViewController {
     
     var tournament : UpcomingTourny?
     var match : Match?
+    var allMatchInfo : FullMatch?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,24 +51,32 @@ class EventDescriptionViewController: UIViewController {
     
     func updateViews(){
         if match != nil {
-            fetchMatchImagesAndLabels()
+           fetchMatchImagesAndLabels()
         }
         UIFunctions.invisibleNavBar(navigationController: navigationController)
     }
+    
+    
+    
     func updateLabels(){
         DispatchQueue.main.async {
             self.statusLabel.text =  self.statusLabelText
             self.numberOfGamesLabel.text =  self.numberOfGamesLabelText
             self.beginTimeLabel.text =  self.beginTimeLabelText
-            self.liveLabel.setTitle(self.liveLabelText, for: .normal)
             self.leagueLabel.text =  self.leagueLabelText
+            self.team1Label.text = self.allMatchInfo?.opponents[0].opponent.name
+            self.team2Label.text = self.allMatchInfo?.opponents[1].opponent.name
+            self.team1Image.setBackgroundImage(self.team1ImageGlobal, for: .normal)
+            self.team2Image.setBackgroundImage(self.team2ImageGlobal, for: .normal)
+            self.allMatchInfo?.winner != nil ? (self.winnerLabel.text = self.allMatchInfo?.winner?.name) : (self.winnerLabel.text = "Match Still In Progress")
             self.leagueImageView.illuminateView()
-            self.team1Image.image = self.team1ImageGlobal
-            self.team2image.image = self.team2ImageGlobal
             self.team1Image.illuminateView()
-            self.team2image.illuminateView()
+            self.team2Image.illuminateView()
         }
     }
+    
+    
+    
     func fetchMatchImagesAndLabels(){
         guard let match = match else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
         
@@ -95,62 +109,61 @@ class EventDescriptionViewController: UIViewController {
                 
                 fullMatch.live.url != nil ? (self.liveLabelText = "\(fullMatch.live.url!)") : (self.liveLabelText = "Not Available")
                 
+                self.allMatchInfo = fullMatch
+                
                 self.leagueLabelText = league.name
-            
+                
                 print(imageUrl)
             
                 dispatchGroup.enter()
                 NetworkCall.shared.fetchImage(from: imageUrl , completion: { (leftTeamImage) in
                     self.team1ImageGlobal = leftTeamImage
                     dispatchGroup.leave()
-                    
-                    
-                    
                 })
                 
                 dispatchGroup.enter()
                 NetworkCall.shared.fetchImage(from: imageUrl2, completion: { (rightTeamImage) in
                     self.team2ImageGlobal = rightTeamImage
                     dispatchGroup.leave()
-                    
-                    
-                    
                 })
             })
         }
         
         dispatchGroup.notify(queue: .main) {
-            self.team1Image.image = self.team1ImageGlobal
-            self.team2image.image = self.team2ImageGlobal
+            self.team1Image.imageView?.image = self.team1ImageGlobal
+            self.team2Image.imageView?.image = self.team2ImageGlobal
             self.updateLabels()
         }
     }
     
-    @IBAction func urlButtonTapped(_ sender: Any) {
-        if let url = NSURL(string: "http://...") {
-            UIApplication.shared.openURL(url as URL)
+    
+    
+
+    
+
+    @IBAction func team1ButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "team1Segue", sender: nil)
+    }
+    @IBAction func team2ButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "team2Segue", sender: nil)
+    }
+    //     MARK: - Navigation
+
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as? TeamMembersViewController
+        
+        if segue.identifier == "team1Segue"{
+            destinationVC?.teamImage = team1ImageGlobal
+            destinationVC?.teamID = allMatchInfo?.opponents[0].opponent.id
+        }
+        if segue.identifier == "team2Segue"{
+            destinationVC?.teamImage = team2ImageGlobal
+            destinationVC?.teamID = allMatchInfo?.opponents[1].opponent.id
         }
     }
-    
-    
-    
-//    func illuminateView(view : UIView){
-//        view.layer.shadowRadius = 5
-//        view.layer.shadowColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        view.layer.shadowOpacity = 1
-//    }
-    
 }
 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

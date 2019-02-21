@@ -89,7 +89,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
                 
                 if !dateSections.contains(date) {
                     dateSections.append(date)
-                    //                    print("🔥♊️\(dateSections)")
                 }
             }
         }
@@ -99,7 +98,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             previousDate = dateSections.last
         }
         // vv MADE CELL DOTS APPEAR
-        //         tableView.reloadData()
         calendarView.reloadData()
         
         return dateSections
@@ -143,7 +141,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     @IBOutlet weak var sideMenuNotRound: UIView!
     @IBOutlet weak var sideMenuRound: UIView!
     @IBOutlet weak var dismissSideMenuButton: UIButton!
-    
     @IBOutlet weak var sideMenuButton1: UIButton!
     @IBOutlet weak var sideMenuButton2: UIButton!
     @IBOutlet weak var sideMenuButton3: UIButton!
@@ -152,44 +149,12 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     @IBOutlet weak var sideMenuButton7: UIButton!
     
     
-//    var everyTourny :[Date:[UpcomingTourny]]? {
-//        didSet{
-//            self.calendarView.scrollToDate(Date(), animateScroll: false)
-//            //        setGestureRecpgnizer()
-//            setDelegatesAndViews()
-//            //vv open with todays date highlighted
-//            self.calendarView.selectDates([Date()])
-//            DispatchQueue.main.async {
-//
-//                self.getTournaments { (allTournaments, tournaments)  in
-//                    guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-//
-//                    self.gameAndDateSpecificTournamentsFromServer = tournaments
-//                    //                self.calendarView.reloadData()
-//                }
-//
-//                //            }else {
-//                self.getMatches(completion: { (allMatches, filteredByDate) in
-//                    guard let filteredByDate = filteredByDate else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-//                    self.gameAndDateSpecificMatches = filteredByDate
-//                })
-//            }
-//            //        }
-//            self.navigationController?.isNavigationBarHidden = true
-//
-//        }
-//    }
-    
-    
-    
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         showLoadingScreen()
-        //        print("🌶\(SourceOfTruth.shared.dotaMatches.keys)")
 //        vv this is when the fetch is called
         setDelegatesAndViews()
         // make your calls here
@@ -201,7 +166,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
                 self.hideLoadingScreen()
             }
         }
-        //        setGestureRecpgnizer()
         //vv open with todays date highlighted
         self.calendarView.selectDates([Date()])
     }
@@ -212,41 +176,27 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         DispatchQueue.main.async {
 
             
-            
             self.getTournaments { (allTournaments, tournaments)  in
                 guard let tournaments = tournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
 
                 self.gameAndDateSpecificTournamentsFromServer = tournaments
-                //                self.calendarView.reloadData()
             }
 
-            //            }else {
             self.getMatches(completion: { (allMatches, filteredByDate) in
                 guard let filteredByDate = filteredByDate else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                 self.gameAndDateSpecificMatches = filteredByDate
             })
         }
-        //        }
         self.navigationController?.isNavigationBarHidden = true
     }
     
-//    func triggerEveryTourn(completion: @escaping (Bool?)->Void) -> Bool?{
-//
-//        if let allTournaments = SourceOfTruth.shared.everyTournament{
-//            everyTourny = allTournaments
-//
-//            completion(true)
-//            return true
-//        }
-//        else {
-//            triggerEveryTourn { (_) in
-//
-//            }
-//        }
-//        completion(nil)
-//        return false
-//    }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+         self.navigationController?.isNavigationBarHidden = false
+        
+    }
     
     
     func showLoadingScreen(){
@@ -256,9 +206,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         loadingScreen.alpha = 1
         loadingScreen.center = view.center
         view.addSubview(loadingScreen)
-        
-        
-       
         
     }
     
@@ -276,14 +223,12 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         self.calendarView.scrollToDate((dateRange?.first)!)
     }
     
-    //loads current date on viewDidLoad
+    
     func setupCalendarView(completion: @escaping (Bool) -> Void){
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-        
-        // MARK: - makes the spacing between days 0
-        
     }
+    
     
     func setDelegatesAndViews(){
         gameTitleCollectionView.delegate = self
@@ -334,9 +279,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         
     }
-    @IBAction func dismissSideMenuButtonTapped(_ sender: Any) {
-        //        hideMenu()
-    }
     
     func getMatches(completion: ([Date:[Match]]?, [Date:[Match]]?) -> Void){
         
@@ -354,15 +296,12 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func getTournaments(completion: @escaping ([Date:[UpcomingTourny]]?, [Date:[UpcomingTourny]]?) -> Void) {
         
-        //        print(dateRange)
         guard let dateRange = dateRange,
             let first = dateRange.first,
             let last = dateRange.last else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-        //        print("🎡🚚   \(dateRange.first)")
-        //        var scheduledTournaments = [Date: [UpcomingTourny]]()
+        
         let allTournaments = SourceOfTruth.shared.allTournaments(byName: currentImageGameName)
         let tournamentsFilteredByDate = SourceOfTruth.shared.filterTournyByDate(firstOfMonth: first, lastOfMonth: last, currentImageGameName: currentImageGameName)
-        //        print("❗️🔥all tournaments\(allTournaments)")
         self.allTournamentsFromServer = allTournaments
         
         completion(allTournaments, tournamentsFilteredByDate)
@@ -401,11 +340,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         guard let validCell = view as? CalendarCell else { return }
         
         validCell.selectedView.isHidden = true
-//        if cellState.isSelected {
-//            validCell.selectedView.isHidden = false
-//        } else {
-//            validCell.selectedView.isHidden = true
-//        }
     }
     
     //    month and year label
@@ -413,7 +347,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         
         let date = visibleDates.monthDates.first!.date
         self.formatter.dateFormat = "MMMM yyyy"
-        //        self.month.text = self.formatter.string(from: date)
+        
         dateLabel.text = self.formatter.string(from: date)
         self.navigationItem.title = self.formatter.string(from: date)
         navigationController?.navigationBar.barTintColor = UIColor.white
@@ -473,7 +407,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
             })
             
             if cell?.dot.isHidden == false{
-                //extract all datesWithEvents if dot is hidden
                 datesWithEvents.append(cellState.date.asString)
                 cell?.layer.shadowOpacity = 50
                 cell?.layer.shadowColor = #colorLiteral(red: 1, green: 0.1647058824, blue: 0.07843137255, alpha: 1)
@@ -530,11 +463,13 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
     
     //VV swipe action
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        
         setUpViewsOfCalendar(from: visibleDates)
-        // calendar.scrollToDate(Date())
+        
         let previousDateRange = dateRange
         let dateArray = printVisibleDates(visibleDatesMonthDates: visibleDates.monthDates)
         dateRange = dateArray
+        
         //determines whether user swiped right or left
         if let previousDateRange = previousDateRange {
             if previousDateRange[0] > (dateRange?.last)! {
@@ -570,7 +505,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
             })
         }
         
-        //        }else {
+        
         if self.matchesSearch == true {
             self.getMatches { (allMatches, filteredByDate) in
                 DispatchQueue.main.async {
@@ -582,6 +517,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
                     } else {
                         
                         self.gameAndDateSpecificMatches = allMatches
+                        
                         let nextDate = self.findNearestDate(datesToSift: self.pastAndFutureEvents, currentDateRange: self.dateRange!, swipeRight: self.swipeRight)
                         
                         if self.previousDate == nextDate {
