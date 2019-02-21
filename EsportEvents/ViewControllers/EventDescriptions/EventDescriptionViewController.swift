@@ -69,9 +69,9 @@ class EventDescriptionViewController: UIViewController {
             self.team1Image.setBackgroundImage(self.team1ImageGlobal, for: .normal)
             self.team2Image.setBackgroundImage(self.team2ImageGlobal, for: .normal)
             self.allMatchInfo?.winner != nil ? (self.winnerLabel.text = self.allMatchInfo?.winner?.name) : (self.winnerLabel.text = "Match Still In Progress")
-            self.leagueImageView.illuminateView()
-            self.team1Image.illuminateView()
-            self.team2Image.illuminateView()
+            self.leagueImageView.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+            self.team1Image.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+            self.team2Image.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         }
     }
     

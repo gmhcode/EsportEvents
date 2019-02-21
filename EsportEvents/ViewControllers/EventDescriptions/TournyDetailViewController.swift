@@ -35,11 +35,18 @@ class TournyDetailViewController: UIViewController, UITableViewDelegate, UITable
         
         fetchMatches()
         fetchLeagueImages()
-        self.tournamentNameLabel.text = self.tournament?.name
-        self.leagueNameLabel.text = self.tournament?.league.name
+        setLabels()
+        
         let nibName = UINib(nibName: "TournyDetailTableViewCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "tournyCell")
+        
         UIFunctions.invisibleNavBar(navigationController: navigationController)
+    }
+    
+    func setLabels(){
+        self.tournamentNameLabel.text = self.tournament?.name
+        self.leagueNameLabel.text = self.tournament?.league.name
+        
     }
     
     
@@ -55,7 +62,7 @@ class TournyDetailViewController: UIViewController, UITableViewDelegate, UITable
         }
         dispatchGroup.notify(queue: .main) {
             self.leagueImage.image = self.leagueImagePocket
-            self.leagueImage.illuminateView()
+            self.leagueImage.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         }
     }
     

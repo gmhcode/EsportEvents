@@ -20,6 +20,8 @@ class UIFunctions: UIViewController{
         navigationController.view.backgroundColor = .clear
     }
     
-    
-    
+    static func getNibCell(nibName: String, forCellReuseIdentifier: String, tableView: UITableView){
+        let nibName = UINib(nibName: nibName, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: forCellReuseIdentifier)
+    }
 }

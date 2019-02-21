@@ -35,5 +35,20 @@ class TournyDetailTableViewCell: UITableViewCell {
         
         Team1NameLabel.text = "\(name1)"
         Team2NameLabel.text = "\(name2)"
+        setLabelsAppearance()
+        
+        
+    }
+    func setLabelsAppearance(){
+        Team1NameLabel.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        Team1NameLabel.layer.shadowRadius = 17
+        Team1NameLabel.layer.shadowOpacity = 3
+        
+        Team2NameLabel.textColor = #colorLiteral(red: 0.9921568627, green: 0.6784313725, blue: 0.2117647059, alpha: 1)
+        Team2NameLabel.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+        Team2NameLabel.layer.shadowRadius = 17
+        Team2NameLabel.layer.shadowOpacity = 3
+        
+        
     }
 }

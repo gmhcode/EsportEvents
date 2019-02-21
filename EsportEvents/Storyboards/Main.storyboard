@@ -477,9 +477,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dota2background" translatesAutoresizingMaskIntoConstraints="NO" id="7r5-Uw-m5w">
                                 <rect key="frame" x="0.0" y="-258" width="1518" height="1127"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GzM-0U-Byk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GzM-0U-Byk">
                                 <rect key="frame" x="16" y="372" width="343" height="406"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.0" green="1" blue="0.064089004350000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tournament Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-3y-JSQ">
@@ -841,7 +842,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dota2background" translatesAutoresizingMaskIntoConstraints="NO" id="PPf-1U-ntg">
-                                <rect key="frame" x="-935" y="-132" width="1310" height="966"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1387" height="834"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QvS-Hh-EOK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -900,6 +901,13 @@
                                                     <color key="textColor" red="0.99215686270000003" green="0.67843137249999996" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm6-yQ-rPi">
+                                                    <rect key="frame" x="16" y="24" width="135" height="135"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.1647058824" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -907,6 +915,7 @@
                                             <outlet property="fullNameLabel" destination="whc-sx-jcu" id="IP6-2K-UZ4"/>
                                             <outlet property="homeTownLabel" destination="rpA-z1-2Hf" id="Nw3-BT-vqA"/>
                                             <outlet property="nameLabel" destination="BPC-8e-9NF" id="wfo-qy-DGK"/>
+                                            <outlet property="noImageAvailableLabel" destination="tm6-yQ-rPi" id="mY3-Tq-R7Y"/>
                                             <outlet property="playerImage" destination="nUl-4D-nX2" id="7Pg-P5-8r4"/>
                                         </connections>
                                     </tableViewCell>
@@ -919,10 +928,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PPf-1U-ntg" firstAttribute="leading" secondItem="FY7-WE-per" secondAttribute="leading" constant="-935" id="8x0-7Q-2Gr"/>
+                            <constraint firstItem="PPf-1U-ntg" firstAttribute="leading" secondItem="FY7-WE-per" secondAttribute="leading" id="8x0-7Q-2Gr"/>
                             <constraint firstAttribute="bottom" secondItem="PPf-1U-ntg" secondAttribute="bottom" constant="-22" id="OQH-XZ-t1o"/>
-                            <constraint firstItem="PPf-1U-ntg" firstAttribute="trailing" secondItem="pzJ-BC-MUW" secondAttribute="trailing" id="WhC-Pu-3FF"/>
-                            <constraint firstItem="PPf-1U-ntg" firstAttribute="top" secondItem="FY7-WE-per" secondAttribute="top" constant="-132" id="nJg-Je-1Wc"/>
+                            <constraint firstItem="PPf-1U-ntg" firstAttribute="trailing" secondItem="pzJ-BC-MUW" secondAttribute="trailing" constant="1012" id="WhC-Pu-3FF"/>
+                            <constraint firstItem="PPf-1U-ntg" firstAttribute="top" secondItem="FY7-WE-per" secondAttribute="top" id="nJg-Je-1Wc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pzJ-BC-MUW"/>
                     </view>

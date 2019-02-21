@@ -14,6 +14,7 @@ class TeamMemberTableViewCell: UITableViewCell {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var homeTownLabel: UILabel!
     @IBOutlet weak var playerImage: UIImageView!
+    @IBOutlet weak var noImageAvailableLabel: UILabel!
     
 
     
@@ -31,18 +32,23 @@ class TeamMemberTableViewCell: UITableViewCell {
         nameLabel.text = "Name: \(player.name)"
         if player.firstName != nil && player.lastName != nil {
            fullNameLabel.text = "Full Name: \(String(describing: player.firstName!)) \(String(describing: player.lastName!))"
+        } else{
+            fullNameLabel.text = "Full Name: Unknown)"
         }
         if player.hometown != nil {
             homeTownLabel.text = "Country/Town: \(player.hometown!)"
+        }else {
+            homeTownLabel.text = "Country/Town: Unknown"
         }
-        playerImage.illuminateView()
+        
+        playerImage.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         fetchImage()
         
     }
     
     func fetchImage(){
         guard let image = player?.imageUrl else {
-            print("❇️♊️>>>\(#file) \(#line): guard let failed<<<")
+            print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); self.noImageAvailableLabel.isHidden = false;
             return
         }
         NetworkCall.shared.fetchImage(from: image) { (image) in
@@ -50,6 +56,9 @@ class TeamMemberTableViewCell: UITableViewCell {
                 
                 if image != nil {
                     self.playerImage.image = image
+                    self.noImageAvailableLabel.isHidden = true
+                } else {
+                    
                 }
             }
         }

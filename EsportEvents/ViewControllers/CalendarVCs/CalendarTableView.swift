@@ -66,6 +66,8 @@ extension CalendarViewController {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerLabel = UILabel()
+        headerLabel.textColor = UIColor.lightGray
+        headerLabel.text = "     \(dateSections[section].asString.uppercased())"
         
         return headerLabel
     }

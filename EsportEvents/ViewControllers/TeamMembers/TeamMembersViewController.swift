@@ -35,7 +35,7 @@ class TeamMembersViewController: UIViewController, UITableViewDelegate, UITableV
     func updateViews(){
         fetchTeam()
         teamImageView.image = teamImage
-        teamImageView.illuminateView()
+        teamImageView.illuminateView(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
     }
     func fetchTeam(){
         guard let teamID = teamID else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
