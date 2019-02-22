@@ -42,10 +42,10 @@ class NetworkCall{
             
             do{
                 
-                let upComingTourny = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                let tournaments = try JSONDecoder().decode([UpcomingTourny].self, from: data)
                 
-                SourceOfTruth.shared.UpcomingTounaments = upComingTourny
-                completion(upComingTourny)
+                SourceOfTruth.shared.UpcomingTounaments.append(contentsOf: tournaments)
+                completion(tournaments)
                 
             } catch let error{
                 
@@ -54,6 +54,224 @@ class NetworkCall{
             }
             }.resume()
     }
+    
+    
+    func fetchOverwatchTournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
+        
+        
+        
+        guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        let partUrl = url.appendingPathComponent("ow").appendingPathComponent("tournaments")
+//            .appendingPathExtension("json")
+        var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
+        let query = URLQueryItem(name: "token", value: apiKeY)
+        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        components?.queryItems = [query2, query]
+        print("components  🔥\(String(describing: components?.url))")
+        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        
+        var request = URLRequest(url: fullUrl)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let error = error {
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); completion(nil) ; return}
+            
+            do{
+                
+                let tournaments = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                
+                SourceOfTruth.shared.UpcomingTounaments.append(contentsOf: tournaments)
+                completion(tournaments)
+                
+            } catch let error{
+                
+                print("❌ There was an error in \(#function) : ❗️\(#file) \(#line) : \(error) : \(error.localizedDescription)")
+                completion(nil) ; return
+            }
+            }.resume()
+    }
+    
+    func fetchLoLTournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
+        
+        guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        let partUrl = url.appendingPathComponent("lol").appendingPathComponent("tournaments").appendingPathExtension("json")
+        var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
+        let query = URLQueryItem(name: "token", value: apiKeY)
+        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        components?.queryItems = [query2, query]
+        
+        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        var request = URLRequest(url: fullUrl)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let error = error {
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); completion(nil) ; return}
+            
+            do{
+                
+                let tournaments = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                
+                SourceOfTruth.shared.UpcomingTounaments.append(contentsOf: tournaments)
+                completion(tournaments)
+                
+            } catch let error{
+                
+                print("❌ There was an error in \(#function) : ❗️\(#file) \(#line) : \(error) : \(error.localizedDescription)")
+                completion(nil) ; return
+            }
+            }.resume()
+    }
+    
+    func fetchDota2Tournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
+        
+        guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        let partUrl = url.appendingPathComponent("dota2").appendingPathComponent("tournaments").appendingPathExtension("json")
+        var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
+        let query = URLQueryItem(name: "token", value: apiKeY)
+        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        components?.queryItems = [query2, query]
+        
+        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        var request = URLRequest(url: fullUrl)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let error = error {
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); completion(nil) ; return}
+            
+            do{
+                
+                let tournaments = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                
+                SourceOfTruth.shared.UpcomingTounaments.append(contentsOf: tournaments)
+                completion(tournaments)
+                
+            } catch let error{
+                
+                print("❌ There was an error in \(#function) : ❗️\(#file) \(#line) : \(error) : \(error.localizedDescription)")
+                completion(nil) ; return
+            }
+            }.resume()
+    }
+    
+    func fetchCSGOTournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
+        
+        guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        let partUrl = url.appendingPathComponent("csgo").appendingPathComponent("tournaments").appendingPathExtension("json")
+        var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
+        let query = URLQueryItem(name: "token", value: apiKeY)
+        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        components?.queryItems = [query2, query]
+        
+        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        var request = URLRequest(url: fullUrl)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let error = error {
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); completion(nil) ; return}
+            
+            do{
+                
+                let tournaments = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                
+                SourceOfTruth.shared.UpcomingTounaments.append(contentsOf: tournaments)
+                completion(tournaments)
+                
+            } catch let error{
+                
+                print("❌ There was an error in \(#function) : ❗️\(#file) \(#line) : \(error) : \(error.localizedDescription)")
+                completion(nil) ; return
+            }
+            }.resume()
+    }
+    
+    
+    
+    func fetchPUBGTournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
+        
+        
+        
+        guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        let partUrl = url.appendingPathComponent("pubg").appendingPathComponent("tournaments")
+        //            .appendingPathExtension("json")
+        var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
+        let query = URLQueryItem(name: "token", value: apiKeY)
+        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        components?.queryItems = [query2, query]
+        print("components  🔥\(String(describing: components?.url))")
+        guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        
+        
+        var request = URLRequest(url: fullUrl)
+        request.httpMethod = "GET"
+        request.httpBody = nil
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let error = error {
+                print("❌ There was an error in \(#function) \(error) : \(error.localizedDescription) : \(#file) \(#line)")
+                completion(nil)
+                return
+            }
+            
+            guard let data = data else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); completion(nil) ; return}
+            
+            do{
+                
+                let tournaments = try JSONDecoder().decode([UpcomingTourny].self, from: data)
+                
+                SourceOfTruth.shared.UpcomingTounaments.append(contentsOf: tournaments)
+                completion(tournaments)
+                
+            } catch let error{
+                
+                print("❌ There was an error in \(#function) : ❗️\(#file) \(#line) : \(error) : \(error.localizedDescription)")
+                completion(nil) ; return
+            }
+            }.resume()
+    }
+    
+    
+    
+    
+    
     
     
     func fetchImage(from URL: URL, completion: @escaping ((UIImage?) -> Void)){

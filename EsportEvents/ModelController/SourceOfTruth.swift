@@ -13,8 +13,8 @@ class SourceOfTruth {
     static let shared = SourceOfTruth()
     private init() {}
     
-    var UpcomingTounaments : [UpcomingTourny]?
-    var everyTournament : [Date:[UpcomingTourny]]?
+    var UpcomingTounaments : [UpcomingTourny] = []
+    var everyTournament : [Date:[UpcomingTourny]] = [:]
     var dotaTournaments : [Date:[UpcomingTourny]]?
     var pubgTournaments : [Date:[UpcomingTourny]]?
     var overwatchTournaments : [Date:[UpcomingTourny]]?
@@ -71,18 +71,18 @@ class SourceOfTruth {
         
         var returningTournament : UpcomingTourny? = nil
         
-        for tournament in UpcomingTounaments!{
+        for tournament in UpcomingTounaments{
             if tournament.id == ID {
                 returningTournament = tournament
             }
         }
-        return returningTournament ?? (UpcomingTounaments?[0])!
+        return returningTournament ?? (UpcomingTounaments[0])
     }
     
     func fetchLeague(from id: Int) -> League {
         
         var league : League?
-        UpcomingTounaments?.forEach({
+        UpcomingTounaments.forEach({
             if $0.leagueId == id{
                 league = $0.league
             }
@@ -415,38 +415,105 @@ class SourceOfTruth {
     
     func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
         
-        
-        
-        NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
+        NetworkCall.shared.fetchOverwatchTournaments { (fetchedTournaments) in
+
             
-            guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-            
-            SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
-            
-            var allTournaments: [Date: [UpcomingTourny]] = [:]
-            var tournaments: [Date: [UpcomingTourny]] = [:]
-            
-            
-            if fetchedTournaments.isEmpty == false {
-                for tournament in fetchedTournaments{
+            NetworkCall.shared.fetchDota2Tournaments { (fetchedTournaments) in
+                
+                
+                NetworkCall.shared.fetchCSGOTournaments { (fetchedTournaments) in
                     
-                    guard let tournamentDate = tournament.beginTime?.asCrazyDate
-                        else { continue }
-                    if tournaments.keys.contains(tournamentDate){
+                    NetworkCall.shared.fetchLoLTournaments { (fetchedTournaments) in
+                        print("upcoming tournaments\(self.UpcomingTounaments)")
                         
-                        tournaments[tournamentDate]?.append(tournament)
                         
-                    } else {
                         
-                        tournaments[tournamentDate] = [tournament]
+                        
+                        
+                        NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
+                            
+                            guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+                            
+                            SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
+                            
+                            //                            var allTournaments: [Date: [UpcomingTourny]] = [:]
+                            //                            var tournaments: [Date: [UpcomingTourny]] = [:]
+                            //                var loopCount = 0
+                            
+                            if self.UpcomingTounaments.isEmpty == false {
+                                for tournament in self.UpcomingTounaments{
+                                    
+                                    guard let tournamentDate = tournament.beginTime?.asCrazyDate
+                                        else { continue }
+                                    
+                                    //                        if loopCount < 100 {
+                                    
+                                    if self.everyTournament.keys.contains(tournamentDate){
+                                        
+                                        self.everyTournament[tournamentDate]?.append(tournament)
+                                        //                                loopCount += 1
+                                        
+                                    } else {
+                                        
+                                        self.everyTournament[tournamentDate] = [tournament]
+                                        //                                loopCount += 1
+                                    }
+                                    
+                                    //                    }
+                                    
+                                    //                SourceOfTruth.shared.everyTournament = tournaments
+                                }
+                                SourceOfTruth.shared.filterTournyByGameName(tournaments: self.everyTournament)
+                                completion(self.everyTournament)
+                            }
+                        }
                     }
                 }
-                SourceOfTruth.shared.everyTournament = tournaments
-                SourceOfTruth.shared.filterTournyByGameName(tournaments: tournaments)
-                completion(tournaments)
             }
-        }
     }
 }
+}
+
+//func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
+//
+//
+//
+//    NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
+//
+//        guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//
+//        SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
+//
+//        var allTournaments: [Date: [UpcomingTourny]] = [:]
+//        var tournaments: [Date: [UpcomingTourny]] = [:]
+//
+//
+//        if fetchedTournaments.isEmpty == false {
+//            for tournament in fetchedTournaments{
+//
+//                guard let tournamentDate = tournament.beginTime?.asCrazyDate
+//                    else { continue }
+//
+//                if tournaments.count < 50 {
+//
+//                    if tournaments.keys.contains(tournamentDate) && self.everyTournament.keys.contains(tournamentDate){
+//
+//                        tournaments[tournamentDate]?.append(tournament)
+//
+//                    } else {
+//
+//                        tournaments[tournamentDate] = [tournament]
+//                    }
+//                }else{
+//                    break
+//                }
+//            }
+//
+//            SourceOfTruth.shared.everyTournament = tournaments
+//            SourceOfTruth.shared.filterTournyByGameName(tournaments: tournaments)
+//            completion(tournaments)
+//        }
+//    }
+//}
 
 

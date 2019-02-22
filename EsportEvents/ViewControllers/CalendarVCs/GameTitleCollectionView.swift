@@ -58,7 +58,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
                 
                 self.gameAndDateSpecificTournamentsFromServer = tournaments
                 SourceOfTruth.shared.currentImageGameName = gameCell.gameTitleImages
-                print(gameCell.gameTitleImages)
+                print(gameCell.gameTitleImages as Any)
                 
                 
                 self.calendarView.scrollToDate((self.dateRange?.first)!)
