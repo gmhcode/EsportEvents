@@ -39,24 +39,24 @@ class SourceOfTruth {
     var tournamentIDs : [Int] = []
     
     var dota2Tournies : [UpcomingTourny]?
-//    var pubgTournaments : [UpcomingTourny]?
+    //    var pubgTournaments : [UpcomingTourny]?
     var csgoTournies : [UpcomingTourny]?
     var lolTournies : [UpcomingTourny]?
     var overwatchTournies : [UpcomingTourny]?
     
-
     
     
     
-
+    
+    
     
     func populateTournamentIdsAndTeams(from tournaments: [UpcomingTourny]){
         tournaments.forEach({
             tournamentIDs.append($0.id)
             populateAllTeams(from: $0)
         })
-//        print("🥶🔥all Teams \(allTeams)")
-//        print("♊️❌tourny id's\(tournamentIDs)")
+        //        print("🥶🔥all Teams \(allTeams)")
+        //        print("♊️❌tourny id's\(tournamentIDs)")
     }
     
     func populateAllTeams(from tournament: UpcomingTourny){
@@ -149,15 +149,15 @@ class SourceOfTruth {
         var allGameMatches : [Date:[Match]]?
         
         switch currentImageGameName {
-            case "Dota 2":
+        case "Dota 2":
             allGameMatches = dotaMatches
-             case "PUBG":
+        case "PUBG":
             allGameMatches = pubgMatches
-             case "CS:GO":
+        case "CS:GO":
             allGameMatches = csgoMatches
-             case "LoL":
+        case "LoL":
             allGameMatches = lolMatches
-             case "Overwatch":
+        case "Overwatch":
             allGameMatches = overwatchMatches
         default:
             print("no name game")
@@ -311,7 +311,7 @@ class SourceOfTruth {
     }
     
     
-   
+    
     
     
     
@@ -330,12 +330,12 @@ class SourceOfTruth {
                             //creates a dotaMatches to append to
                             dotaTournaments = [date : [$0]]
                         } else {
-
+                            
                             //if the begin date is a key then append the match to that date
                             if dotaTournaments?.keys.contains(date) == true {
                                 dotaTournaments?[date]?.append($0)
                             } else {
-                            //if the match begin date is not a key then make one
+                                //if the match begin date is not a key then make one
                                 dotaTournaments?[date] =  [$0]
                             }
                         }
@@ -343,7 +343,7 @@ class SourceOfTruth {
                         filterMatchesFromTourny(matches: matches, tounament: $0)
                         
                         
-//print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
+                        //print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
                         
                         
                     case "PUBG":
@@ -360,11 +360,11 @@ class SourceOfTruth {
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
-//print(" PUBG ❇️🥕\(pubgMatches.values)🍠🥶")
+                        //print(" PUBG ❇️🥕\(pubgMatches.values)🍠🥶")
                         
                     case "CS:GO":
                         
-                         if csgoTournaments == nil {
+                        if csgoTournaments == nil {
                             csgoTournaments = [date : [$0]]
                         } else {
                             
@@ -376,10 +376,10 @@ class SourceOfTruth {
                         }
                         guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
                         filterMatchesFromTourny(matches: matches, tounament: $0)
-//                        print(" csgo 🌸🥕\(String(describing: csgoMatches.keys))🍠🥶")
+                        //                        print(" csgo 🌸🥕\(String(describing: csgoMatches.keys))🍠🥶")
                         
                     case "LoL":
-                         if lolTournaments == nil {
+                        if lolTournaments == nil {
                             lolTournaments = [date : [$0]]
                         } else {
                             
@@ -416,52 +416,25 @@ class SourceOfTruth {
     func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
         
         NetworkCall.shared.fetchOverwatchTournaments { (fetchedTournaments) in
-
-            
             NetworkCall.shared.fetchDota2Tournaments { (fetchedTournaments) in
-                
-                
                 NetworkCall.shared.fetchCSGOTournaments { (fetchedTournaments) in
-                    
                     NetworkCall.shared.fetchLoLTournaments { (fetchedTournaments) in
                         print("upcoming tournaments\(self.UpcomingTounaments)")
-                        
-                        
-                        
-                        
-                        
                         NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
-                            
                             guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                            
                             SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
-                            
-                            //                            var allTournaments: [Date: [UpcomingTourny]] = [:]
-                            //                            var tournaments: [Date: [UpcomingTourny]] = [:]
-                            //                var loopCount = 0
                             
                             if self.UpcomingTounaments.isEmpty == false {
                                 for tournament in self.UpcomingTounaments{
-                                    
                                     guard let tournamentDate = tournament.beginTime?.asCrazyDate
                                         else { continue }
-                                    
-                                    //                        if loopCount < 100 {
-                                    
                                     if self.everyTournament.keys.contains(tournamentDate){
                                         
                                         self.everyTournament[tournamentDate]?.append(tournament)
-                                        //                                loopCount += 1
-                                        
                                     } else {
                                         
                                         self.everyTournament[tournamentDate] = [tournament]
-                                        //                                loopCount += 1
                                     }
-                                    
-                                    //                    }
-                                    
-                                    //                SourceOfTruth.shared.everyTournament = tournaments
                                 }
                                 SourceOfTruth.shared.filterTournyByGameName(tournaments: self.everyTournament)
                                 completion(self.everyTournament)
@@ -470,8 +443,8 @@ class SourceOfTruth {
                     }
                 }
             }
+        }
     }
-}
 }
 
 //func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
