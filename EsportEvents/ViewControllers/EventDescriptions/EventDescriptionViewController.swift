@@ -37,11 +37,11 @@ class EventDescriptionViewController: UIViewController {
             updateLabels()
         }
     }
-    var statusLabelText : String = ""
-    var numberOfGamesLabelText : String = ""
-    var beginTimeLabelText : String = ""
-    var liveLabelText : String = ""
-    var leagueLabelText : String = ""
+    var statusLabelText : String = "Not Available"
+    var numberOfGamesLabelText : String = "Not Available"
+    var beginTimeLabelText : String = "Not Available"
+    var liveLabelText : String = "Not Available"
+    var leagueLabelText : String = "Not Available"
     
     var tournament : UpcomingTourny?
     var match : Match?
@@ -50,6 +50,7 @@ class EventDescriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0.9867876172, green: 0.2802347839, blue: 0.07607873529, alpha: 1)
         // Do any additional setup after loading the view.
         updateViews()
     }
@@ -81,7 +82,7 @@ class EventDescriptionViewController: UIViewController {
         }
     }
     
-    
+//    9af671eb7b56478a93b3e6d2b53fcbe6
     
     func fetchMatchImagesAndLabels(){
         guard let match = match else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -89,15 +90,16 @@ class EventDescriptionViewController: UIViewController {
         let tourny = SourceOfTruth.shared.fetchTournament(from: match.tournamentId)
         let league = tourny.league
         let dispatchGroup = DispatchGroup()
-        guard let imageUrl = league.imageUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+//        guard let imageUrl = league.imageUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
         
-        
+        if let imageUrl = league.imageUrl {
         NetworkCall.shared.fetchImage(from: imageUrl) { (leagueImage) in
             
             DispatchQueue.main.async {
                 self.leagueImageView.image = leagueImage
                 
             }
+  }
             
             dispatchGroup.enter()
             NetworkCall.shared.fetchFullMatch(from: match.id, completion: { (fullMatch) in

@@ -14,6 +14,7 @@ class CalendarTableViewCell: UITableViewCell {
     //
     @IBOutlet weak var gameLogo: UIImageView!
     @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var gameNameLabel: UILabel!
     
     
     var tournament : UpcomingTourny?{
@@ -42,7 +43,7 @@ class CalendarTableViewCell: UITableViewCell {
     }
     
     func setUpLabels(){
-        
+        gameNameLabel.text = SourceOfTruth.shared.currentImageGameName
         if match != nil {
             
             if match?.name == nil {
@@ -55,48 +56,41 @@ class CalendarTableViewCell: UITableViewCell {
             case "Dota 2":
                 gameLogo.image = #imageLiteral(resourceName: "Dota Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
             case "PUBG":
                 gameLogo.image = #imageLiteral(resourceName: "PUBG logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
+                gameLogo.illuminateView(color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+                 gameLogo.layer.shadowRadius = 10
             case "CS:GO":
                 gameLogo.image = #imageLiteral(resourceName: "CSGO Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
+                
             case "LoL":
                 gameLogo.image = #imageLiteral(resourceName: "League of Legends Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
+                
             case "Overwatch":
                 gameLogo.image = #imageLiteral(resourceName: "Overwatch Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
+               
             default:
                 gameLogo.image = #imageLiteral(resourceName: "settings")
             }
@@ -114,48 +108,38 @@ class CalendarTableViewCell: UITableViewCell {
             case "Dota 2":
                 gameLogo.image = #imageLiteral(resourceName: "Dota Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
             case "PUBG":
                 gameLogo.image = #imageLiteral(resourceName: "PUBG logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
             case "CS:GO":
                 gameLogo.image = #imageLiteral(resourceName: "CSGO Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.9934261441, green: 1, blue: 0, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
             case "LoL":
                 gameLogo.image = #imageLiteral(resourceName: "League of Legends Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
             case "Overwatch":
                 gameLogo.image = #imageLiteral(resourceName: "Overwatch Logo")
                 eventNameLabel.textColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
+                gameLogo.illuminateView(color: #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1))
+                eventNameLabel.illuminateView(color: #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1))
+                gameNameLabel.illuminateView(color: #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1))
                 gameLogo.layer.shadowRadius = 10
-                gameLogo.layer.shadowColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
-                gameLogo.layer.shadowOpacity = 1
-                eventNameLabel.layer.shadowRadius = 10
-                eventNameLabel.layer.shadowColor = #colorLiteral(red: 0.9882352941, green: 0.5347940396, blue: 0.06116501426, alpha: 1)
-                eventNameLabel.layer.shadowOpacity = 1
             default:
                 gameLogo.image = #imageLiteral(resourceName: "Overwatch Logo")
             }

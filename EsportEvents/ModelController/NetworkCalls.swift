@@ -16,6 +16,8 @@ class NetworkCall{
     let baseUrl = URL(string: "https://api.pandascore.co/")
     let apiKeY = "k-uzeymiPYFtzJhwfGiRZpSC5Ag4SP99pUgB0NF6yuPou3iKtAg"
     
+    
+    
     func fetchTournaments(completion: @escaping ([UpcomingTourny]?) -> ()){
         
         guard let url = baseUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -66,7 +68,7 @@ class NetworkCall{
 //            .appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        let query2 = URLQueryItem(name: "per_page", value: "15.json")
         components?.queryItems = [query2, query]
         print("components  🔥\(String(describing: components?.url))")
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -107,7 +109,7 @@ class NetworkCall{
         let partUrl = url.appendingPathComponent("lol").appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        let query2 = URLQueryItem(name: "per_page", value: "15.json")
         components?.queryItems = [query2, query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -147,7 +149,7 @@ class NetworkCall{
         let partUrl = url.appendingPathComponent("dota2").appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        let query2 = URLQueryItem(name: "per_page", value: "15.json")
         components?.queryItems = [query2, query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -187,7 +189,7 @@ class NetworkCall{
         let partUrl = url.appendingPathComponent("csgo").appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        let query2 = URLQueryItem(name: "per_page", value: "15.json")
         components?.queryItems = [query2, query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -233,7 +235,7 @@ class NetworkCall{
         //            .appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "20.json")
+        let query2 = URLQueryItem(name: "per_page", value: "15.json")
         components?.queryItems = [query2, query]
         print("components  🔥\(String(describing: components?.url))")
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -364,6 +366,42 @@ class NetworkCall{
             }
         }.resume()
     }
+    
+    
+    
+    
+    func fetchNews(searchTerm: String, completion: @escaping (NewsArticles?) -> Void){
+        let baseUrl = "https://newsapi.org/v2/everything?"
+        var esports = "+esports"
+        if searchTerm == "" || searchTerm == " "{
+            esports = "esports"
+        }
+        let topic = "q=\(searchTerm.replacingOccurrences(of: " ", with: "-"))\(esports)&"
+        let sort = "sortBy=popularity&"
+        let language = "language=en&"
+        let newsApiKey = "apiKey=9af671eb7b56478a93b3e6d2b53fcbe6"
+        let newsApi = "\(baseUrl)\(topic)\(language)\(sort)\(newsApiKey)"
+        print(newsApi)
+        let url = URL(string: newsApi)
+        URLSession.shared.dataTask(with: url!) { (data, _, error) in
+            if let error = error {
+                print("Error with dataTask: \(#function) \(error) \(error.localizedDescription)")
+                completion(nil); return
+            }
+            guard let data = data else { completion(nil); return}
+            
+            do{
+                let articles = try JSONDecoder().decode(NewsArticles.self, from: data)
+                completion(articles)
+            }catch let error{
+                print("Error fetching game \(error) \(error.localizedDescription)")
+                completion(nil);return
+            }
+            }.resume()
+    }
+    
+    
+    
     
     func fetchTeamImages(id: String, completion: @escaping ([UIImage]?) -> ()){
 

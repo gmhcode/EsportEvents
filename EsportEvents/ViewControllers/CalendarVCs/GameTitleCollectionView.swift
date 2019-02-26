@@ -45,11 +45,6 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
         
         
         
-        
-        
-        
-        
-        
         if tournySearch == true {
             
             

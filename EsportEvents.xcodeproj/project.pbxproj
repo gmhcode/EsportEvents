@@ -27,6 +27,9 @@
 		909245C7220CB58A00D8BF37 /* CalendarTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C6220CB58A00D8BF37 /* CalendarTableView.swift */; };
 		909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */; };
 		909245D2220CCA0A00D8BF37 /* CalendarEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */; };
+		90E3BE422225D73000B5C697 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E3BE412225D73000B5C697 /* NewsTableViewController.swift */; };
+		90E3BE452225D81600B5C697 /* NewsArticles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E3BE442225D81600B5C697 /* NewsArticles.swift */; };
+		90E3BE472225D94C00B5C697 /* NewsArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E3BE462225D94C00B5C697 /* NewsArticleTableViewCell.swift */; };
 		90E62674221C94C60062D96C /* UnderLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62673221C94C60062D96C /* UnderLine.swift */; };
 		90E62676221C961C0062D96C /* Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62675221C961C0062D96C /* Borders.swift */; };
 		90E62678221CAC930062D96C /* UIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E62677221CAC930062D96C /* UIFunctions.swift */; };
@@ -66,6 +69,9 @@
 		909245C6220CB58A00D8BF37 /* CalendarTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableView.swift; sourceTree = "<group>"; };
 		909245C8220CB5E700D8BF37 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		909245D0220CCA0A00D8BF37 /* CalendarEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalendarEventCell.xib; sourceTree = "<group>"; };
+		90E3BE412225D73000B5C697 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		90E3BE442225D81600B5C697 /* NewsArticles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticles.swift; sourceTree = "<group>"; };
+		90E3BE462225D94C00B5C697 /* NewsArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleTableViewCell.swift; sourceTree = "<group>"; };
 		90E62673221C94C60062D96C /* UnderLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLine.swift; sourceTree = "<group>"; };
 		90E62675221C961C0062D96C /* Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borders.swift; sourceTree = "<group>"; };
 		90E62677221CAC930062D96C /* UIFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFunctions.swift; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 				90E8AE64221F905100EE22B2 /* OverwatchT.swift */,
 				90F1913422164AC4001B2881 /* FullMatch.swift */,
 				901BAB8B221E500400E82897 /* Team.swift */,
+				90E3BE442225D81600B5C697 /* NewsArticles.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 				909245CA220CC4FC00D8BF37 /* CalendarVCs */,
 				906C4608221DC4890017CCC3 /* EventDescriptions */,
 				901BAB88221E4E5400E82897 /* TeamMembers */,
+				90E3BE432225D74300B5C697 /* News */,
 				90E99AD4221761550083B214 /* IntroView.swift */,
 			);
 			path = ViewControllers;
@@ -236,6 +244,15 @@
 				90E62675221C961C0062D96C /* Borders.swift */,
 			);
 			path = ExtentionsAndGlobalFunctions;
+			sourceTree = "<group>";
+		};
+		90E3BE432225D74300B5C697 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				90E3BE412225D73000B5C697 /* NewsTableViewController.swift */,
+				90E3BE462225D94C00B5C697 /* NewsArticleTableViewCell.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		90EA916622123EFE00F11388 /* HelperFunctionsAndAlerts */ = {
@@ -384,9 +401,11 @@
 				909245B9220BD4CA00D8BF37 /* CalendarCell.swift in Sources */,
 				9092459F220BB34100D8BF37 /* ViewController.swift in Sources */,
 				90175C3A220E04C600D60678 /* GameTitleCollectionView.swift in Sources */,
+				90E3BE452225D81600B5C697 /* NewsArticles.swift in Sources */,
 				909245BF220BD83F00D8BF37 /* SourceOfTruth.swift in Sources */,
 				90F1913522164AC4001B2881 /* FullMatch.swift in Sources */,
 				909245BD220BD57000D8BF37 /* asString.swift in Sources */,
+				90E3BE422225D73000B5C697 /* NewsTableViewController.swift in Sources */,
 				90E62674221C94C60062D96C /* UnderLine.swift in Sources */,
 				90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */,
 				90E62676221C961C0062D96C /* Borders.swift in Sources */,
@@ -398,6 +417,7 @@
 				909245C9220CB5E700D8BF37 /* CalendarTableViewCell.swift in Sources */,
 				90E62678221CAC930062D96C /* UIFunctions.swift in Sources */,
 				906C460A221DC4AD0017CCC3 /* TournyDetailViewController.swift in Sources */,
+				90E3BE472225D94C00B5C697 /* NewsArticleTableViewCell.swift in Sources */,
 				909245B4220BC90200D8BF37 /* NetworkCalls.swift in Sources */,
 				90E8AE65221F905100EE22B2 /* OverwatchT.swift in Sources */,
 				901BAB8A221E4E8C00E82897 /* TeamMemberTableViewCell.swift in Sources */,

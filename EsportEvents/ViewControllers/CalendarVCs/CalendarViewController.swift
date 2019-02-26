@@ -137,6 +137,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     @IBOutlet weak var sideMenu: UIView!
     
     
+    @IBOutlet weak var newsButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var sideMenuNotRound: UIView!
     @IBOutlet weak var sideMenuRound: UIView!
@@ -199,20 +200,44 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     
+    @IBOutlet weak var thisMightTakeAWhile: UILabel!
+    @IBOutlet weak var lotsOfInfoLabel: UILabel!
+    
     func showLoadingScreen(){
-        
+        self.thisMightTakeAWhile.alpha = 0
+        lotsOfInfoLabel.alpha = 0
         loadingScreen.bounds.size.width = view.bounds.width
         loadingScreen.bounds.size.height = view.bounds.height 
         loadingScreen.alpha = 1
         loadingScreen.center = view.center
         view.addSubview(loadingScreen)
         
+        showExcuseLabels()
+        
+        
+       
+        
+        
+        
     }
     
     func hideLoadingScreen(){
         UIView.animate(withDuration: 2) {
             self.loadingScreen.alpha = 0
+            self.thisMightTakeAWhile.alpha = 0
         }
+    }
+    
+    func showExcuseLabels(){
+        UIView.animate(withDuration: 2, delay: 5, options: .allowAnimatedContent, animations: {
+            
+            self.thisMightTakeAWhile.alpha = 1
+            
+            UIView.animate(withDuration: 3, delay: 10, options: .allowAnimatedContent, animations: {
+                self.lotsOfInfoLabel.alpha = 1
+            }, completion: nil)
+            
+        })
     }
     
     
@@ -222,6 +247,8 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         eventTypeLabel.text = "Tournaments"
         self.calendarView.scrollToDate((dateRange?.first)!)
     }
+    
+    
     
     
     func setupCalendarView(completion: @escaping (Bool) -> Void){
@@ -245,11 +272,19 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         self.navigationController?.isNavigationBarHidden = true
         eventTypeLabel.text = "Tournaments"
         
+        // filter button
         filterButton.setTitle("Matches", for: .normal)
         filterButton.layer.borderWidth = 2
         filterButton.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 0.4520280394)
         filterButton.layer.shadowRadius = 5
         filterButton.layer.shadowOpacity = 1
+        
+        // newsButton
+        newsButton.layer.borderWidth = 2
+        newsButton.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0, alpha: 0.4520280394)
+        newsButton.layer.shadowRadius = 5
+        newsButton.layer.shadowOpacity = 1
+        
         
         tableView.layer.borderWidth = 1
         

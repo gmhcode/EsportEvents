@@ -25,18 +25,30 @@
                         <color key="textColor" red="0.9947231588094706" green="1" blue="0.059806067360711701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CSGO Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-QY-lxe">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CSGO Logo" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-QY-lxe">
                         <rect key="frame" x="16" y="12" width="128" height="79.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="128" id="Tme-Kv-dzF"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uty-Nd-9qO">
+                        <rect key="frame" x="16" y="12" width="128" height="79.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.91099816560000002" green="0.3387112021" blue="0.18031170960000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="Uty-Nd-9qO" firstAttribute="height" secondItem="lmc-QY-lxe" secondAttribute="height" id="0l5-go-twz"/>
                     <constraint firstItem="lmc-QY-lxe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="52Z-f6-JFC"/>
+                    <constraint firstItem="Uty-Nd-9qO" firstAttribute="top" secondItem="lmc-QY-lxe" secondAttribute="top" id="7Gj-Jb-Nh0"/>
+                    <constraint firstItem="Uty-Nd-9qO" firstAttribute="trailing" secondItem="lmc-QY-lxe" secondAttribute="trailing" id="FxZ-Nr-0q3"/>
+                    <constraint firstItem="Uty-Nd-9qO" firstAttribute="bottom" secondItem="lmc-QY-lxe" secondAttribute="bottom" id="Mrn-GA-PwD"/>
+                    <constraint firstItem="Uty-Nd-9qO" firstAttribute="leading" secondItem="lmc-QY-lxe" secondAttribute="leading" id="PsW-si-3zm"/>
                     <constraint firstItem="Zbv-Cs-Crc" firstAttribute="leading" secondItem="lmc-QY-lxe" secondAttribute="trailing" constant="12" id="Q4v-Qi-V9g"/>
                     <constraint firstAttribute="trailing" secondItem="Zbv-Cs-Crc" secondAttribute="trailing" constant="16" id="Xns-fw-oNu"/>
+                    <constraint firstItem="Uty-Nd-9qO" firstAttribute="width" secondItem="lmc-QY-lxe" secondAttribute="width" id="aDg-8t-x6j"/>
                     <constraint firstItem="Zbv-Cs-Crc" firstAttribute="bottom" secondItem="lmc-QY-lxe" secondAttribute="bottom" id="nqI-Vq-bLZ"/>
                     <constraint firstAttribute="bottom" secondItem="lmc-QY-lxe" secondAttribute="bottom" constant="12" id="og0-jL-h3X"/>
                     <constraint firstItem="lmc-QY-lxe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="qdq-JE-hhl"/>
@@ -48,6 +60,7 @@
             <connections>
                 <outlet property="eventNameLabel" destination="Zbv-Cs-Crc" id="iMb-QF-S1n"/>
                 <outlet property="gameLogo" destination="lmc-QY-lxe" id="5gs-nf-zgL"/>
+                <outlet property="gameNameLabel" destination="Uty-Nd-9qO" id="KCr-l2-ppD"/>
             </connections>
             <point key="canvasLocation" x="41.600000000000001" y="75.562218890554732"/>
         </tableViewCell>
