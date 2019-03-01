@@ -12,7 +12,7 @@ class EventDescriptionViewController: UIViewController {
     
     
     @IBOutlet weak var team1Image: UIButton!
-
+    
     @IBOutlet weak var team2Image: UIButton!
     @IBOutlet weak var leagueImageView: UIImageView!
     
@@ -58,7 +58,7 @@ class EventDescriptionViewController: UIViewController {
     
     func updateViews(){
         if match != nil {
-           fetchMatchImagesAndLabels()
+            fetchMatchImagesAndLabels()
         }
         UIFunctions.invisibleNavBar(navigationController: navigationController)
     }
@@ -82,7 +82,7 @@ class EventDescriptionViewController: UIViewController {
         }
     }
     
-//    9af671eb7b56478a93b3e6d2b53fcbe6
+    //    9af671eb7b56478a93b3e6d2b53fcbe6
     
     func fetchMatchImagesAndLabels(){
         guard let match = match else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -90,20 +90,20 @@ class EventDescriptionViewController: UIViewController {
         let tourny = SourceOfTruth.shared.fetchTournament(from: match.tournamentId)
         let league = tourny.league
         let dispatchGroup = DispatchGroup()
-//        guard let imageUrl = league.imageUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        //        guard let imageUrl = league.imageUrl else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
         
         if let imageUrl = league.imageUrl {
-        NetworkCall.shared.fetchImage(from: imageUrl) { (leagueImage) in
-            
-            DispatchQueue.main.async {
-                self.leagueImageView.image = leagueImage
+            NetworkCall.shared.fetchImage(from: imageUrl) { (leagueImage) in
                 
+                DispatchQueue.main.async {
+                    self.leagueImageView.image = leagueImage
+                    
+                }
             }
-  }
             
             dispatchGroup.enter()
             NetworkCall.shared.fetchFullMatch(from: match.id, completion: { (fullMatch) in
-            dispatchGroup.leave()
+                dispatchGroup.leave()
                 
                 guard let imageUrl = fullMatch?.opponents[0].opponent.image_url,
                     let imageUrl2 =  fullMatch?.opponents[1].opponent.image_url,
@@ -122,7 +122,7 @@ class EventDescriptionViewController: UIViewController {
                 self.leagueLabelText = league.name
                 
                 print(imageUrl)
-            
+                
                 dispatchGroup.enter()
                 NetworkCall.shared.fetchImage(from: imageUrl , completion: { (leftTeamImage) in
                     if leftTeamImage != nil {
@@ -140,8 +140,8 @@ class EventDescriptionViewController: UIViewController {
                     if rightTeamImage != nil {
                         self.team2ImageGlobal = rightTeamImage
                     }else {
-                         DispatchQueue.main.async {
-                        self.noImageLabel2.isHidden = false
+                        DispatchQueue.main.async {
+                            self.noImageLabel2.isHidden = false
                         }
                     }
                     self.team2ImageGlobal = rightTeamImage
@@ -159,9 +159,9 @@ class EventDescriptionViewController: UIViewController {
     
     
     
-
     
-
+    
+    
     @IBAction func team1ButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "team1Segue", sender: nil)
     }
@@ -169,8 +169,7 @@ class EventDescriptionViewController: UIViewController {
         performSegue(withIdentifier: "team2Segue", sender: nil)
     }
     //     MARK: - Navigation
-
-//     In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let destinationVC = segue.destination as? TeamMembersViewController

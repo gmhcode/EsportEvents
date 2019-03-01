@@ -128,7 +128,7 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     
     //   MARK: GameTitleCollectionView sources
-    let gameTitleImages = ["Dota 2", "PUBG", "CS:GO", "LoL", "Overwatch"]
+    let gameTitleImages = ["Dota 2","CS:GO", "LoL", "Overwatch"]
     @IBOutlet weak var gameTitleCollectionView: UICollectionView!
     
     

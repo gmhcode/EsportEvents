@@ -27,7 +27,7 @@ class NetworkCall{
         components?.queryItems = [query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-        
+        print("❌♊️😁\(fullUrl)")
         var request = URLRequest(url: fullUrl)
         request.httpMethod = "GET"
         request.httpBody = nil

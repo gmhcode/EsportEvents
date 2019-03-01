@@ -419,9 +419,11 @@ class SourceOfTruth {
             NetworkCall.shared.fetchDota2Tournaments { (fetchedTournaments) in
                 NetworkCall.shared.fetchCSGOTournaments { (fetchedTournaments) in
                     NetworkCall.shared.fetchLoLTournaments { (fetchedTournaments) in
+                        
                         print("upcoming tournaments\(self.UpcomingTounaments)")
                         NetworkCall.shared.fetchTournaments { (fetchedTournaments) in
                             guard let fetchedTournaments = fetchedTournaments else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+                            print("⚡️🥶\(fetchedTournaments)")
                             SourceOfTruth.shared.populateTournamentIdsAndTeams(from: fetchedTournaments)
                             
                             if self.UpcomingTounaments.isEmpty == false {
