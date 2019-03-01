@@ -13,9 +13,8 @@
         <!--Navigation Controller-->
         <scene sceneID="GML-6B-3Yn">
             <objects>
-                <navigationController id="qym-r1-V54" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="qym-r1-V54" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AhF-NO-4Ns">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -40,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1H-e5-NVr">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.68902504280821919" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -129,12 +128,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rhK-jo-qJF">
-                                <rect key="frame" x="0.0" y="467.66666666666674" width="375" height="310.33333333333326"/>
+                                <rect key="frame" x="0.0" y="447.66666666666674" width="375" height="330.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.82745098039215681" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="W6k-aO-GrV">
-                                <rect key="frame" x="0.0" y="203.66666666666666" width="375" height="258.66666666666674"/>
+                                <rect key="frame" x="0.0" y="163.99999999999997" width="375" height="275.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="agz-VM-7qg">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.333333333333332"/>
@@ -191,7 +190,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vcU-dE-Fh5" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="20.333333333333329" width="375" height="238.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="20.333333333333343" width="375" height="255.00000000000003"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Uug-bS-naY">
                                             <size key="itemSize" width="98" height="104"/>
@@ -264,7 +263,7 @@
                                 <gestureRecognizers/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-fy-CPJ">
-                                <rect key="frame" x="0.0" y="136" width="385" height="69"/>
+                                <rect key="frame" x="0.0" y="92" width="385" height="73.333333333333314"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uWF-Vd-luj">
                                     <size key="itemSize" width="374" height="67"/>
@@ -274,7 +273,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gameTitleCell" id="www-Uv-Uwh" customClass="GameTitleCollectionViewCell" customModule="EsportEvents" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="374" height="67"/>
+                                        <rect key="frame" x="0.0" y="3" width="374" height="67"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="67"/>
@@ -325,7 +324,7 @@
                                 </cells>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rMK-Ey-MvM">
-                                <rect key="frame" x="20" y="96" width="62" height="20"/>
+                                <rect key="frame" x="20" y="52" width="62" height="20"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23X-YI-jcj">
                                         <rect key="frame" x="0.0" y="0.0" width="62" height="20"/>
@@ -345,7 +344,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JF1-3b-227">
-                                <rect key="frame" x="83" y="77" width="208" height="48.333333333333343"/>
+                                <rect key="frame" x="83" y="33" width="208" height="48.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-d1-QMC">
                                         <rect key="frame" x="0.0" y="0.0" width="208" height="20.333333333333332"/>
@@ -362,7 +361,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr8-la-b3g">
-                                        <rect key="frame" x="0.0" y="24.333333333333329" width="208" height="24"/>
+                                        <rect key="frame" x="0.0" y="24.333333333333336" width="208" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -374,7 +373,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2r-y1-4vU">
-                                <rect key="frame" x="292" y="96" width="62" height="20"/>
+                                <rect key="frame" x="292" y="52" width="62" height="20"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
                                 <state key="normal" title="News">
                                     <color key="titleColor" red="0.0" green="1" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -523,7 +522,7 @@
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tournament Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjs-3y-JSQ">
-                                <rect key="frame" x="83" y="128" width="209" height="21"/>
+                                <rect key="frame" x="83" y="84" width="209" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="M1w-8a-8Vw"/>
                                 </constraints>
@@ -532,13 +531,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lq4-L8-Zcw">
-                                <rect key="frame" x="120" y="157" width="135" height="135"/>
+                                <rect key="frame" x="120" y="113" width="135" height="135"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="Mro-OY-hpy"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HK-Db-5W5">
-                                <rect key="frame" x="120" y="306" width="135" height="21"/>
+                                <rect key="frame" x="120" y="262" width="135" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" red="0.99215686270000003" green="0.67843137249999996" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -928,7 +927,7 @@
         <!--Video Games-->
         <scene sceneID="mvR-FU-KkN">
             <objects>
-                <tableViewController title="Video Games" id="BB3-PC-UwD" customClass="SearchTableViewController" customModule="Escores" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Video Games" id="BB3-PC-UwD" customClass="SearchTableViewController" customModule="EsportEvents" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tYl-Jk-4OO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -965,7 +964,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="128" id="6VV-3q-Ojk" customClass="NewsArticleTableViewCell" customModule="Escores" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="128" id="6VV-3q-Ojk" customClass="NewsArticleTableViewCell" customModule="EsportEvents" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6VV-3q-Ojk" id="e7S-Dd-qPN">
