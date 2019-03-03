@@ -213,12 +213,6 @@ class CalendarViewController: UIViewController,UITableViewDelegate, UITableViewD
         view.addSubview(loadingScreen)
         
         showExcuseLabels()
-        
-        
-       
-        
-        
-        
     }
     
     func hideLoadingScreen(){
@@ -482,8 +476,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate{
     // MARK: - Calendar color change when selecting and de-selecting
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
-        //print(date.asString)
-        //print("date 🔥 \(date)")
         
         handleCellSelected(view:  cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
@@ -632,14 +624,13 @@ extension CalendarViewController: JTAppleCalendarViewDataSource{
 }
 
 
-extension UIColor{
-    convenience init(colorWithHexValue value: Int, alpha: CGFloat = 1.0){
-        self.init(
-            red: CGFloat((value & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((value & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(value & 0x000FF) / 255.0,
-            alpha: alpha
-            // MARK: - Calendar allows us to use hex values...?
-        )
-    }
-}
+//extension UIColor{
+//    convenience init(colorWithHexValue value: Int, alpha: CGFloat = 1.0){
+//        self.init(
+//            red: CGFloat((value & 0xFF0000) >> 16) / 255.0,
+//            green: CGFloat((value & 0x00FF00) >> 8) / 255.0,
+//            blue: CGFloat(value & 0x000FF) / 255.0,
+//            alpha: alpha
+//        )
+//    }
+//}
