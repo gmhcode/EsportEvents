@@ -222,15 +222,17 @@ class SourceOfTruth {
         return thisMonthsTournamentsByGame
     }
     
+    // uses Info taken from an API call and filters that info into various game categories
     
+    
+    //populates this VV
+    //var dotaTournaments : [Date:[UpcomingTourny]]?
     func filterTournyIntoGame(tournament: UpcomingTourny, gameTournament: inout [Date:[UpcomingTourny]]?, date: Date){
-        //creates this VV
-        //var dotaTournaments : [Date:[UpcomingTourny]]?
+        
         if gameTournament == nil {
-            //creates a dotaTournaments to append to
+            //creates a dotaTournaments(for example) to append to
             gameTournament = [date : [tournament]]
         } else {
-            
             //if the begin date is a key then append the tournament to that date
             if gameTournament?.keys.contains(date) == true {
                 gameTournament?[date]?.append(tournament)
@@ -244,17 +246,28 @@ class SourceOfTruth {
         filterMatchesFromTourny(matches: matches, tounament: tournament)
     }
     
-    
-    
-    // uses Info taken from an API call and filters that info into various game categories
-    
+    func filterMatchesIntoGame(match: Match, gameMatches: inout [Date: [Match]], matchTime: Date){
+        
+        if gameMatches.isEmpty {
+            //creates a dotaMatches to append to
+            gameMatches = [matchTime : [match]]
+        } else {
+            //if the begin date is a key then append the match to that date
+            if gameMatches.keys.contains(matchTime) {
+                gameMatches[matchTime]?.append(match)
+            } else {
+                //if the match begin date is not a key then make one
+                gameMatches[matchTime] =  [match]
+            }
+        }
+    }
     
     func filterTournyByGameName(tournaments: [Date:[UpcomingTourny]]){
         for (date, tournies) in tournaments {
             
             if tournies.count != 0 {
                 tournies.forEach {
-
+                    
                     switch $0.videoGame.name {
                     case "Dota 2":
                         filterTournyIntoGame(tournament: $0, gameTournament: &dotaTournaments, date: date)
@@ -279,71 +292,29 @@ class SourceOfTruth {
         for match in matches{
             
             guard let matchTimePre = match.beginTime?.dropLast(10) else {continue}
-            
             let matchTime = String(matchTimePre).asDate
             
             switch tounament.videoGame.name{
             case "Dota 2":
-                if dotaMatches.isEmpty {
-                    //creates a dotaMatches to append to
-                    dotaMatches = [matchTime : [match]]
-                } else {
-                    //if the begin date is a key then append the match to that date
-                    if dotaMatches.keys.contains(matchTime) {
-                        dotaMatches[matchTime]?.append(match)
-                    } else {
-                        //if the match begin date is not a key then make one
-                        dotaMatches[matchTime] =  [match]
-                    }
-                    
-                }
+                filterMatchesIntoGame(match: match, gameMatches: &dotaMatches, matchTime: matchTime)
             case "PUBG":
-                if pubgMatches.isEmpty {
-                    pubgMatches = [matchTime : [match]]
-                } else {
-                    if pubgMatches.keys.contains(matchTime) {
-                        pubgMatches[matchTime]?.append(match)
-                    } else {
-                        dotaMatches[matchTime] =  [match]
-                    }
-                }
-                
+                filterMatchesIntoGame(match: match, gameMatches: &pubgMatches, matchTime: matchTime)
             case "CS:GO":
-                if csgoMatches.isEmpty {
-                    csgoMatches = [matchTime : [match]]
-                } else {
-                    if csgoMatches.keys.contains(matchTime) {
-                        csgoMatches[matchTime]?.append(match)
-                        
-                    } else {
-                        csgoMatches[matchTime] =  [match]
-                    }
-                }
+                filterMatchesIntoGame(match: match, gameMatches: &csgoMatches, matchTime: matchTime)
             case "LoL":
-                if lolMatches.isEmpty {
-                    lolMatches = [matchTime : [match]]
-                } else {
-                    if lolMatches.keys.contains(matchTime) {
-                        lolMatches[matchTime]?.append(match)
-                    } else {
-                        lolMatches[matchTime] =  [match]
-                    }
-                }
+                filterMatchesIntoGame(match: match, gameMatches: &lolMatches, matchTime: matchTime)
             case "Overwatch":
-                if overwatchMatches.isEmpty {
-                    overwatchMatches = [matchTime : [match]]
-                } else {
-                    if overwatchMatches.keys.contains(matchTime) {
-                        overwatchMatches[matchTime]?.append(match)
-                    } else {
-                        overwatchMatches[matchTime] =  [match]
-                    }
-                }
+                filterMatchesIntoGame(match: match, gameMatches: &overwatchMatches, matchTime: matchTime)
             default :
                 print("no game Name")
             }
         }
     }
+    
+    
+    
+    
+   
     
     
     func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
