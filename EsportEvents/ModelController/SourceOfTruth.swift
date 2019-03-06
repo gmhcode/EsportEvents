@@ -223,7 +223,56 @@ class SourceOfTruth {
     }
     
     
+    func filterTournyIntoGame(tournament: UpcomingTourny, gameTournament: inout [Date:[UpcomingTourny]]?, date: Date){
+        //creates this VV
+        //var dotaTournaments : [Date:[UpcomingTourny]]?
+        if gameTournament == nil {
+            //creates a dotaTournaments to append to
+            gameTournament = [date : [tournament]]
+        } else {
+            
+            //if the begin date is a key then append the tournament to that date
+            if gameTournament?.keys.contains(date) == true {
+                gameTournament?[date]?.append(tournament)
+            } else {
+                //if the tournament begin date is not a key then make one
+                gameTournament?[date] =  [tournament]
+            }
+        }
+        guard let matches = tournament.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
+        // does the same thing with matches VV
+        filterMatchesFromTourny(matches: matches, tounament: tournament)
+    }
     
+    
+    
+    // uses Info taken from an API call and filters that info into various game categories
+    
+    
+    func filterTournyByGameName(tournaments: [Date:[UpcomingTourny]]){
+        for (date, tournies) in tournaments {
+            
+            if tournies.count != 0 {
+                tournies.forEach {
+
+                    switch $0.videoGame.name {
+                    case "Dota 2":
+                        filterTournyIntoGame(tournament: $0, gameTournament: &dotaTournaments, date: date)
+                    case "PUBG":
+                        filterTournyIntoGame(tournament: $0, gameTournament: &pubgTournaments, date: date)
+                    case "CS:GO":
+                        filterTournyIntoGame(tournament: $0, gameTournament: &csgoTournaments, date: date)
+                    case "LoL":
+                        filterTournyIntoGame(tournament: $0, gameTournament: &lolTournaments, date: date)
+                    case "Overwatch":
+                        filterTournyIntoGame(tournament: $0, gameTournament: &overwatchTournaments, date: date)
+                    default:
+                        print("⚡️🌚🌺NO NAME GAME")
+                    }
+                }
+            }
+        }
+    }
     
     func filterMatchesFromTourny(matches: [Match], tounament: UpcomingTourny){
         
@@ -242,7 +291,6 @@ class SourceOfTruth {
                     //if the begin date is a key then append the match to that date
                     if dotaMatches.keys.contains(matchTime) {
                         dotaMatches[matchTime]?.append(match)
-                        //print("🌹🛳⛽️\(dotaMatches.keys)")
                     } else {
                         //if the match begin date is not a key then make one
                         dotaMatches[matchTime] =  [match]
@@ -251,56 +299,43 @@ class SourceOfTruth {
                 }
             case "PUBG":
                 if pubgMatches.isEmpty {
-                    //creates a dotaMatches to append to
                     pubgMatches = [matchTime : [match]]
                 } else {
-                    //if the begin date is a key then append the match to that date
                     if pubgMatches.keys.contains(matchTime) {
                         pubgMatches[matchTime]?.append(match)
-                        //print("🔥⛽️\(pubgMatches.keys)")
                     } else {
-                        //if the match begin date is not a key then make one
                         dotaMatches[matchTime] =  [match]
                     }
                 }
                 
             case "CS:GO":
                 if csgoMatches.isEmpty {
-                    //creates a dotaMatches to append to
                     csgoMatches = [matchTime : [match]]
                 } else {
-                    //if the begin date is a key then append the match to that date
                     if csgoMatches.keys.contains(matchTime) {
                         csgoMatches[matchTime]?.append(match)
                         
                     } else {
-                        //if the match begin date is not a key then make one
                         csgoMatches[matchTime] =  [match]
                     }
                 }
             case "LoL":
                 if lolMatches.isEmpty {
-                    //creates a dotaMatches to append to
                     lolMatches = [matchTime : [match]]
                 } else {
-                    //if the begin date is a key then append the match to that date
                     if lolMatches.keys.contains(matchTime) {
                         lolMatches[matchTime]?.append(match)
                     } else {
-                        //if the match begin date is not a key then make one
                         lolMatches[matchTime] =  [match]
                     }
                 }
             case "Overwatch":
                 if overwatchMatches.isEmpty {
-                    //creates a dotaMatches to append to
                     overwatchMatches = [matchTime : [match]]
                 } else {
-                    //if the begin date is a key then append the match to that date
                     if overwatchMatches.keys.contains(matchTime) {
                         overwatchMatches[matchTime]?.append(match)
                     } else {
-                        //if the match begin date is not a key then make one
                         overwatchMatches[matchTime] =  [match]
                     }
                 }
@@ -310,108 +345,6 @@ class SourceOfTruth {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    func filterTournyByGameName(tournaments: [Date:[UpcomingTourny]]){
-        
-        for (date, tournies) in tournaments {
-            
-            if tournies.count != 0 {
-                tournies.forEach {
-                    
-                    switch $0.videoGame.name {
-                    case "Dota 2":
-                        
-                        if dotaTournaments == nil {
-                            //creates a dotaMatches to append to
-                            dotaTournaments = [date : [$0]]
-                        } else {
-                            
-                            //if the begin date is a key then append the match to that date
-                            if dotaTournaments?.keys.contains(date) == true {
-                                dotaTournaments?[date]?.append($0)
-                            } else {
-                                //if the match begin date is not a key then make one
-                                dotaTournaments?[date] =  [$0]
-                            }
-                        }
-                        guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                        filterMatchesFromTourny(matches: matches, tounament: $0)
-                        
-                        
-                        //print("DOTA 🔥\(dotaTournaments!.keys)🍠🥶")
-                        
-                        
-                    case "PUBG":
-                        
-                        if pubgTournaments == nil {
-                            pubgTournaments = [date : [$0]]
-                        } else {
-                            
-                            if pubgTournaments?.keys.contains(date) == true {
-                                pubgTournaments?[date]?.append($0)
-                            } else {
-                                pubgTournaments?[date] =  [$0]
-                            }
-                        }
-                        guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                        filterMatchesFromTourny(matches: matches, tounament: $0)
-                        //print(" PUBG ❇️🥕\(pubgMatches.values)🍠🥶")
-                        
-                    case "CS:GO":
-                        
-                        if csgoTournaments == nil {
-                            csgoTournaments = [date : [$0]]
-                        } else {
-                            
-                            if csgoTournaments?.keys.contains(date) == true {
-                                csgoTournaments?[date]?.append($0)
-                            } else {
-                                csgoTournaments?[date] =  [$0]
-                            }
-                        }
-                        guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                        filterMatchesFromTourny(matches: matches, tounament: $0)
-                        //                        print(" csgo 🌸🥕\(String(describing: csgoMatches.keys))🍠🥶")
-                        
-                    case "LoL":
-                        if lolTournaments == nil {
-                            lolTournaments = [date : [$0]]
-                        } else {
-                            
-                            if lolTournaments?.keys.contains(date) == true {
-                                lolTournaments?[date]?.append($0)
-                            } else {
-                                lolTournaments?[date] =  [$0]
-                            }
-                        }
-                        guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                        filterMatchesFromTourny(matches: matches, tounament: $0)
-                    case "Overwatch":
-                        if overwatchTournaments == nil {
-                            overwatchTournaments = [date : [$0]]
-                        } else {
-                            
-                            if overwatchTournaments?.keys.contains(date) == true {
-                                overwatchTournaments?[date]?.append($0)
-                            } else {
-                                overwatchTournaments?[date] =  [$0]
-                            }
-                        }
-                        guard let matches = $0.matches else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
-                        filterMatchesFromTourny(matches: matches, tounament: $0)
-                    default:
-                        print("⚡️🌚🌺NO NAME GAME")
-                    }
-                    
-                }
-            }
-        }
-    }
     
     func initialFetch(completion: @escaping ([Date:[UpcomingTourny]]?) -> Void) {
         
