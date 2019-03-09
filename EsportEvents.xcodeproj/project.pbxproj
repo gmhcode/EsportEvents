@@ -36,7 +36,6 @@
 		90E8AE65221F905100EE22B2 /* OverwatchT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8AE64221F905100EE22B2 /* OverwatchT.swift */; };
 		90E99AD5221761550083B214 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E99AD4221761550083B214 /* IntroView.swift */; };
 		90E99AD72218C9BC0083B214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90E99AD62218C9BC0083B214 /* Assets.xcassets */; };
-		90EA916822123F2300F11388 /* CalendarHelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */; };
 		90EBC8EC2213B03E007F78D1 /* EventDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */; };
 		90EDA51C22133CD3002EBAEF /* GameTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51B22133CD3002EBAEF /* GameTitleCollectionViewCell.swift */; };
 		90EDA51E22133FEF002EBAEF /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EDA51D22133FEF002EBAEF /* SideMenu.swift */; };
@@ -78,7 +77,6 @@
 		90E8AE64221F905100EE22B2 /* OverwatchT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverwatchT.swift; sourceTree = "<group>"; };
 		90E99AD4221761550083B214 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		90E99AD62218C9BC0083B214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelperFunctions.swift; sourceTree = "<group>"; };
 		90EBC8EB2213B03E007F78D1 /* EventDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDescriptionViewController.swift; sourceTree = "<group>"; };
 		90EDA51B22133CD3002EBAEF /* GameTitleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		90EDA51D22133FEF002EBAEF /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 		90EA916622123EFE00F11388 /* HelperFunctionsAndAlerts */ = {
 			isa = PBXGroup;
 			children = (
-				90EA916722123F2300F11388 /* CalendarHelperFunctions.swift */,
 			);
 			path = HelperFunctionsAndAlerts;
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 				901BAB8C221E500400E82897 /* Team.swift in Sources */,
 				90EDA51E22133FEF002EBAEF /* SideMenu.swift in Sources */,
 				909245B7220BD3A500D8BF37 /* CalendarViewController.swift in Sources */,
-				90EA916822123F2300F11388 /* CalendarHelperFunctions.swift in Sources */,
 				909245B9220BD4CA00D8BF37 /* CalendarCell.swift in Sources */,
 				9092459F220BB34100D8BF37 /* ViewController.swift in Sources */,
 				90175C3A220E04C600D60678 /* GameTitleCollectionView.swift in Sources */,

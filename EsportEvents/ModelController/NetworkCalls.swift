@@ -68,7 +68,7 @@ class NetworkCall{
 //            .appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "15.json")
+        let query2 = URLQueryItem(name: "per_page", value: "10.json")
         components?.queryItems = [query2, query]
         print("components  🔥\(String(describing: components?.url))")
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -109,7 +109,7 @@ class NetworkCall{
         let partUrl = url.appendingPathComponent("lol").appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "15.json")
+        let query2 = URLQueryItem(name: "per_page", value: "10.json")
         components?.queryItems = [query2, query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -149,7 +149,7 @@ class NetworkCall{
         let partUrl = url.appendingPathComponent("dota2").appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "15.json")
+        let query2 = URLQueryItem(name: "per_page", value: "10.json")
         components?.queryItems = [query2, query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}
@@ -189,7 +189,7 @@ class NetworkCall{
         let partUrl = url.appendingPathComponent("csgo").appendingPathComponent("tournaments").appendingPathExtension("json")
         var components = URLComponents(url: partUrl, resolvingAgainstBaseURL: true)
         let query = URLQueryItem(name: "token", value: apiKeY)
-        let query2 = URLQueryItem(name: "per_page", value: "15.json")
+        let query2 = URLQueryItem(name: "per_page", value: "10.json")
         components?.queryItems = [query2, query]
         
         guard let fullUrl = components?.url else {print("❇️♊️>>>\(#file) \(#line): guard let failed<<<"); return}

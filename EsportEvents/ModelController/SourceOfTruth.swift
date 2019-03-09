@@ -230,14 +230,11 @@ class SourceOfTruth {
     func filterTournyIntoGame(tournament: UpcomingTourny, gameTournament: inout [Date:[UpcomingTourny]]?, date: Date){
         
         if gameTournament == nil {
-            //creates a dotaTournaments(for example) to append to
             gameTournament = [date : [tournament]]
         } else {
-            //if the begin date is a key then append the tournament to that date
             if gameTournament?.keys.contains(date) == true {
                 gameTournament?[date]?.append(tournament)
             } else {
-                //if the tournament begin date is not a key then make one
                 gameTournament?[date] =  [tournament]
             }
         }
@@ -245,6 +242,8 @@ class SourceOfTruth {
         // does the same thing with matches VV
         filterMatchesFromTourny(matches: matches, tounament: tournament)
     }
+    
+    
     
     func filterMatchesIntoGame(match: Match, gameMatches: inout [Date: [Match]], matchTime: Date){
         

@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.880304"
+            timestampString = "573606034.169521"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "413"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.880399"
+            timestampString = "573606034.1702141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "586"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.880464"
+            timestampString = "573606034.170277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "591"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.8805161"
+            timestampString = "573606034.1703219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -166,7 +166,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.880569"
+            timestampString = "573606034.1704"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "588"
@@ -182,7 +182,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.88062"
+            timestampString = "573606034.170462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "596"
@@ -230,7 +230,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "573078803.159554"
+            timestampString = "573606034.17058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -278,7 +278,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "573078803.159603"
+            timestampString = "573606034.1709729"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -326,7 +326,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "573078803.159651"
+            timestampString = "573606034.171204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -1094,7 +1094,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.8817821"
+            timestampString = "573606034.172444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "579"
@@ -1110,7 +1110,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.88185"
+            timestampString = "573606034.1725121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "580"
@@ -1126,7 +1126,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ViewControllers/CalendarVCs/CalendarViewController.swift"
-            timestampString = "573599172.881894"
+            timestampString = "573606034.17259"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "558"
@@ -1142,77 +1142,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EsportEvents/ModelController/NetworkCalls.swift"
-            timestampString = "573078803.161243"
+            timestampString = "573606034.172634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
             endingLineNumber = "123"
             landmarkName = "fetchLoLTournaments(completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EsportEvents/ModelController/SourceOfTruth.swift"
-            timestampString = "573599172.88196"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "initialFetch(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "EsportEvents.SourceOfTruth.initialFetch(completion: (Swift.Optional&lt;Swift.Dictionary&lt;Foundation.Date, Swift.Array&lt;EsportEvents.UpcomingTourny&gt;&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "EsportEvents"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ModelController/SourceOfTruth.swift"
-                  timestampString = "572501156.453472"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "418"
-                  endingLineNumber = "418"
-                  offsetFromSymbolStart = "37">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;EsportEvents.UpcomingTourny&gt;&gt;) -&gt; () in EsportEvents.SourceOfTruth.initialFetch(completion: (Swift.Optional&lt;Swift.Dictionary&lt;Foundation.Date, Swift.Array&lt;EsportEvents.UpcomingTourny&gt;&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "EsportEvents"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/greghughes/Desktop/EsportEvents/EsportEvents/ModelController/SourceOfTruth.swift"
-                  timestampString = "572501156.455173"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "421"
-                  endingLineNumber = "421"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EsportEvents/ModelController/SourceOfTruth.swift"
-            timestampString = "573599172.882356"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "SourceOfTruth"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
